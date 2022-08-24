@@ -1,0 +1,40 @@
+{
+  "$schema": "management-data.schema.json",
+  "management": {
+    "events": [
+      {
+        "mgmt_operations_event": "planting",
+        "date": "2020-04-21",
+        "mgmt_event_notes": "10kg/ha, supplemental sowing (Nautusvom carbon mixture)",
+        "planted_crop": "-99.0",
+        "planting_material_weight": "-99.0",
+        "planting_depth": "-99.0",
+        "planting_material_source": "-99.0",
+        "planting_notes": "-99.0"
+      },
+      {
+        "mgmt_operations_event": "organic_material",
+        "date": "2020-05-27",
+        "mgmt_event_notes": "-99.0",
+        "organic_material": "RE004",
+        "org_material_applic_meth": "-99.0",
+        "org_material_appl_depth": "-99.0",
+        "org_material_notes": "-99.0"
+      },
+      {
+        "mgmt_operations_event": "harvest",
+        "date": "2020-06-13",
+        "mgmt_event_notes": "-99.0",
+        "harvest_area": "-99.0",
+        "harvest_crop": "-99.0",
+        "harvest_operat_component": "-99.0",
+        "canopy_height_harvest": 0.3,
+        "harvest_yield_harvest_dw": "-99.0",
+        "harv_yield_harv_f_wt": 0.05,
+        "harvest_method": "-99.0",
+        "harvest_cut_height": 10,
+        "harvest_comments": "-99.0"
+      }
+    ]
+  }
+}

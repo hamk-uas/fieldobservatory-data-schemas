@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.fieldobservatory.org/data-schemas/management-data-schema.json",
+  "title": "Management data",
+  "description": "Management data, currently only agronomic management events.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "url"
+    },
+    "management": {
+      "description": "Container object for management data",
+      "type": "object" ,
+      "properties": {
+        "events": {
+          "description": "An array of agronomic management event objects. The events must be listed in ascending date order (start date for each period-like event).",
+          "type": "array",
+          "items": {
+            "description": "An agronomic management event. A management event is either point-like in time or corresponds to a time period with a start and an end time. An event is specific to a field area. Possible event types include fertilizer or organic material application, irrigation, tillage, grazing, harvest, bed preparation, inorganic mulch placement or removal, chemical application, mowing, weeding and observations.",
+            "type": "object",
+            "oneOf": [
+              {
+                "description": "A planting event",
+                "properties": {
+                  "mgmt_operations_event": {
+                    "description": "Event type identifier",
+                    "const": "planting"
+                  },
+                  "date": {
+                    "description": "Date of the event (YYYY-MM-DD)",
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "mgmt_event_notes": {
+                    "description": "Notes",
+                    "type": "string"
+                  },
+                  "planted_crop": {
+                    "description": "Planted crop",
+                    "oneOf": [
+                      {
+                        "const": "-99.0",
+                        "description": "Unknown/undefined"
+                      }
+                    ]
+                  },
+                  "planting_material_weight": {
+                    "description": "Planting material weight (kg/ha)",
+                    "oneOf": [
+                      {
+                        "const": "-99.0",
+                        "description": "Unknown/undefined"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "planting_depth": {
+                    "description": "Planting depth (mm)",
+                    "oneOf": [
+                      {
+                        "const": "-99.0",
+                        "description": "Unknown/undefined"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "planting_material_source": {
+                    "description": "Planting depth (mm)",
+                    "oneOf": [
+                      {
+                        "const": "-99.0",
+                        "description": "Unknown/undefined"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "planting_notes": {
+                    "description": "Planting notes",
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "events"
+      ]
+    } 
+  },
+  "required": [
+    "management"
+  ],
+  "additionalProperties": false
+}
