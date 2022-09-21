@@ -4,7 +4,7 @@
     "events": [
       {
         "mgmt_operations_event": "planting",
-        "date": "2020-04-21dc",
+        "date": "2020-04-21",
         "mgmt_event_notes": "10kg/ha, supplemental sowing (Nautusvom carbon mixture)",
         "planted_crop": "-99.0",
         "planting_material_weight": "-99.0",
