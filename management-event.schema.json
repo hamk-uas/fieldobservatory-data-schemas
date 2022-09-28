@@ -1,14 +1,471 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "properties": {
-        "planting": {
+    "id": "#root",
+    "oneOf": [
+        {
+            "id": "#planting",
             "properties": {
-                "mgmt_operations_event": "planting",
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "planting"
+                },
                 "date": {
-                    "type": "date"
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "planted_crop": {
+                    "type": "string"
+                },
+                "planting_notes": {
+                    "type": "string"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#fertilizer",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "fertilizer"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "fertilizer_type": {
+                    "type": "string"
+                },
+                "fertilizer_applic_method": {
+                    "type": "string"
+                },
+                "application_depth_fert": {
+                    "type": "string"
+                },
+                "fertilizer_total_amount": {
+                    "type": "string"
+                },
+                "fertilizer_element_table_title": {
+                    "type": "string"
+                },
+                "fertilizer_element_table": {
+                    "type": "string"
+                },
+                "fertilizer_notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#tillage",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "tillage"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "tillage_practice": {
+                    "type": "string"
+                },
+                "tillage_implement": {
+                    "type": "string"
+                },
+                "tillage_operations_depth": {
+                    "type": "string"
+                },
+                "tillage_treatment_notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#harvest",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "harvest"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "harvest_area": {
+                    "type": "string"
+                },
+                "harvest_crop": {
+                    "type": "string"
+                },
+                "harvest_residue_help_text": {
+                    "type": "string"
+                },
+                "harvest_comments": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#chemicals",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "chemicals"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "chemical_type": {
+                    "type": "string"
+                },
+                "chemical_product_name": {
+                    "type": "string"
+                },
+                "chemical_applic_target": {
+                    "type": "string"
+                },
+                "chemical_applic_method": {
+                    "type": "string"
+                },
+                "chemical_applic_amount": {
+                    "type": "string"
+                },
+                "application_depth_chem": {
+                    "type": "string"
+                },
+                "chemical_applic_notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#grazing",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "grazing"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "grazing_species": {
+                    "type": "string"
+                },
+                "grazing_species_age_group": {
+                    "type": "string"
+                },
+                "livestock_density": {
+                    "type": "string"
+                },
+                "grazing_intensity": {
+                    "type": "string"
+                },
+                "grazing_period": {
+                    "type": "string"
+                },
+                "grazing_type": {
+                    "type": "string"
+                },
+                "grazing_area": {
+                    "type": "string"
+                },
+                "grazing_material_removed_prop": {
+                    "type": "string"
+                },
+                "grazing_starting_height": {
+                    "type": "string"
+                },
+                "grazing_end_height": {
+                    "type": "string"
+                },
+                "grazing_notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#weeding",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "weeding"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "weeding_notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#irrigation",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "irrigation"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "irrigation_operation": {
+                    "type": "string"
+                },
+                "irrig_amount_depth": {
+                    "type": "string"
+                },
+                "irrigation_applic_depth": {
+                    "type": "string"
+                },
+                "irrigation_notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#mowing",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "mowing"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "mowed_crop": {
+                    "type": "string"
+                },
+                "mowed_area": {
+                    "type": "string"
+                },
+                "mowing_method": {
+                    "type": "string"
+                },
+                "mowing_canopy_height": {
+                    "type": "string"
+                },
+                "mowing_cut_height": {
+                    "type": "string"
+                },
+                "mowing_notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#observation",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "observation"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "observation_type": {
+                    "type": "string"
+                },
+                "observation_notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#bed_prep",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "bed_prep"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "bed_prep_notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#inorg_mulch",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "inorg_mulch"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "mulch_type": {
+                    "type": "string"
+                },
+                "mulch_thickness": {
+                    "type": "string"
+                },
+                "mulch_cover_fraction": {
+                    "type": "string"
+                },
+                "mulch_color": {
+                    "type": "string"
+                },
+                "mulch_placement_notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#Inorg_mul_rem",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "Inorg_mul_rem"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "mulch_type_remove": {
+                    "type": "string"
+                },
+                "mulch_removal_notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
+        },
+        {
+            "id": "#other",
+            "properties": {
+                "mgmt_operations_event": {
+                    "type": "string",
+                    "const": "other"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "mgmt_event_notes": {
+                    "type": "string"
+                },
+                "other_notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mgmt_operations_event",
+                "date"
+            ]
         }
-    }
+    ]
 }
