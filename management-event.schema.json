@@ -1,75 +1,13 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "id": "#root",
     "properties": {
         "planting": {
-            "id": "#planting",
-            "properties": {},
-            "type": "object"
-        },
-        "fertilizer": {
-            "id": "#fertilizer",
-            "properties": {},
-            "type": "object"
-        },
-        "tillage": {
-            "id": "#tillage",
-            "properties": {},
-            "type": "object"
-        },
-        "harvest": {
-            "id": "#harvest",
-            "properties": {},
-            "type": "object"
-        },
-        "chemicals": {
-            "id": "#chemicals",
-            "properties": {},
-            "type": "object"
-        },
-        "grazing": {
-            "id": "#grazing",
-            "properties": {},
-            "type": "object"
-        },
-        "weeding": {
-            "id": "#weeding",
-            "properties": {},
-            "type": "object"
-        },
-        "irrigation": {
-            "id": "#irrigation",
-            "properties": {},
-            "type": "object"
-        },
-        "mowing": {
-            "id": "#mowing",
-            "properties": {},
-            "type": "object"
-        },
-        "observation": {
-            "id": "#observation",
-            "properties": {},
-            "type": "object"
-        },
-        "bed_prep": {
-            "id": "#bed_prep",
-            "properties": {},
-            "type": "object"
-        },
-        "inorg_mulch": {
-            "id": "#inorg_mulch",
-            "properties": {},
-            "type": "object"
-        },
-        "Inorg_mul_rem": {
-            "id": "#Inorg_mul_rem",
-            "properties": {},
-            "type": "object"
-        },
-        "other": {
-            "id": "#other",
-            "properties": {},
+            "properties": {
+                "mgmt_operations_event": "planting",
+                "date": {
+                    "type": "date"
+                }
+            },
             "type": "object"
         }
     }
