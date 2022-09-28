@@ -1,5 +1,5 @@
 {
-  "$schema": "https://www.fieldobservatory.org/data-schemas/management-data-schema.json",
+  "$schema": "https://www.fieldobservatory.org/data-schemas/management-data.schema.json",
   "management": {
     "events": [
       {

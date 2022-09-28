@@ -12,8 +12,8 @@ print(csv)
 with urllib.request.urlopen('https://raw.githubusercontent.com/PecanProject/fieldactivity/dev/inst/extdata/ui_structure.json') as url:
     ui_structure = pyjson5.load(url)
 
-print("ui_structure:")
-print(json.dumps(ui_structure, indent=4))
+#print("ui_structure:")
+#print(json.dumps(ui_structure, indent=4))
 
 schema = {
     '$schema': 'https://json-schema.org/draft/2020-12/schema',
@@ -31,4 +31,5 @@ for index, row in categories.iterrows():
     }
     #ui_structure['form']['mgmt_operations_event']['sub_elements'][row['code_name']]
 
-print(json.dumps(schema, indent=4))
+f = open("management-event.schema.json", mode='w')
+print(json.dumps(schema, indent=4), file=f)
