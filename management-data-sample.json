@@ -25,15 +25,30 @@
         "mgmt_operations_event": "harvest",
         "date": "2020-06-13",
         "mgmt_event_notes": "-99.0",
-        "harvest_area": "-99.0",
-        "harvest_crop": "-99.0",
-        "harvest_operat_component": "-99.0",
-        "canopy_height_harvest": 0.3,
-        "harvest_yield_harvest_dw": "-99.0",
-        "harv_yield_harv_f_wt": 0.05,
-        "harvest_method": "-99.0",
-        "harvest_cut_height": 10,
-        "harvest_comments": "-99.0"
+        "crop_list": [
+          {
+            "harvest_area": "-99.0",
+            "harvest_crop": "-99.0",
+            "harvest_operat_component": "-99.0",
+            "canopy_height_harvest": 0.3,
+            "harvest_yield_harvest_dw": "-99.0",
+            "harv_yield_harv_f_wt": 0.05,
+            "harvest_method": "-99.0",
+            "harvest_cut_height": 10,
+            "harvest_comments": "-99.0"
+          },
+          {
+            "harvest_area": "-99.0",
+            "harvest_crop": "-99.0",
+            "harvest_operat_component": "-99.0",
+            "canopy_height_harvest": 0.3,
+            "harvest_yield_harvest_dw": "-99.0",
+            "harv_yield_harv_f_wt": 0.05,
+            "harvest_method": "-99.0",
+            "harvest_cut_height": 10,
+            "harvest_comments": "-99.0"
+          }
+        ]
       }
     ]
   }

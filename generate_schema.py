@@ -5,8 +5,8 @@ import pyjson5
 
 # Read CSV
 csv = pd.read_csv('https://raw.githubusercontent.com/PecanProject/fieldactivity/dev/inst/extdata/display_names.csv', comment='#', usecols=[0, 1, 2, 3])
-print("csv:")
-print(csv)
+#print("csv:")
+#print(csv)
 
 # Read JSON
 with urllib.request.urlopen('https://raw.githubusercontent.com/PecanProject/fieldactivity/dev/inst/extdata/ui_structure.json') as url:
@@ -15,6 +15,27 @@ with urllib.request.urlopen('https://raw.githubusercontent.com/PecanProject/fiel
 #print("ui_structure:")
 #print(json.dumps(ui_structure, indent=4))
 
+def get_choices(key, value):
+    if "choices" in value:
+        if type(value['choices']) == list:
+            choices = value['choices']
+        else:
+            choices = csv[csv['category'] == value['choices']]['code_name']
+        ret_val = {
+            "type": "string",
+            "oneOf": []
+        }           
+        for choice in choices:
+            ret_val["oneOf"].append({
+                "const": choice
+            })
+    else:
+        ret_val = {
+            "type": "string"
+        }
+    return ret_val
+
+
 schema = {
     '$schema': 'https://json-schema.org/draft/2020-12/schema',
     'id': '#root',
@@ -22,8 +43,8 @@ schema = {
     ]
 }
 categories = csv[csv['category'] == 'mgmt_operations_event_choice']
-print("categories:")
-print(categories)
+#print("categories:")
+#print(categories)
 for index, row in categories.iterrows():
     sub_schema = {
         'id': f"#{row['code_name']}",
@@ -47,9 +68,21 @@ for index, row in categories.iterrows():
     for sub_element_key, sub_element_value in sub_element.items():
         if "code_name" in sub_element_value:
             property = sub_element_value["code_name"]
-            sub_schema["properties"][property] = {
-                "type": "string"
-            }
+            #if "choices" in sub_element_value:
+                #print(sub_element_key)
+                #print(sub_element_value)
+                #chemical_applic_method
+                #{'code_name': 'chemical_applic_method', 'type': 'selectInput', 'label': 'chemical_applic_method_label', 'choices': 'FEACD'}                #print("choices available for:")
+            sub_schema["properties"][property] = get_choices(sub_element_key, sub_element_value)
+            if "sub_elements" in sub_element_value:
+                if "single" in sub_element_value["sub_elements"]:
+                    for element_of_single_key, element_of_single_value in sub_element_value["sub_elements"]["single"].items():
+                        if "code_name" in element_of_single_value:
+                            #print(element_of_single_key)
+                            #print(element_of_single_value)
+                            # harvest_cut_height
+                            # {'code_name': 'harvest_cut_height', 'type': 'numericInput', 'label': 'harvest_cut_height_label', 'min': 0}
+                            sub_schema["properties"][element_of_single_key] = get_choices(element_of_single_key, element_of_single_value)
     schema['oneOf'].append(sub_schema)
 
 f = open("management-event.schema.json", mode='w')

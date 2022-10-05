@@ -17,6 +17,119 @@
                     "type": "string"
                 },
                 "planted_crop": {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "FRG"
+                        },
+                        {
+                            "const": "WHT"
+                        },
+                        {
+                            "const": "OAT"
+                        },
+                        {
+                            "const": "RYE"
+                        },
+                        {
+                            "const": "BAR"
+                        },
+                        {
+                            "const": "ZZ1"
+                        },
+                        {
+                            "const": "BWH"
+                        },
+                        {
+                            "const": "POT"
+                        },
+                        {
+                            "const": "SBT"
+                        },
+                        {
+                            "const": "PEA"
+                        },
+                        {
+                            "const": "FBN"
+                        },
+                        {
+                            "const": "RYP"
+                        },
+                        {
+                            "const": "RAP"
+                        },
+                        {
+                            "const": "FLX"
+                        },
+                        {
+                            "const": "CCA"
+                        },
+                        {
+                            "const": "PHA"
+                        },
+                        {
+                            "const": "RCL"
+                        },
+                        {
+                            "const": "WCL"
+                        },
+                        {
+                            "const": "ACL"
+                        },
+                        {
+                            "const": "ALF"
+                        },
+                        {
+                            "const": "RSO"
+                        },
+                        {
+                            "const": "VSA"
+                        },
+                        {
+                            "const": "BRI"
+                        },
+                        {
+                            "const": "FEP"
+                        },
+                        {
+                            "const": "RGP"
+                        },
+                        {
+                            "const": "POA"
+                        },
+                        {
+                            "const": "SDR"
+                        },
+                        {
+                            "const": "RGA"
+                        },
+                        {
+                            "const": "TFS"
+                        },
+                        {
+                            "const": "HVT"
+                        },
+                        {
+                            "const": "TRM"
+                        },
+                        {
+                            "const": "XFL"
+                        },
+                        {
+                            "const": "CII"
+                        },
+                        {
+                            "const": "PHT"
+                        }
+                    ]
+                },
+                "planting_material_weight": {
+                    "type": "string"
+                },
+                "planting_depth": {
+                    "type": "string"
+                },
+                "planting_material_source": {
                     "type": "string"
                 },
                 "planting_notes": {
@@ -44,10 +157,53 @@
                     "type": "string"
                 },
                 "fertilizer_type": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "fertilizer_type_organic"
+                        },
+                        {
+                            "const": "fertilizer_type_mineral"
+                        },
+                        {
+                            "const": "fertilizer_type_soil_amendment"
+                        }
+                    ]
                 },
                 "fertilizer_applic_method": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "AP001"
+                        },
+                        {
+                            "const": "AP002"
+                        },
+                        {
+                            "const": "AP003"
+                        },
+                        {
+                            "const": "AP004"
+                        },
+                        {
+                            "const": "AP005"
+                        },
+                        {
+                            "const": "AP006"
+                        },
+                        {
+                            "const": "AP007"
+                        },
+                        {
+                            "const": "AP008"
+                        },
+                        {
+                            "const": "AP009"
+                        },
+                        {
+                            "const": "AP999"
+                        }
+                    ]
                 },
                 "application_depth_fert": {
                     "type": "string"
@@ -86,10 +242,68 @@
                     "type": "string"
                 },
                 "tillage_practice": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "tillage_practice_primary"
+                        },
+                        {
+                            "const": "tillage_practice_secondary"
+                        },
+                        {
+                            "const": "tillage_practice_tertiary"
+                        }
+                    ]
                 },
                 "tillage_implement": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "TI002"
+                        },
+                        {
+                            "const": "TI003"
+                        },
+                        {
+                            "const": "TI009"
+                        },
+                        {
+                            "const": "TI011"
+                        },
+                        {
+                            "const": "TI015"
+                        },
+                        {
+                            "const": "TI016"
+                        },
+                        {
+                            "const": "TI018"
+                        },
+                        {
+                            "const": "TI020"
+                        },
+                        {
+                            "const": "TI024"
+                        },
+                        {
+                            "const": "TI025"
+                        },
+                        {
+                            "const": "TI031"
+                        },
+                        {
+                            "const": "TI033"
+                        },
+                        {
+                            "const": "TI038"
+                        },
+                        {
+                            "const": "TI044"
+                        },
+                        {
+                            "const": "TI999"
+                        }
+                    ]
                 },
                 "tillage_operations_depth": {
                     "type": "string"
@@ -122,7 +336,204 @@
                     "type": "string"
                 },
                 "harvest_crop": {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "FRG"
+                        },
+                        {
+                            "const": "WHT"
+                        },
+                        {
+                            "const": "OAT"
+                        },
+                        {
+                            "const": "RYE"
+                        },
+                        {
+                            "const": "BAR"
+                        },
+                        {
+                            "const": "ZZ1"
+                        },
+                        {
+                            "const": "BWH"
+                        },
+                        {
+                            "const": "POT"
+                        },
+                        {
+                            "const": "SBT"
+                        },
+                        {
+                            "const": "PEA"
+                        },
+                        {
+                            "const": "FBN"
+                        },
+                        {
+                            "const": "RYP"
+                        },
+                        {
+                            "const": "RAP"
+                        },
+                        {
+                            "const": "FLX"
+                        },
+                        {
+                            "const": "CCA"
+                        },
+                        {
+                            "const": "PHA"
+                        },
+                        {
+                            "const": "RCL"
+                        },
+                        {
+                            "const": "WCL"
+                        },
+                        {
+                            "const": "ACL"
+                        },
+                        {
+                            "const": "ALF"
+                        },
+                        {
+                            "const": "RSO"
+                        },
+                        {
+                            "const": "VSA"
+                        },
+                        {
+                            "const": "BRI"
+                        },
+                        {
+                            "const": "FEP"
+                        },
+                        {
+                            "const": "RGP"
+                        },
+                        {
+                            "const": "POA"
+                        },
+                        {
+                            "const": "SDR"
+                        },
+                        {
+                            "const": "RGA"
+                        },
+                        {
+                            "const": "TFS"
+                        },
+                        {
+                            "const": "HVT"
+                        },
+                        {
+                            "const": "TRM"
+                        },
+                        {
+                            "const": "XFL"
+                        },
+                        {
+                            "const": "CII"
+                        },
+                        {
+                            "const": "PHT"
+                        }
+                    ]
+                },
+                "harvest_yield_harvest_dw_total": {
                     "type": "string"
+                },
+                "harv_yield_harv_f_wt_total": {
+                    "type": "string"
+                },
+                "yield_C_at_harvest_total": {
+                    "type": "string"
+                },
+                "harvest_moisture": {
+                    "type": "string"
+                },
+                "harvest_method": {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "HM001"
+                        },
+                        {
+                            "const": "HM004"
+                        },
+                        {
+                            "const": "HM005"
+                        },
+                        {
+                            "const": "HM007"
+                        },
+                        {
+                            "const": "HM008"
+                        },
+                        {
+                            "const": "HM009"
+                        },
+                        {
+                            "const": "HM010"
+                        },
+                        {
+                            "const": "HM999"
+                        }
+                    ]
+                },
+                "harvest_operat_component": {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "canopy"
+                        },
+                        {
+                            "const": "leaf"
+                        },
+                        {
+                            "const": "grain"
+                        },
+                        {
+                            "const": "silage"
+                        },
+                        {
+                            "const": "tuber"
+                        },
+                        {
+                            "const": "fruit"
+                        },
+                        {
+                            "const": "stem"
+                        }
+                    ]
+                },
+                "canopy_height_harvest": {
+                    "type": "string"
+                },
+                "harvest_cut_height": {
+                    "type": "string"
+                },
+                "plant_density_harvest": {
+                    "type": "string"
+                },
+                "harvest_residue_placement": {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "harvest_residue_placement_green_manure"
+                        },
+                        {
+                            "const": "harvest_residue_placement_tillage"
+                        },
+                        {
+                            "const": "harvest_residue_placement_burned"
+                        },
+                        {
+                            "const": "harvest_residue_placement_removed"
+                        }
+                    ]
                 },
                 "harvest_residue_help_text": {
                     "type": "string"
@@ -152,16 +563,145 @@
                     "type": "string"
                 },
                 "chemical_type": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "chemical_type_insecticide"
+                        },
+                        {
+                            "const": "chemical_type_herbicide"
+                        },
+                        {
+                            "const": "chemical_type_fungicide"
+                        },
+                        {
+                            "const": "chemical_type_growth_regulator"
+                        },
+                        {
+                            "const": "chemical_type_lime_application"
+                        }
+                    ]
                 },
                 "chemical_product_name": {
                     "type": "string"
                 },
                 "chemical_applic_target": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "PCLA"
+                        },
+                        {
+                            "const": "PDLA"
+                        },
+                        {
+                            "const": "PSTDS"
+                        },
+                        {
+                            "const": "PRP"
+                        },
+                        {
+                            "const": "WORM"
+                        },
+                        {
+                            "const": "LEAF_MIN"
+                        },
+                        {
+                            "const": "STINKB"
+                        },
+                        {
+                            "const": "LOOPER"
+                        },
+                        {
+                            "const": "CATERP"
+                        },
+                        {
+                            "const": "INSECT"
+                        },
+                        {
+                            "const": "RABBIT"
+                        },
+                        {
+                            "const": "DEER"
+                        },
+                        {
+                            "const": "MAMMAL"
+                        },
+                        {
+                            "const": "RKN"
+                        },
+                        {
+                            "const": "NEMATODE"
+                        },
+                        {
+                            "const": "PSTVd"
+                        },
+                        {
+                            "const": "VIROID"
+                        },
+                        {
+                            "const": "BCMV"
+                        },
+                        {
+                            "const": "VIRUS"
+                        },
+                        {
+                            "const": "HAIL"
+                        },
+                        {
+                            "const": "WIND"
+                        },
+                        {
+                            "const": "DROUGHT"
+                        },
+                        {
+                            "const": "WEATHER"
+                        },
+                        {
+                            "const": "BRLFWD"
+                        },
+                        {
+                            "const": "WEED"
+                        },
+                        {
+                            "const": "ACIDITY"
+                        }
+                    ]
                 },
                 "chemical_applic_method": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "AP001"
+                        },
+                        {
+                            "const": "AP002"
+                        },
+                        {
+                            "const": "AP003"
+                        },
+                        {
+                            "const": "AP004"
+                        },
+                        {
+                            "const": "AP005"
+                        },
+                        {
+                            "const": "AP006"
+                        },
+                        {
+                            "const": "AP007"
+                        },
+                        {
+                            "const": "AP008"
+                        },
+                        {
+                            "const": "AP009"
+                        },
+                        {
+                            "const": "AP999"
+                        }
+                    ]
                 },
                 "chemical_applic_amount": {
                     "type": "string"
@@ -194,10 +734,50 @@
                     "type": "string"
                 },
                 "grazing_species": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "grazing_species_cattle"
+                        },
+                        {
+                            "const": "grazing_species_sheep"
+                        },
+                        {
+                            "const": "grazing_species_goat"
+                        },
+                        {
+                            "const": "grazing_species_mix"
+                        },
+                        {
+                            "const": "grazing_species_other"
+                        }
+                    ]
                 },
                 "grazing_species_age_group": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "0-1"
+                        },
+                        {
+                            "const": "1-2"
+                        },
+                        {
+                            "const": "2-3"
+                        },
+                        {
+                            "const": "3-5"
+                        },
+                        {
+                            "const": "5-10"
+                        },
+                        {
+                            "const": "10+"
+                        },
+                        {
+                            "const": "grazing_species_age_group_mix"
+                        }
+                    ]
                 },
                 "livestock_density": {
                     "type": "string"
@@ -209,7 +789,33 @@
                     "type": "string"
                 },
                 "grazing_type": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "grazing_type_continuous"
+                        },
+                        {
+                            "const": "grazing_type_rotation"
+                        },
+                        {
+                            "const": "grazing_type_mob_grazing"
+                        },
+                        {
+                            "const": "grazing_type_strip"
+                        },
+                        {
+                            "const": "grazing_type_multi_species"
+                        },
+                        {
+                            "const": "grazing_type_creep"
+                        },
+                        {
+                            "const": "grazing_type_forward"
+                        },
+                        {
+                            "const": "grazing_type_other"
+                        }
+                    ]
                 },
                 "grazing_area": {
                     "type": "string"
@@ -272,7 +878,30 @@
                     "type": "string"
                 },
                 "irrigation_operation": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "IR001"
+                        },
+                        {
+                            "const": "IR002"
+                        },
+                        {
+                            "const": "IR003"
+                        },
+                        {
+                            "const": "IR004"
+                        },
+                        {
+                            "const": "IR005"
+                        },
+                        {
+                            "const": "IR012"
+                        },
+                        {
+                            "const": "IR999"
+                        }
+                    ]
                 },
                 "irrig_amount_depth": {
                     "type": "string"
@@ -305,13 +934,118 @@
                     "type": "string"
                 },
                 "mowed_crop": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "FRG"
+                        },
+                        {
+                            "const": "WHT"
+                        },
+                        {
+                            "const": "OAT"
+                        },
+                        {
+                            "const": "RYE"
+                        },
+                        {
+                            "const": "BAR"
+                        },
+                        {
+                            "const": "ZZ1"
+                        },
+                        {
+                            "const": "BWH"
+                        },
+                        {
+                            "const": "POT"
+                        },
+                        {
+                            "const": "SBT"
+                        },
+                        {
+                            "const": "PEA"
+                        },
+                        {
+                            "const": "FBN"
+                        },
+                        {
+                            "const": "RYP"
+                        },
+                        {
+                            "const": "RAP"
+                        },
+                        {
+                            "const": "FLX"
+                        },
+                        {
+                            "const": "CCA"
+                        },
+                        {
+                            "const": "PHA"
+                        },
+                        {
+                            "const": "RCL"
+                        },
+                        {
+                            "const": "WCL"
+                        },
+                        {
+                            "const": "ACL"
+                        },
+                        {
+                            "const": "ALF"
+                        },
+                        {
+                            "const": "RSO"
+                        },
+                        {
+                            "const": "VSA"
+                        },
+                        {
+                            "const": "BRI"
+                        },
+                        {
+                            "const": "FEP"
+                        },
+                        {
+                            "const": "RGP"
+                        },
+                        {
+                            "const": "POA"
+                        },
+                        {
+                            "const": "SDR"
+                        },
+                        {
+                            "const": "RGA"
+                        },
+                        {
+                            "const": "TFS"
+                        },
+                        {
+                            "const": "HVT"
+                        },
+                        {
+                            "const": "TRM"
+                        },
+                        {
+                            "const": "XFL"
+                        },
+                        {
+                            "const": "CII"
+                        },
+                        {
+                            "const": "PHT"
+                        }
+                    ]
                 },
                 "mowed_area": {
                     "type": "string"
                 },
                 "mowing_method": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": []
                 },
                 "mowing_canopy_height": {
                     "type": "string"
@@ -344,7 +1078,33 @@
                     "type": "string"
                 },
                 "observation_type": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "observation_type_soil"
+                        },
+                        {
+                            "const": "observation_type_vegetation"
+                        },
+                        {
+                            "const": "observation_type_water"
+                        },
+                        {
+                            "const": "observation_type_animals"
+                        },
+                        {
+                            "const": "observation_type_pests"
+                        },
+                        {
+                            "const": "observation_type_disturbance"
+                        },
+                        {
+                            "const": "observation_type_management"
+                        },
+                        {
+                            "const": "observation_type_other"
+                        }
+                    ]
                 },
                 "observation_notes": {
                     "type": "string"
@@ -395,7 +1155,42 @@
                     "type": "string"
                 },
                 "mulch_type": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "MT001"
+                        },
+                        {
+                            "const": "MT002"
+                        },
+                        {
+                            "const": "MT003"
+                        },
+                        {
+                            "const": "MT004"
+                        },
+                        {
+                            "const": "MT005"
+                        },
+                        {
+                            "const": "MT006"
+                        },
+                        {
+                            "const": "MT007"
+                        },
+                        {
+                            "const": "MT008"
+                        },
+                        {
+                            "const": "MT009"
+                        },
+                        {
+                            "const": "MT010"
+                        },
+                        {
+                            "const": "MT999"
+                        }
+                    ]
                 },
                 "mulch_thickness": {
                     "type": "string"
@@ -404,7 +1199,27 @@
                     "type": "string"
                 },
                 "mulch_color": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "MC001"
+                        },
+                        {
+                            "const": "MC002"
+                        },
+                        {
+                            "const": "MC003"
+                        },
+                        {
+                            "const": "MC004"
+                        },
+                        {
+                            "const": "MC005"
+                        },
+                        {
+                            "const": "MC006"
+                        }
+                    ]
                 },
                 "mulch_placement_notes": {
                     "type": "string"
@@ -431,7 +1246,42 @@
                     "type": "string"
                 },
                 "mulch_type_remove": {
-                    "type": "string"
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "const": "MT001"
+                        },
+                        {
+                            "const": "MT002"
+                        },
+                        {
+                            "const": "MT003"
+                        },
+                        {
+                            "const": "MT004"
+                        },
+                        {
+                            "const": "MT005"
+                        },
+                        {
+                            "const": "MT006"
+                        },
+                        {
+                            "const": "MT007"
+                        },
+                        {
+                            "const": "MT008"
+                        },
+                        {
+                            "const": "MT009"
+                        },
+                        {
+                            "const": "MT010"
+                        },
+                        {
+                            "const": "MT999"
+                        }
+                    ]
                 },
                 "mulch_removal_notes": {
                     "type": "string"
