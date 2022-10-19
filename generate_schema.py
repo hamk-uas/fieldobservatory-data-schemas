@@ -129,5 +129,5 @@ for index, row in categories.iterrows():
 
     schema['oneOf'].append(sub_schema)
 
-f = open("management-event.schema.json", mode='w')
-print(json.dumps(schema, indent=4, ensure_ascii=True).encode('ascii').decode('unicode-escape'), file=f)
+with open("management-event.schema.json", mode='w', encoding='utf-8') as f:
+    json.dump(schema, f, indent=4, ensure_ascii = False)
