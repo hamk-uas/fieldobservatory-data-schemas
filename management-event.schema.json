@@ -244,25 +244,35 @@
                     "title": "Weight of seeds (kg/ha)",
                     "title_en": "Weight of seeds (kg/ha)",
                     "title_fi": " Siementen määrä (kg/ha)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "planting_depth": {
                     "title": "Sowing depth (mm)",
                     "title_en": "Sowing depth (mm)",
                     "title_fi": "Kylvösyvyys (mm)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "planting_material_source": {
                     "title": "Source of seeds",
                     "title_en": "Source of seeds",
                     "title_fi": "Siementen alkuperä",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textInput",
+                    "placeholder": "Commercial / own seeds, seed cultivar, etc.",
+                    "placeholder_en": "Commercial / own seeds, seed cultivar, etc.",
+                    "placeholder_fi": "Ostetut / omat siemenet, lajike, jne."
                 },
                 "planting_notes": {
                     "title": "Sowing notes",
                     "title_en": "Sowing notes",
                     "title_fi": "Kylvömuistiinpanoja",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput",
+                    "placeholder": "Any notes or observations about the event, e.g. “soil was drier than usual at the time of sowing”",
+                    "placeholder_en": "Any notes or observations about the event, e.g. “soil was drier than usual at the time of sowing”",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. “maa oli tavallista kuivempi”"
                 }
             },
             "type": "object",
@@ -395,31 +405,31 @@
                     "title": "Application depth (cm)",
                     "title_en": "Application depth (cm)",
                     "title_fi": "Levityssyvyys (cm)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "fertilizer_total_amount": {
                     "title": "Total amount of fertilizer (kg/ha)",
                     "title_en": "Total amount of fertilizer (kg/ha)",
                     "title_fi": "Lannoitteen kokonaismäärä (kg/ha)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "fertilizer_element_table_title": {
-                    "title": "Amounts of elements in fertilizer (kg/ha), if known:",
-                    "title_en": "Amounts of elements in fertilizer (kg/ha), if known:",
-                    "title_fi": "Ravinteiden määrät lannoitteessa (kg/ha), jos tiedossa:",
-                    "type": "string"
+                    "todo": "fixme2"
                 },
                 "fertilizer_element_table": {
-                    "title": "unknown",
-                    "title_en": "unknown",
-                    "title_fi": "unknown",
-                    "type": "string"
+                    "todo": "fixme2"
                 },
                 "fertilizer_notes": {
                     "title": "Notes on fertilizer application",
                     "title_en": "Notes on fertilizer application",
                     "title_fi": "Muistiinpanoja lannoitteen levityksestä",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput",
+                    "placeholder": "Any notes or observations about the event, e.g. “biostimulant was added because the field suffered from drought”",
+                    "placeholder_en": "Any notes or observations about the event, e.g. “biostimulant was added because the field suffered from drought”",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. “lisäsin biostimulanttia pellon kuivuuden vuoksi”"
                 }
             },
             "type": "object",
@@ -582,13 +592,18 @@
                     "title": "Tillage depth (cm)",
                     "title_en": "Tillage depth (cm)",
                     "title_fi": "Muokkaussyvyys (cm)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "tillage_treatment_notes": {
                     "title": "Tillage notes",
                     "title_en": "Tillage notes",
                     "title_fi": "Muistiinpanot muokkauksesta",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput",
+                    "placeholder": "Any notes or observations about the event, e.g. “had to stop tillage and continue the next day”",
+                    "placeholder_en": "Any notes or observations about the event, e.g. “had to stop tillage and continue the next day”",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. “jatkoin muokkausta seuraavana päivänä”"
                 }
             },
             "type": "object",
@@ -627,7 +642,8 @@
                     "title": "Harvest area (ha)",
                     "title_en": "Harvest area (ha)",
                     "title_fi": "Pinta-ala (ha)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "harvest_crop": {
                     "title": "Harvest crop",
@@ -845,25 +861,30 @@
                     "title": "Yield, total dry weight (kg/ha)",
                     "title_en": "Yield, total dry weight (kg/ha)",
                     "title_fi": "Sato, kuivapaino yhteensä (kg/ha) ",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "harv_yield_harv_f_wt_total": {
                     "title": "Yield, total fresh weight (t/ha)",
                     "title_en": "Yield, total fresh weight (t/ha)",
                     "title_fi": "Sato, märkäpaino yhteensä (t/ha) ",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "yield_C_at_harvest_total": {
                     "title": "Carbon (C) in yield, total (kg/ha)",
                     "title_en": "Carbon (C) in yield, total (kg/ha)",
                     "title_fi": "Hiilen (C) määrä sadossa yhteensä (kg/ha) ",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "harvest_moisture": {
                     "title": "Yield moisture (%)",
                     "title_en": "Yield moisture (%)",
                     "title_fi": "Sadon kosteus (%)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
                 },
                 "harvest_method": {
                     "title": "Harvest method",
@@ -975,19 +996,22 @@
                     "title": "Canopy height (m)",
                     "title_en": "Canopy height (m)",
                     "title_fi": "Kasvuston korkeus (m)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "harvest_cut_height": {
                     "title": "Height of cut (cm)",
                     "title_en": "Height of cut (cm)",
                     "title_fi": "Leikkuukorkeus (cm)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "plant_density_harvest": {
                     "title": "Plant density at harvest (plants/m2)",
                     "title_en": "Plant density at harvest (plants/m2)",
                     "title_fi": "Kasvitiheys korjuuhetkellä (kasveja/m2)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "harvest_residue_placement": {
                     "title": "Harvest residue placement",
@@ -1025,31 +1049,35 @@
                     "title": "Yield, dry weight (kg/ha)",
                     "title_en": "Yield, dry weight (kg/ha)",
                     "title_fi": "Sato, kuivapaino (kg/ha)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "harv_yield_harv_f_wt": {
                     "title": "Yield, fresh weight (t/ha)",
                     "title_en": "Yield, fresh weight (t/ha)",
                     "title_fi": "Sato, märkäpaino (t/ha)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "yield_C_at_harvest": {
                     "title": "Carbon (C) in yield (kg/ha)",
                     "title_en": "Carbon (C) in yield (kg/ha)",
                     "title_fi": "Hiilen (C) määrä sadossa (kg/ha) ",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "harvest_residue_help_text": {
-                    "title": "If you left the harvest residue on the field, please add a new event (fertilizer application or tillage) accordingly.",
-                    "title_en": "If you left the harvest residue on the field, please add a new event (fertilizer application or tillage) accordingly.",
-                    "title_fi": "Jos jätit korjuutähteet pellolle, tee tästä uusi soveltuva tapahtuma (lannoitus- tai maanmuokkaus-).",
-                    "type": "string"
+                    "todo": "fixme2"
                 },
                 "harvest_comments": {
                     "title": "Harvest comments",
                     "title_en": "Harvest comments",
                     "title_fi": "Sadonkorjuukommentit",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput",
+                    "placeholder": "Any notes or observations about the event, e.g. “cutting height was not uniform”",
+                    "placeholder_en": "Any notes or observations about the event, e.g. “cutting height was not uniform”",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. “leikkuukorkeus ei ollut sama kaikkialla”"
                 }
             },
             "type": "object",
@@ -1126,7 +1154,8 @@
                     "title": "Chemical product name",
                     "title_en": "Chemical product name",
                     "title_fi": "Kemikaalivalmisteen nimi",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textInput"
                 },
                 "chemical_applic_target": {
                     "title": "Chemical application target",
@@ -1364,19 +1393,25 @@
                     "title": "Chemical amount (kg/ha)",
                     "title_en": "Chemical amount (kg/ha)",
                     "title_fi": "Kemikaalin määrä (kg/ha)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "application_depth_chem": {
                     "title": "Chemical application depth (cm)",
                     "title_en": "Chemical application depth (cm)",
                     "title_fi": "Kemikaalinlevityssyvyys (cm)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "chemical_applic_notes": {
                     "title": "Chemical application notes",
                     "title_en": "Chemical application notes",
                     "title_fi": "Kemikaalinlevitysmuistiinpanot",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput",
+                    "placeholder": "Any notes or observations about the event, e.g. “rot affecting X % of plants”",
+                    "placeholder_en": "Any notes or observations about the event, e.g. “rot affecting X % of plants”",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. “mätää X % kasveista”"
                 }
             },
             "type": "object",
@@ -1503,19 +1538,18 @@
                     "title": "Livestock density (number/ha)",
                     "title_en": "Livestock density (number/ha)",
                     "title_fi": "Eläinten tiheys (eläintä/ha)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "grazing_intensity": {
                     "title": "Grazing intensity (kg/ha)",
                     "title_en": "Grazing intensity (kg/ha)",
                     "title_fi": "Laidunnusintensiteetti (kg/ha)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "grazing_period": {
-                    "title": "Grazing period",
-                    "title_en": "Grazing period",
-                    "title_fi": "Laidunnusjakso",
-                    "type": "string"
+                    "todo": "fixme1"
                 },
                 "grazing_type": {
                     "title": "Grazing type",
@@ -1577,31 +1611,40 @@
                     "title": "Grazing area (ha)",
                     "title_en": "Grazing area (ha)",
                     "title_fi": "Laidunnettava ala (ha)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 1
                 },
                 "grazing_material_removed_prop": {
                     "title": "Proportion of material removed (%)",
                     "title_en": "Proportion of material removed (%)",
                     "title_fi": "Syödyn aineksen määrä (%)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
                 },
                 "grazing_starting_height": {
                     "title": "Starting height (cm)",
                     "title_en": "Starting height (cm)",
                     "title_fi": "Aloituspituus (cm)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "grazing_end_height": {
                     "title": "End height (cm)",
                     "title_en": "End height (cm)",
                     "title_fi": "Lopetuspituus (cm)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "grazing_notes": {
                     "title": "Grazing notes",
                     "title_en": "Grazing notes",
                     "title_fi": "Laidunnusmuistiinpanot",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput",
+                    "placeholder": "Any notes or observations about the event, e.g. “animals were too late to the field”",
+                    "placeholder_en": "Any notes or observations about the event, e.g. “animals were too late to the field”",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. “eläimet vietiin pellolle liian myöhään”"
                 }
             },
             "type": "object",
@@ -1640,7 +1683,11 @@
                     "title": "Notes on the extraction of weeds",
                     "title_en": "Notes on the extraction of weeds",
                     "title_fi": "Muistiinpanot rikkakasvien kitkemisestä",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput",
+                    "placeholder": "Any notes or observations about the event, e.g. “the weeds had very deep roots”",
+                    "placeholder_en": "Any notes or observations about the event, e.g. “the weeds had very deep roots”",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. “rikkakasvien juuret olivat syvällä”"
                 }
             },
             "type": "object",
@@ -1729,19 +1776,25 @@
                     "title": "Irrigation amount (depth, mm)",
                     "title_en": "Irrigation amount (depth, mm)",
                     "title_fi": "Kastelun määrä (veden syvyys, mm)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "irrigation_applic_depth": {
                     "title": "Irrigation depth (cm)",
                     "title_en": "Irrigation depth (cm)",
                     "title_fi": "Kastelusyvyys (cm)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "irrigation_notes": {
                     "title": "Irrigation notes",
                     "title_en": "Irrigation notes",
                     "title_fi": "Kastelumuistiinpanot",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput",
+                    "placeholder": "Any notes or observations about the event, e.g. “drip line flow rate seems a bit low”",
+                    "placeholder_en": "Any notes or observations about the event, e.g. “drip line flow rate seems a bit low”",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. “tippukasteluletkun virtausnopeus vaikuttaa melko hitaalta”"
                 }
             },
             "type": "object",
@@ -1992,7 +2045,8 @@
                     "title": "Mowed area (ha)",
                     "title_en": "Mowed area (ha)",
                     "title_fi": "Leikattu ala (ha)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "mowing_method": {
                     "title": "Mowing method",
@@ -2005,19 +2059,25 @@
                     "title": "Canopy height before mowing (m)",
                     "title_en": "Canopy height before mowing (m)",
                     "title_fi": "Kasvuston korkeus ennen leikkuuta (m)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "mowing_cut_height": {
                     "title": "Cut height (cm)",
                     "title_en": "Cut height (cm)",
                     "title_fi": "Leikkuukorkeus (cm)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "mowing_notes": {
                     "title": "Mowing notes",
                     "title_en": "Mowing notes",
                     "title_fi": "Muistiinpanot leikkuusta",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput",
+                    "placeholder": "Any notes or observations about the event, e.g. “mowing height was not uniform”",
+                    "placeholder_en": "Any notes or observations about the event, e.g. “mowing height was not uniform”",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. “leikkuukorkeus ei ollut sama kaikkialla”"
                 }
             },
             "type": "object",
@@ -2112,7 +2172,8 @@
                     "title": "Observations",
                     "title_en": "Observations",
                     "title_fi": "Havaintoja",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput"
                 }
             },
             "type": "object",
@@ -2151,7 +2212,11 @@
                     "title": "Notes on the preparation of raised beds",
                     "title_en": "Notes on the preparation of raised beds",
                     "title_fi": "Muistiinpanot kasvatuslaatikoiden valmistelusta",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput",
+                    "placeholder": "Any notes or observations about the event, e.g. “used the beds from last year”",
+                    "placeholder_en": "Any notes or observations about the event, e.g. “used the beds from last year”",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. “käytettiin samoja kasvatuslaatikoita kuin edellisenä vuonna”"
                 }
             },
             "type": "object",
@@ -2264,13 +2329,16 @@
                     "title": "Mulch thickness (mm)",
                     "title_en": "Mulch thickness (mm)",
                     "title_fi": "Katteen paksuus (mm)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0
                 },
                 "mulch_cover_fraction": {
                     "title": "Fraction of surface covered (%)",
                     "title_en": "Fraction of surface covered (%)",
                     "title_fi": "Peitto-osuus (%)",
-                    "type": "string"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
                 },
                 "mulch_color": {
                     "title": "Mulch colour",
@@ -2320,7 +2388,11 @@
                     "title": "Mulch placement notes",
                     "title_en": "Mulch placement notes",
                     "title_fi": "Katteenlevitysmuistiinpanot",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput",
+                    "placeholder": "Any notes or observations about the event, e.g. “mulch was placed only on the northern half of the field”",
+                    "placeholder_en": "Any notes or observations about the event, e.g. “mulch was placed only on the northern half of the field”",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. “kate levitettiin ainoastaan pellon pohjoiselle puoliskolle”"
                 }
             },
             "type": "object",
@@ -2433,7 +2505,11 @@
                     "title": "Mulch removal notes",
                     "title_en": "Mulch removal notes",
                     "title_fi": "Katteenpoistomuistiinpanot",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput",
+                    "placeholder": "Any notes or observations about the event, e.g. “the mulch was recycled”",
+                    "placeholder_en": "Any notes or observations about the event, e.g. “the mulch was recycled”",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. “kate kierrätettiin”"
                 }
             },
             "type": "object",
@@ -2472,7 +2548,8 @@
                     "title": "Notes",
                     "title_en": "Notes",
                     "title_fi": "Muistiinpanot",
-                    "type": "string"
+                    "type": "string",
+                    "ui_type": "textAreaInput"
                 }
             },
             "type": "object",

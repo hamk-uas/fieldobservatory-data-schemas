@@ -16,32 +16,57 @@ with urllib.request.urlopen('https://raw.githubusercontent.com/PecanProject/fiel
 #print(json.dumps(ui_structure, indent=4))
 
 def get_choices(key, value):
-    if "choices" in value:
-        if type(value['choices']) == list:
-            choices = value['choices']
-        else:
-            choices = csv[csv['category'] == value['choices']]['code_name']
+    # TODO: Handle "required".
+    # Ignore for now: value["type"] == "fileInput", because we don't yet store the image links in the data
+    if "type" in value:
         ret_val = {
             "title": code_name_to_disp_name_eng[key] if key in code_name_to_disp_name_eng else 'unknown',
             "title_en": code_name_to_disp_name_eng[key] if key in code_name_to_disp_name_eng else 'unknown',
-            "title_fi": code_name_to_disp_name_fin[key] if key in code_name_to_disp_name_fin else 'unknown',
-            "type": "string",
-            "oneOf": []
-        }           
-        for choice in choices:
-            ret_val["oneOf"].append({
-                "const": choice,
-                "title": code_name_to_disp_name_eng[choice] if choice in code_name_to_disp_name_eng else 'unknown',
-                "title_en": code_name_to_disp_name_eng[choice] if choice in code_name_to_disp_name_eng else 'unknown',
-                "title_fi": code_name_to_disp_name_fin[choice] if choice in code_name_to_disp_name_fin else 'unknown'
-            })
-    else:
-        ret_val = {    
-            "title": code_name_to_disp_name_eng[key] if key in code_name_to_disp_name_eng else 'unknown',
-            "title_en": code_name_to_disp_name_eng[key] if key in code_name_to_disp_name_eng else 'unknown',
-            "title_fi": code_name_to_disp_name_fin[key] if key in code_name_to_disp_name_fin else 'unknown',
-            "type": "string"
+            "title_fi": code_name_to_disp_name_fin[key] if key in code_name_to_disp_name_fin else 'unknown'
         }
+        if value["type"] == "selectInput":
+            if type(value['choices']) == list:
+                choices = value['choices']
+            else:
+                choices = csv[csv['category'] == value['choices']]['code_name']        
+            ret_val["type"] = "string"
+            ret_val["oneOf"] = []
+            for choice in choices:
+                ret_val["oneOf"].append({
+                    "const": choice,
+                    "title": code_name_to_disp_name_eng[choice] if choice in code_name_to_disp_name_eng else 'unknown',
+                    "title_en": code_name_to_disp_name_eng[choice] if choice in code_name_to_disp_name_eng else 'unknown',
+                    "title_fi": code_name_to_disp_name_fin[choice] if choice in code_name_to_disp_name_fin else 'unknown'
+                })
+        elif value["type"] == "textInput" or value["type"] == "textAreaInput":
+            ret_val["type"] = "string"
+            ret_val["ui_type"] = value["type"]
+            if "placeholder" in value:
+                ret_val["placeholder"] = code_name_to_disp_name_eng[value["placeholder"]] if value["placeholder"] in code_name_to_disp_name_eng else 'unknown'
+                ret_val["placeholder_en"] = code_name_to_disp_name_eng[value["placeholder"]] if value["placeholder"] in code_name_to_disp_name_eng else 'unknown'
+                ret_val["placeholder_fi"] = code_name_to_disp_name_fin[value["placeholder"]] if value["placeholder"] in code_name_to_disp_name_fin else 'unknown'
+        elif value["type"] == "numericInput":
+            # TODO: Handle "min" and "max" and "step" (not all may be present)
+            if "step" in value and value["step"] == 1:
+                ret_val["type"] = "integer"
+            else:
+                ret_val["type"] = "number"
+            if "min" in value:
+                ret_val["minimum"] = value["min"]
+            if "max" in value:
+                ret_val["maximum"] = value["max"]
+        elif value["type"] == "dateInput":
+            ret_val["type"] = "string"
+            ret_val["format"] = "date"
+        elif value["type"] == "dateRangeInput":
+            #TODO: "start_date": "2021-08-24",
+            #"end_date": "2021-08-31",
+            # Do this manually afterwards
+            return {"todo": "fixme1"}
+        else:
+            return {"todo": "fixme2"}        
+    else:
+        return {"todo": "fixme3"}
     return ret_val
 
 
