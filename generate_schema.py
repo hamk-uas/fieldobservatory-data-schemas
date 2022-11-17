@@ -3,6 +3,17 @@ import pandas as pd
 import json
 import pyjson5
 
+banned_properties = {
+    "fertilizer_element_table_title": True,
+    "fertilizer_element_table": True
+}
+
+choice_list_name = {
+    "CRID": "crop_ident_ICASA",
+    "FEACD": "fertilizer_applic_method",
+    "MLTP": "mulch_type"
+}
+
 # Read CSV
 csv = pd.read_csv('https://raw.githubusercontent.com/PecanProject/fieldactivity/dev/inst/extdata/display_names.csv', comment='#', usecols=[0, 1, 2, 3])
 #print("csv:")
@@ -34,14 +45,14 @@ def set_choices(element, property, key, value):
             if type(value['choices']) != list and value['choices'] in choices_appeared_in:
                 other = choices_appeared_in[value['choices']]
                 if "type" in other:
-                    schema["properties"][value['choices']] = {
+                    schema["$defs"][choice_list_name[value['choices']]] = {
                         "type": other["type"],
                         "oneOf": other["oneOf"]
                     }
                     other.pop("type")
                     other.pop("oneOf")
-                    other["$ref"] = f"#/definitions/{value['choices']}"
-                ret_val["$ref"] = f"#/definitions/{value['choices']}"
+                    other["$ref"] = f"#/$defs/{choice_list_name[value['choices']]}"
+                ret_val["$ref"] = f"#/$defs/{choice_list_name[value['choices']]}"
             else:
                 ret_val["type"] = "string"
                 ret_val["oneOf"] = []
@@ -84,7 +95,7 @@ def set_choices(element, property, key, value):
             element["description_en"] = code_name_to_disp_name_eng[value["code_name"]] if value["code_name"] in code_name_to_disp_name_eng else 'unknown'
             element["description_fi"] = code_name_to_disp_name_fin[value["code_name"]] if value["code_name"] in code_name_to_disp_name_fin else 'unknown'
         else:
-            element["properties"][property] = {"todo": "fixme3"}  
+            element["properties"][property] = {"todo": "fixme2"}  
     else:
         return {"todo": "fixme3"}
     element["properties"][property] = ret_val
@@ -96,7 +107,7 @@ schema = {
     'id': '#root',
     "oneOf" : [
     ],
-    "properties" : {        
+    "$defs" : {        
     }
 }
 
@@ -111,11 +122,6 @@ categories = csv[csv['category'] == 'mgmt_operations_event_choice']
 
 #print("categories:")
 #print(categories)
-
-banned_properties = {
-    "fertilizer_element_table_title": True,
-    "fertilizer_element_table": True
-}
 
 # Go through different choices for mgmt_operations_event, listed in the display names CSV
 for index, row in categories.iterrows():

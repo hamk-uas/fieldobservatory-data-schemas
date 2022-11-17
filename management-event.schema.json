@@ -32,7 +32,7 @@
                     "title": "Planted crop",
                     "title_en": "Planted crop",
                     "title_fi": "Kylvetty laji",
-                    "$ref": "#/definitions/CRID"
+                    "$ref": "#/$defs/crop_ident_ICASA"
                 },
                 "planting_material_weight": {
                     "title": "Weight of seeds (kg/ha)",
@@ -236,7 +236,7 @@
                     "title": "Application method",
                     "title_en": "Application method",
                     "title_fi": "Levitystapa",
-                    "$ref": "#/definitions/FEACD"
+                    "$ref": "#/$defs/fertilizer_applic_method"
                 },
                 "application_depth_fert": {
                     "title": "Application depth (cm)",
@@ -480,7 +480,7 @@
                     "title": "Harvest crop",
                     "title_en": "Harvest crop",
                     "title_fi": "Korjattu laji",
-                    "$ref": "#/definitions/CRID"
+                    "$ref": "#/$defs/crop_ident_ICASA"
                 },
                 "harvest_yield_harvest_dw_total": {
                     "title": "Yield, total dry weight (kg/ha)",
@@ -955,7 +955,7 @@
                     "title": "Chemical application method",
                     "title_en": "Chemical application method",
                     "title_fi": "Kemikaalinlevitystapa",
-                    "$ref": "#/definitions/FEACD"
+                    "$ref": "#/$defs/fertilizer_applic_method"
                 },
                 "chemical_applic_amount": {
                     "title": "Chemical amount (kg/ha)",
@@ -1403,7 +1403,7 @@
                     "title": "Mowed crop",
                     "title_en": "Mowed crop",
                     "title_fi": "Leikattu kasvi",
-                    "$ref": "#/definitions/CRID"
+                    "$ref": "#/$defs/crop_ident_ICASA"
                 },
                 "mowed_area": {
                     "title": "Mowed area (ha)",
@@ -1619,7 +1619,7 @@
                     "title": "Mulch type",
                     "title_en": "Mulch type",
                     "title_fi": "Katteen tyyppi",
-                    "$ref": "#/definitions/MLTP"
+                    "$ref": "#/$defs/mulch_type"
                 },
                 "mulch_thickness": {
                     "title": "Mulch thickness (mm)",
@@ -1727,7 +1727,7 @@
                     "title": "Type of removed mulch",
                     "title_en": "Type of removed mulch",
                     "title_fi": "Poistetun katteen tyyppi",
-                    "$ref": "#/definitions/MLTP"
+                    "$ref": "#/$defs/mulch_type"
                 },
                 "mulch_removal_notes": {
                     "title": "Mulch removal notes",
@@ -1787,8 +1787,8 @@
             ]
         }
     ],
-    "properties": {
-        "CRID": {
+    "$defs": {
+        "crop_ident_ICASA": {
             "type": "string",
             "oneOf": [
                 {
@@ -1997,7 +1997,7 @@
                 }
             ]
         },
-        "FEACD": {
+        "fertilizer_applic_method": {
             "type": "string",
             "oneOf": [
                 {
@@ -2062,7 +2062,7 @@
                 }
             ]
         },
-        "MLTP": {
+        "mulch_type": {
             "type": "string",
             "oneOf": [
                 {
