@@ -3,5 +3,5 @@ This repository contains JSON data schemas for Field Observatory. Initially we i
 
 Work in progress.
 
-![image](https://user-images.githubusercontent.com/60920087/202475875-1a85b30c-66b5-4657-a2e6-6813e4d7cb7a.png)
-Farm management event schema visualized using https://navneethg.github.io/jsonschemaviewer/
+![image](https://user-images.githubusercontent.com/60920087/202477076-e5a7822f-7c86-4e7e-a6cf-add2cbb38b3e.png)
+*Farm management event schema visualized using https://navneethg.github.io/jsonschemaviewer/*
