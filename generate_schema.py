@@ -103,8 +103,8 @@ def set_choices(element, property, key, value):
 choices_appeared_in = {}
 
 schema = {
-    '$schema': 'https://json-schema.org/draft/2020-12/schema',
-    'id': '#root',
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "id": "https://www.fieldobservatory.org/data-schemas/management-event-schema.json", # Was: "#root"
     "title": "Management event",
     "oneOf" : [
     ],
