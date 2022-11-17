@@ -105,7 +105,7 @@ choices_appeared_in = {}
 schema = {
     '$schema': 'https://json-schema.org/draft/2020-12/schema',
     'id': '#root',
-    "title": "Farm management event",
+    "title": "Management event",
     "oneOf" : [
     ],
     "$defs" : {        
