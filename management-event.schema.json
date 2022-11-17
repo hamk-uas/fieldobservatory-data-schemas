@@ -1,6 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "id": "#root",
+    "title": "Farm management event",
     "oneOf": [
         {
             "id": "#planting",
@@ -64,9 +65,9 @@
                     "title_fi": "Kylvömuistiinpanoja",
                     "type": "string",
                     "ui_type": "textAreaInput",
-                    "placeholder": "Any notes or observations about the event, e.g. “soil was drier than usual at the time of sowing”",
-                    "placeholder_en": "Any notes or observations about the event, e.g. “soil was drier than usual at the time of sowing”",
-                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. “maa oli tavallista kuivempi”"
+                    "placeholder": "Any notes or observations about the event, e.g. \"soil was drier than usual at the time of sowing\"",
+                    "placeholder_en": "Any notes or observations about the event, e.g. \"soil was drier than usual at the time of sowing\"",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"maa oli tavallista kuivempi\""
                 }
             },
             "type": "object",
@@ -258,9 +259,9 @@
                     "title_fi": "Muistiinpanoja lannoitteen levityksestä",
                     "type": "string",
                     "ui_type": "textAreaInput",
-                    "placeholder": "Any notes or observations about the event, e.g. “biostimulant was added because the field suffered from drought”",
-                    "placeholder_en": "Any notes or observations about the event, e.g. “biostimulant was added because the field suffered from drought”",
-                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. “lisäsin biostimulanttia pellon kuivuuden vuoksi”"
+                    "placeholder": "Any notes or observations about the event, e.g. \"biostimulant was added because the field suffered from drought\"",
+                    "placeholder_en": "Any notes or observations about the event, e.g. \"biostimulant was added because the field suffered from drought\"",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"lisäsin biostimulanttia pellon kuivuuden vuoksi\""
                 }
             },
             "type": "object",
@@ -432,9 +433,9 @@
                     "title_fi": "Muistiinpanot muokkauksesta",
                     "type": "string",
                     "ui_type": "textAreaInput",
-                    "placeholder": "Any notes or observations about the event, e.g. “had to stop tillage and continue the next day”",
-                    "placeholder_en": "Any notes or observations about the event, e.g. “had to stop tillage and continue the next day”",
-                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. “jatkoin muokkausta seuraavana päivänä”"
+                    "placeholder": "Any notes or observations about the event, e.g. \"had to stop tillage and continue the next day\"",
+                    "placeholder_en": "Any notes or observations about the event, e.g. \"had to stop tillage and continue the next day\"",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"jatkoin muokkausta seuraavana päivänä\""
                 }
             },
             "type": "object",
@@ -702,9 +703,9 @@
                     "title_fi": "Sadonkorjuukommentit",
                     "type": "string",
                     "ui_type": "textAreaInput",
-                    "placeholder": "Any notes or observations about the event, e.g. “cutting height was not uniform”",
-                    "placeholder_en": "Any notes or observations about the event, e.g. “cutting height was not uniform”",
-                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. “leikkuukorkeus ei ollut sama kaikkialla”"
+                    "placeholder": "Any notes or observations about the event, e.g. \"cutting height was not uniform\"",
+                    "placeholder_en": "Any notes or observations about the event, e.g. \"cutting height was not uniform\"",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"leikkuukorkeus ei ollut sama kaikkialla\""
                 }
             },
             "type": "object",
@@ -977,9 +978,9 @@
                     "title_fi": "Kemikaalinlevitysmuistiinpanot",
                     "type": "string",
                     "ui_type": "textAreaInput",
-                    "placeholder": "Any notes or observations about the event, e.g. “rot affecting X % of plants”",
-                    "placeholder_en": "Any notes or observations about the event, e.g. “rot affecting X % of plants”",
-                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. “mätää X % kasveista”"
+                    "placeholder": "Any notes or observations about the event, e.g. \"rot affecting X % of plants\"",
+                    "placeholder_en": "Any notes or observations about the event, e.g. \"rot affecting X % of plants\"",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"mätää X % kasveista\""
                 }
             },
             "type": "object",
@@ -1212,9 +1213,9 @@
                     "title_fi": "Laidunnusmuistiinpanot",
                     "type": "string",
                     "ui_type": "textAreaInput",
-                    "placeholder": "Any notes or observations about the event, e.g. “animals were too late to the field”",
-                    "placeholder_en": "Any notes or observations about the event, e.g. “animals were too late to the field”",
-                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. “eläimet vietiin pellolle liian myöhään”"
+                    "placeholder": "Any notes or observations about the event, e.g. \"animals were too late to the field\"",
+                    "placeholder_en": "Any notes or observations about the event, e.g. \"animals were too late to the field\"",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"eläimet vietiin pellolle liian myöhään\""
                 }
             },
             "type": "object",
@@ -1255,9 +1256,9 @@
                     "title_fi": "Muistiinpanot rikkakasvien kitkemisestä",
                     "type": "string",
                     "ui_type": "textAreaInput",
-                    "placeholder": "Any notes or observations about the event, e.g. “the weeds had very deep roots”",
-                    "placeholder_en": "Any notes or observations about the event, e.g. “the weeds had very deep roots”",
-                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. “rikkakasvien juuret olivat syvällä”"
+                    "placeholder": "Any notes or observations about the event, e.g. \"the weeds had very deep roots\"",
+                    "placeholder_en": "Any notes or observations about the event, e.g. \"the weeds had very deep roots\"",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"rikkakasvien juuret olivat syvällä\""
                 }
             },
             "type": "object",
@@ -1362,9 +1363,9 @@
                     "title_fi": "Kastelumuistiinpanot",
                     "type": "string",
                     "ui_type": "textAreaInput",
-                    "placeholder": "Any notes or observations about the event, e.g. “drip line flow rate seems a bit low”",
-                    "placeholder_en": "Any notes or observations about the event, e.g. “drip line flow rate seems a bit low”",
-                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. “tippukasteluletkun virtausnopeus vaikuttaa melko hitaalta”"
+                    "placeholder": "Any notes or observations about the event, e.g. \"drip line flow rate seems a bit low\"",
+                    "placeholder_en": "Any notes or observations about the event, e.g. \"drip line flow rate seems a bit low\"",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"tippukasteluletkun virtausnopeus vaikuttaa melko hitaalta\""
                 }
             },
             "type": "object",
@@ -1439,9 +1440,9 @@
                     "title_fi": "Muistiinpanot leikkuusta",
                     "type": "string",
                     "ui_type": "textAreaInput",
-                    "placeholder": "Any notes or observations about the event, e.g. “mowing height was not uniform”",
-                    "placeholder_en": "Any notes or observations about the event, e.g. “mowing height was not uniform”",
-                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. “leikkuukorkeus ei ollut sama kaikkialla”"
+                    "placeholder": "Any notes or observations about the event, e.g. \"mowing height was not uniform\"",
+                    "placeholder_en": "Any notes or observations about the event, e.g. \"mowing height was not uniform\"",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"leikkuukorkeus ei ollut sama kaikkialla\""
                 }
             },
             "type": "object",
@@ -1578,9 +1579,9 @@
                     "title_fi": "Muistiinpanot kasvatuslaatikoiden valmistelusta",
                     "type": "string",
                     "ui_type": "textAreaInput",
-                    "placeholder": "Any notes or observations about the event, e.g. “used the beds from last year”",
-                    "placeholder_en": "Any notes or observations about the event, e.g. “used the beds from last year”",
-                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. “käytettiin samoja kasvatuslaatikoita kuin edellisenä vuonna”"
+                    "placeholder": "Any notes or observations about the event, e.g. \"used the beds from last year\"",
+                    "placeholder_en": "Any notes or observations about the event, e.g. \"used the beds from last year\"",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"käytettiin samoja kasvatuslaatikoita kuin edellisenä vuonna\""
                 }
             },
             "type": "object",
@@ -1686,9 +1687,9 @@
                     "title_fi": "Katteenlevitysmuistiinpanot",
                     "type": "string",
                     "ui_type": "textAreaInput",
-                    "placeholder": "Any notes or observations about the event, e.g. “mulch was placed only on the northern half of the field”",
-                    "placeholder_en": "Any notes or observations about the event, e.g. “mulch was placed only on the northern half of the field”",
-                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. “kate levitettiin ainoastaan pellon pohjoiselle puoliskolle”"
+                    "placeholder": "Any notes or observations about the event, e.g. \"mulch was placed only on the northern half of the field\"",
+                    "placeholder_en": "Any notes or observations about the event, e.g. \"mulch was placed only on the northern half of the field\"",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"kate levitettiin ainoastaan pellon pohjoiselle puoliskolle\""
                 }
             },
             "type": "object",
@@ -1735,9 +1736,9 @@
                     "title_fi": "Katteenpoistomuistiinpanot",
                     "type": "string",
                     "ui_type": "textAreaInput",
-                    "placeholder": "Any notes or observations about the event, e.g. “the mulch was recycled”",
-                    "placeholder_en": "Any notes or observations about the event, e.g. “the mulch was recycled”",
-                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. “kate kierrätettiin”"
+                    "placeholder": "Any notes or observations about the event, e.g. \"the mulch was recycled\"",
+                    "placeholder_en": "Any notes or observations about the event, e.g. \"the mulch was recycled\"",
+                    "placeholder_fi": "Mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"kate kierrätettiin\""
                 }
             },
             "type": "object",

@@ -105,6 +105,7 @@ choices_appeared_in = {}
 schema = {
     '$schema': 'https://json-schema.org/draft/2020-12/schema',
     'id': '#root',
+    "title": "Farm management event",
     "oneOf" : [
     ],
     "$defs" : {        
@@ -115,8 +116,8 @@ variable_names = csv #csv[csv['category'] == 'variable_name']
 code_name_to_disp_name_eng = {}
 code_name_to_disp_name_fin = {}
 for index, row in variable_names.iterrows():
-    code_name_to_disp_name_eng[row['code_name']] = row['disp_name_eng']
-    code_name_to_disp_name_fin[row['code_name']] = row['disp_name_fin']
+    code_name_to_disp_name_eng[row['code_name']] = row['disp_name_eng'].replace("“", "\"").replace("”", "\"")
+    code_name_to_disp_name_fin[row['code_name']] = row['disp_name_fin'].replace("“", "\"").replace("”", "\"")
 
 categories = csv[csv['category'] == 'mgmt_operations_event_choice']
 
