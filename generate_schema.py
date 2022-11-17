@@ -15,9 +15,11 @@ with urllib.request.urlopen('https://raw.githubusercontent.com/PecanProject/fiel
 #print("ui_structure:")
 #print(json.dumps(ui_structure, indent=4))
 
-def get_choices(key, value):
+def set_choices(element, property, key, value):
     # TODO: Handle "required".
     # Ignore for now: value["type"] == "fileInput", because we don't yet store the image links in the data
+    if property in banned_properties:
+        return
     if "type" in value:
         ret_val = {
             "title": code_name_to_disp_name_eng[key] if key in code_name_to_disp_name_eng else 'unknown',
@@ -28,16 +30,30 @@ def get_choices(key, value):
             if type(value['choices']) == list:
                 choices = value['choices']
             else:
-                choices = csv[csv['category'] == value['choices']]['code_name']        
-            ret_val["type"] = "string"
-            ret_val["oneOf"] = []
-            for choice in choices:
-                ret_val["oneOf"].append({
-                    "const": choice,
-                    "title": code_name_to_disp_name_eng[choice] if choice in code_name_to_disp_name_eng else 'unknown',
-                    "title_en": code_name_to_disp_name_eng[choice] if choice in code_name_to_disp_name_eng else 'unknown',
-                    "title_fi": code_name_to_disp_name_fin[choice] if choice in code_name_to_disp_name_fin else 'unknown'
-                })
+                choices = csv[csv['category'] == value['choices']]['code_name']
+            if type(value['choices']) != list and value['choices'] in choices_appeared_in:
+                other = choices_appeared_in[value['choices']]
+                if "type" in other:
+                    schema["properties"][value['choices']] = {
+                        "type": other["type"],
+                        "oneOf": other["oneOf"]
+                    }
+                    other.pop("type")
+                    other.pop("oneOf")
+                    other["$ref"] = f"#/definitions/{value['choices']}"
+                ret_val["$ref"] = f"#/definitions/{value['choices']}"
+            else:
+                ret_val["type"] = "string"
+                ret_val["oneOf"] = []
+                for choice in choices:
+                    ret_val["oneOf"].append({
+                        "const": choice,
+                        "title": code_name_to_disp_name_eng[choice] if choice in code_name_to_disp_name_eng else 'unknown',
+                        "title_en": code_name_to_disp_name_eng[choice] if choice in code_name_to_disp_name_eng else 'unknown',
+                        "title_fi": code_name_to_disp_name_fin[choice] if choice in code_name_to_disp_name_fin else 'unknown'
+                    })
+                if type(value['choices']) != list:
+                    choices_appeared_in[value['choices']] = ret_val
         elif value["type"] == "textInput" or value["type"] == "textAreaInput":
             ret_val["type"] = "string"
             ret_val["ui_type"] = value["type"]
@@ -62,19 +78,26 @@ def get_choices(key, value):
             #TODO: "start_date": "2021-08-24",
             #"end_date": "2021-08-31",
             # Do this manually afterwards
-            return {"todo": "fixme1"}
+            element["properties"][property] = {"todo": "fixme1"}
+        elif value["type"] == "textOutput":
+            element["description"] = code_name_to_disp_name_eng[value["code_name"]] if value["code_name"] in code_name_to_disp_name_eng else 'unknown'
+            element["description_en"] = code_name_to_disp_name_eng[value["code_name"]] if value["code_name"] in code_name_to_disp_name_eng else 'unknown'
+            element["description_fi"] = code_name_to_disp_name_fin[value["code_name"]] if value["code_name"] in code_name_to_disp_name_fin else 'unknown'
         else:
-            return {"todo": "fixme2"}        
+            element["properties"][property] = {"todo": "fixme3"}  
     else:
         return {"todo": "fixme3"}
-    return ret_val
+    element["properties"][property] = ret_val
 
+choices_appeared_in = {}
 
 schema = {
     '$schema': 'https://json-schema.org/draft/2020-12/schema',
     'id': '#root',
     "oneOf" : [
-    ]
+    ],
+    "properties" : {        
+    }
 }
 
 variable_names = csv #csv[csv['category'] == 'variable_name']
@@ -88,6 +111,11 @@ categories = csv[csv['category'] == 'mgmt_operations_event_choice']
 
 #print("categories:")
 #print(categories)
+
+banned_properties = {
+    "fertilizer_element_table_title": True,
+    "fertilizer_element_table": True
+}
 
 # Go through different choices for mgmt_operations_event, listed in the display names CSV
 for index, row in categories.iterrows():
@@ -135,7 +163,7 @@ for index, row in categories.iterrows():
             # If a property has a code_name then it will be a property in the JSON schema
             property = sub_element_value["code_name"] # Get property identifier
             # Parse choices for the property
-            sub_schema["properties"][property] = get_choices(sub_element_key, sub_element_value)
+            set_choices(sub_schema, property, sub_element_key, sub_element_value)
             # If the event's property has a property "multiple": true, then it may have a
             # property "sub_elements", which introduces additional dependent properties
             if "multiple" in sub_element_value and sub_element_value["multiple"] and "sub_elements" in sub_element_value:
@@ -144,13 +172,17 @@ for index, row in categories.iterrows():
                 if "single" in sub_elements:
                     for element_of_single_key, element_of_single_value in sub_elements["single"].items():
                         if "code_name" in element_of_single_value:
-                            sub_schema["properties"][element_of_single_key] = get_choices(element_of_single_key, element_of_single_value)
+                            set_choices(sub_schema, element_of_single_key, element_of_single_key, element_of_single_value)
                 # "hidden" in "sub_elements" introduces new properties that MAY be present
                 # Let's add them all anyhow
                 if "hidden" in sub_elements:
                     for element_of_hidden_key, element_of_hidden_value in sub_elements["hidden"].items():
                         if "code_name" in element_of_hidden_value:
-                            sub_schema["properties"][element_of_hidden_key] = get_choices(element_of_hidden_key, element_of_hidden_value)
+                            set_choices(sub_schema, element_of_hidden_key, element_of_hidden_key, element_of_hidden_value)
+        elif "hidden" in sub_element:
+            for element_of_hidden_key, element_of_hidden_value in sub_element["hidden"].items():
+                if "code_name" in element_of_hidden_value:
+                    set_choices(sub_schema, element_of_hidden_key, element_of_hidden_key, element_of_hidden_value)
 
     schema['oneOf'].append(sub_schema)
 

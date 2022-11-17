@@ -32,213 +32,7 @@
                     "title": "Planted crop",
                     "title_en": "Planted crop",
                     "title_fi": "Kylvetty laji",
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "const": "FRG",
-                            "title": "Timothy (Phleum pratense)",
-                            "title_en": "Timothy (Phleum pratense)",
-                            "title_fi": "Timotei (Phleum pratense)"
-                        },
-                        {
-                            "const": "WHT",
-                            "title": "Wheat (Triticum spp.)",
-                            "title_en": "Wheat (Triticum spp.)",
-                            "title_fi": "Vehnä (Triticum spp.)"
-                        },
-                        {
-                            "const": "OAT",
-                            "title": "Oats (Avena sativa)",
-                            "title_en": "Oats (Avena sativa)",
-                            "title_fi": "Kaura (Avena sativa)"
-                        },
-                        {
-                            "const": "RYE",
-                            "title": "Rye (Secale cereale)",
-                            "title_en": "Rye (Secale cereale)",
-                            "title_fi": "Ruis (Secale cereale)"
-                        },
-                        {
-                            "const": "BAR",
-                            "title": "Barley (Hordeum vulgare)",
-                            "title_en": "Barley (Hordeum vulgare)",
-                            "title_fi": "Ohra (Hordeum vulgare)"
-                        },
-                        {
-                            "const": "ZZ1",
-                            "title": "Mixed grain",
-                            "title_en": "Mixed grain",
-                            "title_fi": "Seosvilja"
-                        },
-                        {
-                            "const": "BWH",
-                            "title": "Buckwheat (Fagopyrum esculentum)",
-                            "title_en": "Buckwheat (Fagopyrum esculentum)",
-                            "title_fi": "Tattari (Fagopyrum esculentum)"
-                        },
-                        {
-                            "const": "POT",
-                            "title": "Potato (Solanum tuberosum)",
-                            "title_en": "Potato (Solanum tuberosum)",
-                            "title_fi": "Peruna (Solanum tuberosum)"
-                        },
-                        {
-                            "const": "SBT",
-                            "title": "Sugar beet (Beta vulgaris var. altissima)",
-                            "title_en": "Sugar beet (Beta vulgaris var. altissima)",
-                            "title_fi": "Sokerijuurikas (Beta vulgaris var. altissima)"
-                        },
-                        {
-                            "const": "PEA",
-                            "title": "Pea (Pisum sativum)",
-                            "title_en": "Pea (Pisum sativum)",
-                            "title_fi": "Herne (Pisum sativum)"
-                        },
-                        {
-                            "const": "FBN",
-                            "title": "Faba bean (Vicia faba)",
-                            "title_en": "Faba bean (Vicia faba)",
-                            "title_fi": "Härkäpapu (Vicia faba)"
-                        },
-                        {
-                            "const": "RYP",
-                            "title": "Turnip rape (Brassica rapa subsp. oleifera)",
-                            "title_en": "Turnip rape (Brassica rapa subsp. oleifera)",
-                            "title_fi": "Rypsi (Brassica rapa subsp. oleifera) "
-                        },
-                        {
-                            "const": "RAP",
-                            "title": "Rapeseed (Brassica napus subsp. napus)",
-                            "title_en": "Rapeseed (Brassica napus subsp. napus)",
-                            "title_fi": "Rapsi (Brassica napus subsp. napus)"
-                        },
-                        {
-                            "const": "FLX",
-                            "title": "Flax (Linum usitatissimum)",
-                            "title_en": "Flax (Linum usitatissimum)",
-                            "title_fi": "Pellava (Linum usitatissimum)"
-                        },
-                        {
-                            "const": "CCA",
-                            "title": "Caraway (Carum carvi)",
-                            "title_en": "Caraway (Carum carvi)",
-                            "title_fi": "Kumina (Carum carvi) "
-                        },
-                        {
-                            "const": "PHA",
-                            "title": "Reed canary grass (Phalaris arundinacea)",
-                            "title_en": "Reed canary grass (Phalaris arundinacea)",
-                            "title_fi": "Ruokohelpi (Phalaris arundinacea) "
-                        },
-                        {
-                            "const": "RCL",
-                            "title": "Red clover (Trifolium pratense)",
-                            "title_en": "Red clover (Trifolium pratense)",
-                            "title_fi": "Puna-apila (Trifolium pratense)"
-                        },
-                        {
-                            "const": "WCL",
-                            "title": "White clover (Trifolium repens)",
-                            "title_en": "White clover (Trifolium repens)",
-                            "title_fi": "Valkoapila (Trifolium repens) "
-                        },
-                        {
-                            "const": "ACL",
-                            "title": "Alsike clover (Trifolium hybridum)",
-                            "title_en": "Alsike clover (Trifolium hybridum)",
-                            "title_fi": "Alsikeapila (Trifolium hybridum) "
-                        },
-                        {
-                            "const": "ALF",
-                            "title": "Alfalfa (Medicago sativa)",
-                            "title_en": "Alfalfa (Medicago sativa)",
-                            "title_fi": "Sinimailanen (Medicago sativa)"
-                        },
-                        {
-                            "const": "RSO",
-                            "title": "Oilseed radish (Raphanus sativus var. oleiformis)",
-                            "title_en": "Oilseed radish (Raphanus sativus var. oleiformis)",
-                            "title_fi": "Öljyretikka (Raphanus sativus var. oleiformis) "
-                        },
-                        {
-                            "const": "VSA",
-                            "title": "Common vetch (Vicia sativa)",
-                            "title_en": "Common vetch (Vicia sativa)",
-                            "title_fi": "Rehuvirna (Vicia sativa) "
-                        },
-                        {
-                            "const": "BRI",
-                            "title": "Smooth brome (Bromus inermis)",
-                            "title_en": "Smooth brome (Bromus inermis)",
-                            "title_fi": "Rehukattara (Bromus inermis) "
-                        },
-                        {
-                            "const": "FEP",
-                            "title": "Meadow fescue (Festuca pratensis)",
-                            "title_en": "Meadow fescue (Festuca pratensis)",
-                            "title_fi": "Nurminata (Festuca pratensis) "
-                        },
-                        {
-                            "const": "RGP",
-                            "title": "Perennial ryegrass (Lolium perenne)",
-                            "title_en": "Perennial ryegrass (Lolium perenne)",
-                            "title_fi": "Englanninraiheinä (Lolium perenne)"
-                        },
-                        {
-                            "const": "POA",
-                            "title": "Kentucky bluegrass (Poa pratensis)",
-                            "title_en": "Kentucky bluegrass (Poa pratensis)",
-                            "title_fi": "Niittynurmikka (Poa pratensis) "
-                        },
-                        {
-                            "const": "SDR",
-                            "title": "Sudan grass (Sorghum × drummondii)",
-                            "title_en": "Sudan grass (Sorghum × drummondii)",
-                            "title_fi": "Sudaninruoho (Sorghum × drummondii) "
-                        },
-                        {
-                            "const": "RGA",
-                            "title": "Annual ryegrass (Festuca perennis / Lolium multiflorum)",
-                            "title_en": "Annual ryegrass (Festuca perennis / Lolium multiflorum)",
-                            "title_fi": "Italianraiheinä (Festuca perennis / Lolium multiflorum) "
-                        },
-                        {
-                            "const": "TFS",
-                            "title": "Tall fescue (Festuca arundinacea / Schedonorus arundinaceus)",
-                            "title_en": "Tall fescue (Festuca arundinacea / Schedonorus arundinaceus)",
-                            "title_fi": "Ruokonata (Festuca arundinacea / Schedonorus arundinaceus) "
-                        },
-                        {
-                            "const": "HVT",
-                            "title": "Hairy vetch (Vicia villosa)",
-                            "title_en": "Hairy vetch (Vicia villosa)",
-                            "title_fi": "Ruisvirna (Vicia villosa)"
-                        },
-                        {
-                            "const": "TRM",
-                            "title": "Persian clover (Trifolium resupinatum var. majus)",
-                            "title_en": "Persian clover (Trifolium resupinatum var. majus)",
-                            "title_fi": "Persianapila (Trifolium resupinatum var. majus) "
-                        },
-                        {
-                            "const": "XFL",
-                            "title": "Hybrid fescue (x Festulolium loliaceum)",
-                            "title_en": "Hybrid fescue (x Festulolium loliaceum)",
-                            "title_fi": "Rainata (x Festulolium loliaceum) "
-                        },
-                        {
-                            "const": "CII",
-                            "title": "Common chicory (Cichorium intybus)",
-                            "title_en": "Common chicory (Cichorium intybus)",
-                            "title_fi": "Sikuri (Cichorium intybus) "
-                        },
-                        {
-                            "const": "PHT",
-                            "title": "Lacy phacelia (Phacelia tanacetifolia)",
-                            "title_en": "Lacy phacelia (Phacelia tanacetifolia)",
-                            "title_fi": "Aitohunajakukka (Phacelia tanacetifolia)"
-                        }
-                    ]
+                    "$ref": "#/definitions/CRID"
                 },
                 "planting_material_weight": {
                     "title": "Weight of seeds (kg/ha)",
@@ -307,6 +101,111 @@
                     "title_fi": "Kuvaus",
                     "type": "string"
                 },
+                "N_in_applied_fertilizer": {
+                    "title": "Amount of total nitrogen (N) in fertilizer (kg/ha)",
+                    "title_en": "Amount of total nitrogen (N) in fertilizer (kg/ha)",
+                    "title_fi": "Typen (N) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "N_in_soluble_fertilizer": {
+                    "title": "Amount of soluble nitrogen (N) in fertilizer (kg/ha)",
+                    "title_en": "Amount of soluble nitrogen (N) in fertilizer (kg/ha)",
+                    "title_fi": " Liukenevan typen (N) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "phosphorus_applied_fert": {
+                    "title": "Amount of phosphorus (P) in fertilizer (kg/ha)",
+                    "title_en": "Amount of phosphorus (P) in fertilizer (kg/ha)",
+                    "title_fi": "Fosforin (P) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "fertilizer_K_applied": {
+                    "title": "Amount of potassium (K) in fertilizer (kg/ha)",
+                    "title_en": "Amount of potassium (K) in fertilizer (kg/ha)",
+                    "title_fi": "Kaliumin (K) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "S_in_applied_fertilizer": {
+                    "title": "Amount of sulphur (S) in fertilizer (kg/ha)",
+                    "title_en": "Amount of sulphur (S) in fertilizer (kg/ha)",
+                    "title_fi": "Rikin (S) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "Ca_in_applied_fertilizer": {
+                    "title": "Amount of calcium (Ca) in fertilizer (kg/ha)",
+                    "title_en": "Amount of calcium (Ca) in fertilizer (kg/ha)",
+                    "title_fi": "Kalsiumin (Ca) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "Mg_in_applied_fertilizer": {
+                    "title": "Amount of magnesium (Mg) in fertilizer (kg/ha)",
+                    "title_en": "Amount of magnesium (Mg) in fertilizer (kg/ha)",
+                    "title_fi": "Magnesiumin (Mg) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "Na_in_applied_fertilizer": {
+                    "title": "Amount of sodium (Na) in fertilizer (kg/ha)",
+                    "title_en": "Amount of sodium (Na) in fertilizer (kg/ha)",
+                    "title_fi": "Natriumin (Na) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "Cu_in_applied_fertilizer": {
+                    "title": "Amount of copper (Cu) in fertilizer (kg/ha)",
+                    "title_en": "Amount of copper (Cu) in fertilizer (kg/ha)",
+                    "title_fi": "Kuparin (Cu) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "Zn_in_applied_fertilizer": {
+                    "title": "Amount of zinc (Zn) in fertilizer (kg/ha)",
+                    "title_en": "Amount of zinc (Zn) in fertilizer (kg/ha)",
+                    "title_fi": "Sinkin (Zn) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "B_in_applied_fertilizer": {
+                    "title": "Amount of boron (B) in fertilizer (kg/ha)",
+                    "title_en": "Amount of boron (B) in fertilizer (kg/ha)",
+                    "title_fi": "Boorin (B) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "Mn_in_applied_fertilizer": {
+                    "title": "Amount of manganese (Mn) in fertilizer (kg/ha)",
+                    "title_en": "Amount of manganese (Mn) in fertilizer (kg/ha)",
+                    "title_fi": "Mangaanin (Mn) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "Se_in_applied_fertilizer": {
+                    "title": "Amount of selenium (Se) in fertilizer (kg/ha)",
+                    "title_en": "Amount of selenium (Se) in fertilizer (kg/ha)",
+                    "title_fi": "Seleenin (Se) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "Fe_in_applied_fertilizer": {
+                    "title": "Amount of iron (Fe) in fertilizer (kg/ha)",
+                    "title_en": "Amount of iron (Fe) in fertilizer (kg/ha)",
+                    "title_fi": "Raudan (Fe) määrä lannoitteessa (kg/ha)",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "other_element_in_applied_fertilizer": {
+                    "title": "Other elements in fertilizer (kg/ha)",
+                    "title_en": "Other elements in fertilizer (kg/ha)",
+                    "title_fi": "Muut ravinteet lannoitteessa (kg/ha)",
+                    "type": "string",
+                    "ui_type": "textInput"
+                },
                 "fertilizer_type": {
                     "title": "Fertilizer type",
                     "title_en": "Fertilizer type",
@@ -337,69 +236,7 @@
                     "title": "Application method",
                     "title_en": "Application method",
                     "title_fi": "Levitystapa",
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "const": "AP001",
-                            "title": "Broadcast, not incorporated",
-                            "title_en": "Broadcast, not incorporated",
-                            "title_fi": "Levitetty pinnalle, ei sekoitettu"
-                        },
-                        {
-                            "const": "AP002",
-                            "title": "Broadcast, incorporated",
-                            "title_en": "Broadcast, incorporated",
-                            "title_fi": "Levitetty ja sekoitettu"
-                        },
-                        {
-                            "const": "AP003",
-                            "title": "Banded on surface",
-                            "title_en": "Banded on surface",
-                            "title_fi": "Nauhoina pinnalla"
-                        },
-                        {
-                            "const": "AP004",
-                            "title": "Banded beneath surface",
-                            "title_en": "Banded beneath surface",
-                            "title_fi": "Sijoituslannoitus"
-                        },
-                        {
-                            "const": "AP005",
-                            "title": "Applied in irrigation water",
-                            "title_en": "Applied in irrigation water",
-                            "title_fi": "Kasteluveden mukana"
-                        },
-                        {
-                            "const": "AP006",
-                            "title": "Foliar spray",
-                            "title_en": "Foliar spray",
-                            "title_fi": "Suihkutettu lehdelle"
-                        },
-                        {
-                            "const": "AP007",
-                            "title": "Bottom of hole",
-                            "title_en": "Bottom of hole",
-                            "title_fi": "Bottom of hole -käännös"
-                        },
-                        {
-                            "const": "AP008",
-                            "title": "On the seed",
-                            "title_en": "On the seed",
-                            "title_fi": "Siemenen pinnassa"
-                        },
-                        {
-                            "const": "AP009",
-                            "title": "Injected",
-                            "title_en": "Injected",
-                            "title_fi": "Ruiskutettu pinnan alle"
-                        },
-                        {
-                            "const": "AP999",
-                            "title": "Method unknown/not given",
-                            "title_en": "Method unknown/not given",
-                            "title_fi": "Tapa ei tiedossa"
-                        }
-                    ]
+                    "$ref": "#/definitions/FEACD"
                 },
                 "application_depth_fert": {
                     "title": "Application depth (cm)",
@@ -414,12 +251,6 @@
                     "title_fi": "Lannoitteen kokonaismäärä (kg/ha)",
                     "type": "number",
                     "minimum": 0
-                },
-                "fertilizer_element_table_title": {
-                    "todo": "fixme2"
-                },
-                "fertilizer_element_table": {
-                    "todo": "fixme2"
                 },
                 "fertilizer_notes": {
                     "title": "Notes on fertilizer application",
@@ -649,213 +480,7 @@
                     "title": "Harvest crop",
                     "title_en": "Harvest crop",
                     "title_fi": "Korjattu laji",
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "const": "FRG",
-                            "title": "Timothy (Phleum pratense)",
-                            "title_en": "Timothy (Phleum pratense)",
-                            "title_fi": "Timotei (Phleum pratense)"
-                        },
-                        {
-                            "const": "WHT",
-                            "title": "Wheat (Triticum spp.)",
-                            "title_en": "Wheat (Triticum spp.)",
-                            "title_fi": "Vehnä (Triticum spp.)"
-                        },
-                        {
-                            "const": "OAT",
-                            "title": "Oats (Avena sativa)",
-                            "title_en": "Oats (Avena sativa)",
-                            "title_fi": "Kaura (Avena sativa)"
-                        },
-                        {
-                            "const": "RYE",
-                            "title": "Rye (Secale cereale)",
-                            "title_en": "Rye (Secale cereale)",
-                            "title_fi": "Ruis (Secale cereale)"
-                        },
-                        {
-                            "const": "BAR",
-                            "title": "Barley (Hordeum vulgare)",
-                            "title_en": "Barley (Hordeum vulgare)",
-                            "title_fi": "Ohra (Hordeum vulgare)"
-                        },
-                        {
-                            "const": "ZZ1",
-                            "title": "Mixed grain",
-                            "title_en": "Mixed grain",
-                            "title_fi": "Seosvilja"
-                        },
-                        {
-                            "const": "BWH",
-                            "title": "Buckwheat (Fagopyrum esculentum)",
-                            "title_en": "Buckwheat (Fagopyrum esculentum)",
-                            "title_fi": "Tattari (Fagopyrum esculentum)"
-                        },
-                        {
-                            "const": "POT",
-                            "title": "Potato (Solanum tuberosum)",
-                            "title_en": "Potato (Solanum tuberosum)",
-                            "title_fi": "Peruna (Solanum tuberosum)"
-                        },
-                        {
-                            "const": "SBT",
-                            "title": "Sugar beet (Beta vulgaris var. altissima)",
-                            "title_en": "Sugar beet (Beta vulgaris var. altissima)",
-                            "title_fi": "Sokerijuurikas (Beta vulgaris var. altissima)"
-                        },
-                        {
-                            "const": "PEA",
-                            "title": "Pea (Pisum sativum)",
-                            "title_en": "Pea (Pisum sativum)",
-                            "title_fi": "Herne (Pisum sativum)"
-                        },
-                        {
-                            "const": "FBN",
-                            "title": "Faba bean (Vicia faba)",
-                            "title_en": "Faba bean (Vicia faba)",
-                            "title_fi": "Härkäpapu (Vicia faba)"
-                        },
-                        {
-                            "const": "RYP",
-                            "title": "Turnip rape (Brassica rapa subsp. oleifera)",
-                            "title_en": "Turnip rape (Brassica rapa subsp. oleifera)",
-                            "title_fi": "Rypsi (Brassica rapa subsp. oleifera) "
-                        },
-                        {
-                            "const": "RAP",
-                            "title": "Rapeseed (Brassica napus subsp. napus)",
-                            "title_en": "Rapeseed (Brassica napus subsp. napus)",
-                            "title_fi": "Rapsi (Brassica napus subsp. napus)"
-                        },
-                        {
-                            "const": "FLX",
-                            "title": "Flax (Linum usitatissimum)",
-                            "title_en": "Flax (Linum usitatissimum)",
-                            "title_fi": "Pellava (Linum usitatissimum)"
-                        },
-                        {
-                            "const": "CCA",
-                            "title": "Caraway (Carum carvi)",
-                            "title_en": "Caraway (Carum carvi)",
-                            "title_fi": "Kumina (Carum carvi) "
-                        },
-                        {
-                            "const": "PHA",
-                            "title": "Reed canary grass (Phalaris arundinacea)",
-                            "title_en": "Reed canary grass (Phalaris arundinacea)",
-                            "title_fi": "Ruokohelpi (Phalaris arundinacea) "
-                        },
-                        {
-                            "const": "RCL",
-                            "title": "Red clover (Trifolium pratense)",
-                            "title_en": "Red clover (Trifolium pratense)",
-                            "title_fi": "Puna-apila (Trifolium pratense)"
-                        },
-                        {
-                            "const": "WCL",
-                            "title": "White clover (Trifolium repens)",
-                            "title_en": "White clover (Trifolium repens)",
-                            "title_fi": "Valkoapila (Trifolium repens) "
-                        },
-                        {
-                            "const": "ACL",
-                            "title": "Alsike clover (Trifolium hybridum)",
-                            "title_en": "Alsike clover (Trifolium hybridum)",
-                            "title_fi": "Alsikeapila (Trifolium hybridum) "
-                        },
-                        {
-                            "const": "ALF",
-                            "title": "Alfalfa (Medicago sativa)",
-                            "title_en": "Alfalfa (Medicago sativa)",
-                            "title_fi": "Sinimailanen (Medicago sativa)"
-                        },
-                        {
-                            "const": "RSO",
-                            "title": "Oilseed radish (Raphanus sativus var. oleiformis)",
-                            "title_en": "Oilseed radish (Raphanus sativus var. oleiformis)",
-                            "title_fi": "Öljyretikka (Raphanus sativus var. oleiformis) "
-                        },
-                        {
-                            "const": "VSA",
-                            "title": "Common vetch (Vicia sativa)",
-                            "title_en": "Common vetch (Vicia sativa)",
-                            "title_fi": "Rehuvirna (Vicia sativa) "
-                        },
-                        {
-                            "const": "BRI",
-                            "title": "Smooth brome (Bromus inermis)",
-                            "title_en": "Smooth brome (Bromus inermis)",
-                            "title_fi": "Rehukattara (Bromus inermis) "
-                        },
-                        {
-                            "const": "FEP",
-                            "title": "Meadow fescue (Festuca pratensis)",
-                            "title_en": "Meadow fescue (Festuca pratensis)",
-                            "title_fi": "Nurminata (Festuca pratensis) "
-                        },
-                        {
-                            "const": "RGP",
-                            "title": "Perennial ryegrass (Lolium perenne)",
-                            "title_en": "Perennial ryegrass (Lolium perenne)",
-                            "title_fi": "Englanninraiheinä (Lolium perenne)"
-                        },
-                        {
-                            "const": "POA",
-                            "title": "Kentucky bluegrass (Poa pratensis)",
-                            "title_en": "Kentucky bluegrass (Poa pratensis)",
-                            "title_fi": "Niittynurmikka (Poa pratensis) "
-                        },
-                        {
-                            "const": "SDR",
-                            "title": "Sudan grass (Sorghum × drummondii)",
-                            "title_en": "Sudan grass (Sorghum × drummondii)",
-                            "title_fi": "Sudaninruoho (Sorghum × drummondii) "
-                        },
-                        {
-                            "const": "RGA",
-                            "title": "Annual ryegrass (Festuca perennis / Lolium multiflorum)",
-                            "title_en": "Annual ryegrass (Festuca perennis / Lolium multiflorum)",
-                            "title_fi": "Italianraiheinä (Festuca perennis / Lolium multiflorum) "
-                        },
-                        {
-                            "const": "TFS",
-                            "title": "Tall fescue (Festuca arundinacea / Schedonorus arundinaceus)",
-                            "title_en": "Tall fescue (Festuca arundinacea / Schedonorus arundinaceus)",
-                            "title_fi": "Ruokonata (Festuca arundinacea / Schedonorus arundinaceus) "
-                        },
-                        {
-                            "const": "HVT",
-                            "title": "Hairy vetch (Vicia villosa)",
-                            "title_en": "Hairy vetch (Vicia villosa)",
-                            "title_fi": "Ruisvirna (Vicia villosa)"
-                        },
-                        {
-                            "const": "TRM",
-                            "title": "Persian clover (Trifolium resupinatum var. majus)",
-                            "title_en": "Persian clover (Trifolium resupinatum var. majus)",
-                            "title_fi": "Persianapila (Trifolium resupinatum var. majus) "
-                        },
-                        {
-                            "const": "XFL",
-                            "title": "Hybrid fescue (x Festulolium loliaceum)",
-                            "title_en": "Hybrid fescue (x Festulolium loliaceum)",
-                            "title_fi": "Rainata (x Festulolium loliaceum) "
-                        },
-                        {
-                            "const": "CII",
-                            "title": "Common chicory (Cichorium intybus)",
-                            "title_en": "Common chicory (Cichorium intybus)",
-                            "title_fi": "Sikuri (Cichorium intybus) "
-                        },
-                        {
-                            "const": "PHT",
-                            "title": "Lacy phacelia (Phacelia tanacetifolia)",
-                            "title_en": "Lacy phacelia (Phacelia tanacetifolia)",
-                            "title_fi": "Aitohunajakukka (Phacelia tanacetifolia)"
-                        }
-                    ]
+                    "$ref": "#/definitions/CRID"
                 },
                 "harvest_yield_harvest_dw_total": {
                     "title": "Yield, total dry weight (kg/ha)",
@@ -1067,7 +692,9 @@
                     "minimum": 0
                 },
                 "harvest_residue_help_text": {
-                    "todo": "fixme2"
+                    "title": "If you left the harvest residue on the field, please add a new event (fertilizer application or tillage) accordingly.",
+                    "title_en": "If you left the harvest residue on the field, please add a new event (fertilizer application or tillage) accordingly.",
+                    "title_fi": "Jos jätit korjuutähteet pellolle, tee tästä uusi soveltuva tapahtuma (lannoitus- tai maanmuokkaus-)."
                 },
                 "harvest_comments": {
                     "title": "Harvest comments",
@@ -1084,7 +711,10 @@
             "required": [
                 "mgmt_operations_event",
                 "date"
-            ]
+            ],
+            "description": "If you left the harvest residue on the field, please add a new event (fertilizer application or tillage) accordingly.",
+            "description_en": "If you left the harvest residue on the field, please add a new event (fertilizer application or tillage) accordingly.",
+            "description_fi": "Jos jätit korjuutähteet pellolle, tee tästä uusi soveltuva tapahtuma (lannoitus- tai maanmuokkaus-)."
         },
         {
             "id": "#chemicals",
@@ -1325,69 +955,7 @@
                     "title": "Chemical application method",
                     "title_en": "Chemical application method",
                     "title_fi": "Kemikaalinlevitystapa",
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "const": "AP001",
-                            "title": "Broadcast, not incorporated",
-                            "title_en": "Broadcast, not incorporated",
-                            "title_fi": "Levitetty pinnalle, ei sekoitettu"
-                        },
-                        {
-                            "const": "AP002",
-                            "title": "Broadcast, incorporated",
-                            "title_en": "Broadcast, incorporated",
-                            "title_fi": "Levitetty ja sekoitettu"
-                        },
-                        {
-                            "const": "AP003",
-                            "title": "Banded on surface",
-                            "title_en": "Banded on surface",
-                            "title_fi": "Nauhoina pinnalla"
-                        },
-                        {
-                            "const": "AP004",
-                            "title": "Banded beneath surface",
-                            "title_en": "Banded beneath surface",
-                            "title_fi": "Sijoituslannoitus"
-                        },
-                        {
-                            "const": "AP005",
-                            "title": "Applied in irrigation water",
-                            "title_en": "Applied in irrigation water",
-                            "title_fi": "Kasteluveden mukana"
-                        },
-                        {
-                            "const": "AP006",
-                            "title": "Foliar spray",
-                            "title_en": "Foliar spray",
-                            "title_fi": "Suihkutettu lehdelle"
-                        },
-                        {
-                            "const": "AP007",
-                            "title": "Bottom of hole",
-                            "title_en": "Bottom of hole",
-                            "title_fi": "Bottom of hole -käännös"
-                        },
-                        {
-                            "const": "AP008",
-                            "title": "On the seed",
-                            "title_en": "On the seed",
-                            "title_fi": "Siemenen pinnassa"
-                        },
-                        {
-                            "const": "AP009",
-                            "title": "Injected",
-                            "title_en": "Injected",
-                            "title_fi": "Ruiskutettu pinnan alle"
-                        },
-                        {
-                            "const": "AP999",
-                            "title": "Method unknown/not given",
-                            "title_en": "Method unknown/not given",
-                            "title_fi": "Tapa ei tiedossa"
-                        }
-                    ]
+                    "$ref": "#/definitions/FEACD"
                 },
                 "chemical_applic_amount": {
                     "title": "Chemical amount (kg/ha)",
@@ -1549,7 +1117,9 @@
                     "minimum": 0
                 },
                 "grazing_period": {
-                    "todo": "fixme1"
+                    "title": "Grazing period",
+                    "title_en": "Grazing period",
+                    "title_fi": "Laidunnusjakso"
                 },
                 "grazing_type": {
                     "title": "Grazing type",
@@ -1833,213 +1403,7 @@
                     "title": "Mowed crop",
                     "title_en": "Mowed crop",
                     "title_fi": "Leikattu kasvi",
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "const": "FRG",
-                            "title": "Timothy (Phleum pratense)",
-                            "title_en": "Timothy (Phleum pratense)",
-                            "title_fi": "Timotei (Phleum pratense)"
-                        },
-                        {
-                            "const": "WHT",
-                            "title": "Wheat (Triticum spp.)",
-                            "title_en": "Wheat (Triticum spp.)",
-                            "title_fi": "Vehnä (Triticum spp.)"
-                        },
-                        {
-                            "const": "OAT",
-                            "title": "Oats (Avena sativa)",
-                            "title_en": "Oats (Avena sativa)",
-                            "title_fi": "Kaura (Avena sativa)"
-                        },
-                        {
-                            "const": "RYE",
-                            "title": "Rye (Secale cereale)",
-                            "title_en": "Rye (Secale cereale)",
-                            "title_fi": "Ruis (Secale cereale)"
-                        },
-                        {
-                            "const": "BAR",
-                            "title": "Barley (Hordeum vulgare)",
-                            "title_en": "Barley (Hordeum vulgare)",
-                            "title_fi": "Ohra (Hordeum vulgare)"
-                        },
-                        {
-                            "const": "ZZ1",
-                            "title": "Mixed grain",
-                            "title_en": "Mixed grain",
-                            "title_fi": "Seosvilja"
-                        },
-                        {
-                            "const": "BWH",
-                            "title": "Buckwheat (Fagopyrum esculentum)",
-                            "title_en": "Buckwheat (Fagopyrum esculentum)",
-                            "title_fi": "Tattari (Fagopyrum esculentum)"
-                        },
-                        {
-                            "const": "POT",
-                            "title": "Potato (Solanum tuberosum)",
-                            "title_en": "Potato (Solanum tuberosum)",
-                            "title_fi": "Peruna (Solanum tuberosum)"
-                        },
-                        {
-                            "const": "SBT",
-                            "title": "Sugar beet (Beta vulgaris var. altissima)",
-                            "title_en": "Sugar beet (Beta vulgaris var. altissima)",
-                            "title_fi": "Sokerijuurikas (Beta vulgaris var. altissima)"
-                        },
-                        {
-                            "const": "PEA",
-                            "title": "Pea (Pisum sativum)",
-                            "title_en": "Pea (Pisum sativum)",
-                            "title_fi": "Herne (Pisum sativum)"
-                        },
-                        {
-                            "const": "FBN",
-                            "title": "Faba bean (Vicia faba)",
-                            "title_en": "Faba bean (Vicia faba)",
-                            "title_fi": "Härkäpapu (Vicia faba)"
-                        },
-                        {
-                            "const": "RYP",
-                            "title": "Turnip rape (Brassica rapa subsp. oleifera)",
-                            "title_en": "Turnip rape (Brassica rapa subsp. oleifera)",
-                            "title_fi": "Rypsi (Brassica rapa subsp. oleifera) "
-                        },
-                        {
-                            "const": "RAP",
-                            "title": "Rapeseed (Brassica napus subsp. napus)",
-                            "title_en": "Rapeseed (Brassica napus subsp. napus)",
-                            "title_fi": "Rapsi (Brassica napus subsp. napus)"
-                        },
-                        {
-                            "const": "FLX",
-                            "title": "Flax (Linum usitatissimum)",
-                            "title_en": "Flax (Linum usitatissimum)",
-                            "title_fi": "Pellava (Linum usitatissimum)"
-                        },
-                        {
-                            "const": "CCA",
-                            "title": "Caraway (Carum carvi)",
-                            "title_en": "Caraway (Carum carvi)",
-                            "title_fi": "Kumina (Carum carvi) "
-                        },
-                        {
-                            "const": "PHA",
-                            "title": "Reed canary grass (Phalaris arundinacea)",
-                            "title_en": "Reed canary grass (Phalaris arundinacea)",
-                            "title_fi": "Ruokohelpi (Phalaris arundinacea) "
-                        },
-                        {
-                            "const": "RCL",
-                            "title": "Red clover (Trifolium pratense)",
-                            "title_en": "Red clover (Trifolium pratense)",
-                            "title_fi": "Puna-apila (Trifolium pratense)"
-                        },
-                        {
-                            "const": "WCL",
-                            "title": "White clover (Trifolium repens)",
-                            "title_en": "White clover (Trifolium repens)",
-                            "title_fi": "Valkoapila (Trifolium repens) "
-                        },
-                        {
-                            "const": "ACL",
-                            "title": "Alsike clover (Trifolium hybridum)",
-                            "title_en": "Alsike clover (Trifolium hybridum)",
-                            "title_fi": "Alsikeapila (Trifolium hybridum) "
-                        },
-                        {
-                            "const": "ALF",
-                            "title": "Alfalfa (Medicago sativa)",
-                            "title_en": "Alfalfa (Medicago sativa)",
-                            "title_fi": "Sinimailanen (Medicago sativa)"
-                        },
-                        {
-                            "const": "RSO",
-                            "title": "Oilseed radish (Raphanus sativus var. oleiformis)",
-                            "title_en": "Oilseed radish (Raphanus sativus var. oleiformis)",
-                            "title_fi": "Öljyretikka (Raphanus sativus var. oleiformis) "
-                        },
-                        {
-                            "const": "VSA",
-                            "title": "Common vetch (Vicia sativa)",
-                            "title_en": "Common vetch (Vicia sativa)",
-                            "title_fi": "Rehuvirna (Vicia sativa) "
-                        },
-                        {
-                            "const": "BRI",
-                            "title": "Smooth brome (Bromus inermis)",
-                            "title_en": "Smooth brome (Bromus inermis)",
-                            "title_fi": "Rehukattara (Bromus inermis) "
-                        },
-                        {
-                            "const": "FEP",
-                            "title": "Meadow fescue (Festuca pratensis)",
-                            "title_en": "Meadow fescue (Festuca pratensis)",
-                            "title_fi": "Nurminata (Festuca pratensis) "
-                        },
-                        {
-                            "const": "RGP",
-                            "title": "Perennial ryegrass (Lolium perenne)",
-                            "title_en": "Perennial ryegrass (Lolium perenne)",
-                            "title_fi": "Englanninraiheinä (Lolium perenne)"
-                        },
-                        {
-                            "const": "POA",
-                            "title": "Kentucky bluegrass (Poa pratensis)",
-                            "title_en": "Kentucky bluegrass (Poa pratensis)",
-                            "title_fi": "Niittynurmikka (Poa pratensis) "
-                        },
-                        {
-                            "const": "SDR",
-                            "title": "Sudan grass (Sorghum × drummondii)",
-                            "title_en": "Sudan grass (Sorghum × drummondii)",
-                            "title_fi": "Sudaninruoho (Sorghum × drummondii) "
-                        },
-                        {
-                            "const": "RGA",
-                            "title": "Annual ryegrass (Festuca perennis / Lolium multiflorum)",
-                            "title_en": "Annual ryegrass (Festuca perennis / Lolium multiflorum)",
-                            "title_fi": "Italianraiheinä (Festuca perennis / Lolium multiflorum) "
-                        },
-                        {
-                            "const": "TFS",
-                            "title": "Tall fescue (Festuca arundinacea / Schedonorus arundinaceus)",
-                            "title_en": "Tall fescue (Festuca arundinacea / Schedonorus arundinaceus)",
-                            "title_fi": "Ruokonata (Festuca arundinacea / Schedonorus arundinaceus) "
-                        },
-                        {
-                            "const": "HVT",
-                            "title": "Hairy vetch (Vicia villosa)",
-                            "title_en": "Hairy vetch (Vicia villosa)",
-                            "title_fi": "Ruisvirna (Vicia villosa)"
-                        },
-                        {
-                            "const": "TRM",
-                            "title": "Persian clover (Trifolium resupinatum var. majus)",
-                            "title_en": "Persian clover (Trifolium resupinatum var. majus)",
-                            "title_fi": "Persianapila (Trifolium resupinatum var. majus) "
-                        },
-                        {
-                            "const": "XFL",
-                            "title": "Hybrid fescue (x Festulolium loliaceum)",
-                            "title_en": "Hybrid fescue (x Festulolium loliaceum)",
-                            "title_fi": "Rainata (x Festulolium loliaceum) "
-                        },
-                        {
-                            "const": "CII",
-                            "title": "Common chicory (Cichorium intybus)",
-                            "title_en": "Common chicory (Cichorium intybus)",
-                            "title_fi": "Sikuri (Cichorium intybus) "
-                        },
-                        {
-                            "const": "PHT",
-                            "title": "Lacy phacelia (Phacelia tanacetifolia)",
-                            "title_en": "Lacy phacelia (Phacelia tanacetifolia)",
-                            "title_fi": "Aitohunajakukka (Phacelia tanacetifolia)"
-                        }
-                    ]
+                    "$ref": "#/definitions/CRID"
                 },
                 "mowed_area": {
                     "title": "Mowed area (ha)",
@@ -2255,75 +1619,7 @@
                     "title": "Mulch type",
                     "title_en": "Mulch type",
                     "title_fi": "Katteen tyyppi",
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "const": "MT001",
-                            "title": "Polyethylene sheet - solid",
-                            "title_en": "Polyethylene sheet - solid",
-                            "title_fi": "Katemuovi (PE)"
-                        },
-                        {
-                            "const": "MT002",
-                            "title": "Polyethylene sheet - perforated",
-                            "title_en": "Polyethylene sheet - perforated",
-                            "title_fi": "Rei'itetty katemuovi (PE)"
-                        },
-                        {
-                            "const": "MT003",
-                            "title": "Landscape fabric",
-                            "title_en": "Landscape fabric",
-                            "title_fi": "Maisemointikangas"
-                        },
-                        {
-                            "const": "MT004",
-                            "title": "Paper",
-                            "title_en": "Paper",
-                            "title_fi": "Paperi"
-                        },
-                        {
-                            "const": "MT005",
-                            "title": "Grass clippings",
-                            "title_en": "Grass clippings",
-                            "title_fi": "Leikattu ruoho"
-                        },
-                        {
-                            "const": "MT006",
-                            "title": "Pine needles",
-                            "title_en": "Pine needles",
-                            "title_fi": "Männynneulaset"
-                        },
-                        {
-                            "const": "MT007",
-                            "title": "Straw",
-                            "title_en": "Straw",
-                            "title_fi": "Olki"
-                        },
-                        {
-                            "const": "MT008",
-                            "title": "Foil",
-                            "title_en": "Foil",
-                            "title_fi": "Folio (foil?)"
-                        },
-                        {
-                            "const": "MT009",
-                            "title": "Foil coated plastic",
-                            "title_en": "Foil coated plastic",
-                            "title_fi": "Muovipäällysteinen folio (foil coated with plastic?)"
-                        },
-                        {
-                            "const": "MT010",
-                            "title": "Photodegradable plastic",
-                            "title_en": "Photodegradable plastic",
-                            "title_fi": "Valohajoava muovi"
-                        },
-                        {
-                            "const": "MT999",
-                            "title": "Not given/unknown",
-                            "title_en": "Not given/unknown",
-                            "title_fi": "Ei tiedossa"
-                        }
-                    ]
+                    "$ref": "#/definitions/MLTP"
                 },
                 "mulch_thickness": {
                     "title": "Mulch thickness (mm)",
@@ -2431,75 +1727,7 @@
                     "title": "Type of removed mulch",
                     "title_en": "Type of removed mulch",
                     "title_fi": "Poistetun katteen tyyppi",
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "const": "MT001",
-                            "title": "Polyethylene sheet - solid",
-                            "title_en": "Polyethylene sheet - solid",
-                            "title_fi": "Katemuovi (PE)"
-                        },
-                        {
-                            "const": "MT002",
-                            "title": "Polyethylene sheet - perforated",
-                            "title_en": "Polyethylene sheet - perforated",
-                            "title_fi": "Rei'itetty katemuovi (PE)"
-                        },
-                        {
-                            "const": "MT003",
-                            "title": "Landscape fabric",
-                            "title_en": "Landscape fabric",
-                            "title_fi": "Maisemointikangas"
-                        },
-                        {
-                            "const": "MT004",
-                            "title": "Paper",
-                            "title_en": "Paper",
-                            "title_fi": "Paperi"
-                        },
-                        {
-                            "const": "MT005",
-                            "title": "Grass clippings",
-                            "title_en": "Grass clippings",
-                            "title_fi": "Leikattu ruoho"
-                        },
-                        {
-                            "const": "MT006",
-                            "title": "Pine needles",
-                            "title_en": "Pine needles",
-                            "title_fi": "Männynneulaset"
-                        },
-                        {
-                            "const": "MT007",
-                            "title": "Straw",
-                            "title_en": "Straw",
-                            "title_fi": "Olki"
-                        },
-                        {
-                            "const": "MT008",
-                            "title": "Foil",
-                            "title_en": "Foil",
-                            "title_fi": "Folio (foil?)"
-                        },
-                        {
-                            "const": "MT009",
-                            "title": "Foil coated plastic",
-                            "title_en": "Foil coated plastic",
-                            "title_fi": "Muovipäällysteinen folio (foil coated with plastic?)"
-                        },
-                        {
-                            "const": "MT010",
-                            "title": "Photodegradable plastic",
-                            "title_en": "Photodegradable plastic",
-                            "title_fi": "Valohajoava muovi"
-                        },
-                        {
-                            "const": "MT999",
-                            "title": "Not given/unknown",
-                            "title_en": "Not given/unknown",
-                            "title_fi": "Ei tiedossa"
-                        }
-                    ]
+                    "$ref": "#/definitions/MLTP"
                 },
                 "mulch_removal_notes": {
                     "title": "Mulch removal notes",
@@ -2558,5 +1786,352 @@
                 "date"
             ]
         }
-    ]
+    ],
+    "properties": {
+        "CRID": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "const": "FRG",
+                    "title": "Timothy (Phleum pratense)",
+                    "title_en": "Timothy (Phleum pratense)",
+                    "title_fi": "Timotei (Phleum pratense)"
+                },
+                {
+                    "const": "WHT",
+                    "title": "Wheat (Triticum spp.)",
+                    "title_en": "Wheat (Triticum spp.)",
+                    "title_fi": "Vehnä (Triticum spp.)"
+                },
+                {
+                    "const": "OAT",
+                    "title": "Oats (Avena sativa)",
+                    "title_en": "Oats (Avena sativa)",
+                    "title_fi": "Kaura (Avena sativa)"
+                },
+                {
+                    "const": "RYE",
+                    "title": "Rye (Secale cereale)",
+                    "title_en": "Rye (Secale cereale)",
+                    "title_fi": "Ruis (Secale cereale)"
+                },
+                {
+                    "const": "BAR",
+                    "title": "Barley (Hordeum vulgare)",
+                    "title_en": "Barley (Hordeum vulgare)",
+                    "title_fi": "Ohra (Hordeum vulgare)"
+                },
+                {
+                    "const": "ZZ1",
+                    "title": "Mixed grain",
+                    "title_en": "Mixed grain",
+                    "title_fi": "Seosvilja"
+                },
+                {
+                    "const": "BWH",
+                    "title": "Buckwheat (Fagopyrum esculentum)",
+                    "title_en": "Buckwheat (Fagopyrum esculentum)",
+                    "title_fi": "Tattari (Fagopyrum esculentum)"
+                },
+                {
+                    "const": "POT",
+                    "title": "Potato (Solanum tuberosum)",
+                    "title_en": "Potato (Solanum tuberosum)",
+                    "title_fi": "Peruna (Solanum tuberosum)"
+                },
+                {
+                    "const": "SBT",
+                    "title": "Sugar beet (Beta vulgaris var. altissima)",
+                    "title_en": "Sugar beet (Beta vulgaris var. altissima)",
+                    "title_fi": "Sokerijuurikas (Beta vulgaris var. altissima)"
+                },
+                {
+                    "const": "PEA",
+                    "title": "Pea (Pisum sativum)",
+                    "title_en": "Pea (Pisum sativum)",
+                    "title_fi": "Herne (Pisum sativum)"
+                },
+                {
+                    "const": "FBN",
+                    "title": "Faba bean (Vicia faba)",
+                    "title_en": "Faba bean (Vicia faba)",
+                    "title_fi": "Härkäpapu (Vicia faba)"
+                },
+                {
+                    "const": "RYP",
+                    "title": "Turnip rape (Brassica rapa subsp. oleifera)",
+                    "title_en": "Turnip rape (Brassica rapa subsp. oleifera)",
+                    "title_fi": "Rypsi (Brassica rapa subsp. oleifera) "
+                },
+                {
+                    "const": "RAP",
+                    "title": "Rapeseed (Brassica napus subsp. napus)",
+                    "title_en": "Rapeseed (Brassica napus subsp. napus)",
+                    "title_fi": "Rapsi (Brassica napus subsp. napus)"
+                },
+                {
+                    "const": "FLX",
+                    "title": "Flax (Linum usitatissimum)",
+                    "title_en": "Flax (Linum usitatissimum)",
+                    "title_fi": "Pellava (Linum usitatissimum)"
+                },
+                {
+                    "const": "CCA",
+                    "title": "Caraway (Carum carvi)",
+                    "title_en": "Caraway (Carum carvi)",
+                    "title_fi": "Kumina (Carum carvi) "
+                },
+                {
+                    "const": "PHA",
+                    "title": "Reed canary grass (Phalaris arundinacea)",
+                    "title_en": "Reed canary grass (Phalaris arundinacea)",
+                    "title_fi": "Ruokohelpi (Phalaris arundinacea) "
+                },
+                {
+                    "const": "RCL",
+                    "title": "Red clover (Trifolium pratense)",
+                    "title_en": "Red clover (Trifolium pratense)",
+                    "title_fi": "Puna-apila (Trifolium pratense)"
+                },
+                {
+                    "const": "WCL",
+                    "title": "White clover (Trifolium repens)",
+                    "title_en": "White clover (Trifolium repens)",
+                    "title_fi": "Valkoapila (Trifolium repens) "
+                },
+                {
+                    "const": "ACL",
+                    "title": "Alsike clover (Trifolium hybridum)",
+                    "title_en": "Alsike clover (Trifolium hybridum)",
+                    "title_fi": "Alsikeapila (Trifolium hybridum) "
+                },
+                {
+                    "const": "ALF",
+                    "title": "Alfalfa (Medicago sativa)",
+                    "title_en": "Alfalfa (Medicago sativa)",
+                    "title_fi": "Sinimailanen (Medicago sativa)"
+                },
+                {
+                    "const": "RSO",
+                    "title": "Oilseed radish (Raphanus sativus var. oleiformis)",
+                    "title_en": "Oilseed radish (Raphanus sativus var. oleiformis)",
+                    "title_fi": "Öljyretikka (Raphanus sativus var. oleiformis) "
+                },
+                {
+                    "const": "VSA",
+                    "title": "Common vetch (Vicia sativa)",
+                    "title_en": "Common vetch (Vicia sativa)",
+                    "title_fi": "Rehuvirna (Vicia sativa) "
+                },
+                {
+                    "const": "BRI",
+                    "title": "Smooth brome (Bromus inermis)",
+                    "title_en": "Smooth brome (Bromus inermis)",
+                    "title_fi": "Rehukattara (Bromus inermis) "
+                },
+                {
+                    "const": "FEP",
+                    "title": "Meadow fescue (Festuca pratensis)",
+                    "title_en": "Meadow fescue (Festuca pratensis)",
+                    "title_fi": "Nurminata (Festuca pratensis) "
+                },
+                {
+                    "const": "RGP",
+                    "title": "Perennial ryegrass (Lolium perenne)",
+                    "title_en": "Perennial ryegrass (Lolium perenne)",
+                    "title_fi": "Englanninraiheinä (Lolium perenne)"
+                },
+                {
+                    "const": "POA",
+                    "title": "Kentucky bluegrass (Poa pratensis)",
+                    "title_en": "Kentucky bluegrass (Poa pratensis)",
+                    "title_fi": "Niittynurmikka (Poa pratensis) "
+                },
+                {
+                    "const": "SDR",
+                    "title": "Sudan grass (Sorghum × drummondii)",
+                    "title_en": "Sudan grass (Sorghum × drummondii)",
+                    "title_fi": "Sudaninruoho (Sorghum × drummondii) "
+                },
+                {
+                    "const": "RGA",
+                    "title": "Annual ryegrass (Festuca perennis / Lolium multiflorum)",
+                    "title_en": "Annual ryegrass (Festuca perennis / Lolium multiflorum)",
+                    "title_fi": "Italianraiheinä (Festuca perennis / Lolium multiflorum) "
+                },
+                {
+                    "const": "TFS",
+                    "title": "Tall fescue (Festuca arundinacea / Schedonorus arundinaceus)",
+                    "title_en": "Tall fescue (Festuca arundinacea / Schedonorus arundinaceus)",
+                    "title_fi": "Ruokonata (Festuca arundinacea / Schedonorus arundinaceus) "
+                },
+                {
+                    "const": "HVT",
+                    "title": "Hairy vetch (Vicia villosa)",
+                    "title_en": "Hairy vetch (Vicia villosa)",
+                    "title_fi": "Ruisvirna (Vicia villosa)"
+                },
+                {
+                    "const": "TRM",
+                    "title": "Persian clover (Trifolium resupinatum var. majus)",
+                    "title_en": "Persian clover (Trifolium resupinatum var. majus)",
+                    "title_fi": "Persianapila (Trifolium resupinatum var. majus) "
+                },
+                {
+                    "const": "XFL",
+                    "title": "Hybrid fescue (x Festulolium loliaceum)",
+                    "title_en": "Hybrid fescue (x Festulolium loliaceum)",
+                    "title_fi": "Rainata (x Festulolium loliaceum) "
+                },
+                {
+                    "const": "CII",
+                    "title": "Common chicory (Cichorium intybus)",
+                    "title_en": "Common chicory (Cichorium intybus)",
+                    "title_fi": "Sikuri (Cichorium intybus) "
+                },
+                {
+                    "const": "PHT",
+                    "title": "Lacy phacelia (Phacelia tanacetifolia)",
+                    "title_en": "Lacy phacelia (Phacelia tanacetifolia)",
+                    "title_fi": "Aitohunajakukka (Phacelia tanacetifolia)"
+                }
+            ]
+        },
+        "FEACD": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "const": "AP001",
+                    "title": "Broadcast, not incorporated",
+                    "title_en": "Broadcast, not incorporated",
+                    "title_fi": "Levitetty pinnalle, ei sekoitettu"
+                },
+                {
+                    "const": "AP002",
+                    "title": "Broadcast, incorporated",
+                    "title_en": "Broadcast, incorporated",
+                    "title_fi": "Levitetty ja sekoitettu"
+                },
+                {
+                    "const": "AP003",
+                    "title": "Banded on surface",
+                    "title_en": "Banded on surface",
+                    "title_fi": "Nauhoina pinnalla"
+                },
+                {
+                    "const": "AP004",
+                    "title": "Banded beneath surface",
+                    "title_en": "Banded beneath surface",
+                    "title_fi": "Sijoituslannoitus"
+                },
+                {
+                    "const": "AP005",
+                    "title": "Applied in irrigation water",
+                    "title_en": "Applied in irrigation water",
+                    "title_fi": "Kasteluveden mukana"
+                },
+                {
+                    "const": "AP006",
+                    "title": "Foliar spray",
+                    "title_en": "Foliar spray",
+                    "title_fi": "Suihkutettu lehdelle"
+                },
+                {
+                    "const": "AP007",
+                    "title": "Bottom of hole",
+                    "title_en": "Bottom of hole",
+                    "title_fi": "Bottom of hole -käännös"
+                },
+                {
+                    "const": "AP008",
+                    "title": "On the seed",
+                    "title_en": "On the seed",
+                    "title_fi": "Siemenen pinnassa"
+                },
+                {
+                    "const": "AP009",
+                    "title": "Injected",
+                    "title_en": "Injected",
+                    "title_fi": "Ruiskutettu pinnan alle"
+                },
+                {
+                    "const": "AP999",
+                    "title": "Method unknown/not given",
+                    "title_en": "Method unknown/not given",
+                    "title_fi": "Tapa ei tiedossa"
+                }
+            ]
+        },
+        "MLTP": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "const": "MT001",
+                    "title": "Polyethylene sheet - solid",
+                    "title_en": "Polyethylene sheet - solid",
+                    "title_fi": "Katemuovi (PE)"
+                },
+                {
+                    "const": "MT002",
+                    "title": "Polyethylene sheet - perforated",
+                    "title_en": "Polyethylene sheet - perforated",
+                    "title_fi": "Rei'itetty katemuovi (PE)"
+                },
+                {
+                    "const": "MT003",
+                    "title": "Landscape fabric",
+                    "title_en": "Landscape fabric",
+                    "title_fi": "Maisemointikangas"
+                },
+                {
+                    "const": "MT004",
+                    "title": "Paper",
+                    "title_en": "Paper",
+                    "title_fi": "Paperi"
+                },
+                {
+                    "const": "MT005",
+                    "title": "Grass clippings",
+                    "title_en": "Grass clippings",
+                    "title_fi": "Leikattu ruoho"
+                },
+                {
+                    "const": "MT006",
+                    "title": "Pine needles",
+                    "title_en": "Pine needles",
+                    "title_fi": "Männynneulaset"
+                },
+                {
+                    "const": "MT007",
+                    "title": "Straw",
+                    "title_en": "Straw",
+                    "title_fi": "Olki"
+                },
+                {
+                    "const": "MT008",
+                    "title": "Foil",
+                    "title_en": "Foil",
+                    "title_fi": "Folio (foil?)"
+                },
+                {
+                    "const": "MT009",
+                    "title": "Foil coated plastic",
+                    "title_en": "Foil coated plastic",
+                    "title_fi": "Muovipäällysteinen folio (foil coated with plastic?)"
+                },
+                {
+                    "const": "MT010",
+                    "title": "Photodegradable plastic",
+                    "title_en": "Photodegradable plastic",
+                    "title_fi": "Valohajoava muovi"
+                },
+                {
+                    "const": "MT999",
+                    "title": "Not given/unknown",
+                    "title_en": "Not given/unknown",
+                    "title_fi": "Ei tiedossa"
+                }
+            ]
+        }
+    }
 }
