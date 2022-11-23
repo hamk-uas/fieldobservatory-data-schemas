@@ -5,7 +5,8 @@ import pyjson5
 
 banned_properties = {
     "fertilizer_element_table_title": True,
-    "fertilizer_element_table": True
+    "fertilizer_element_table": True,
+    "soil_layer_count": True # TODO: confirm this works
 }
 
 choice_list_name = {
@@ -13,6 +14,18 @@ choice_list_name = {
     "FEACD": "fertilizer_applic_method",
     "MLTP": "mulch_type"
 }
+
+property_lists = {
+    "planting_list": ["planted_crop", "planting_material_weight", "planting_depth", "planting_material_source"],
+    "harvest_list": ["harvest_crop", "harvest_yield_harvest_dw", "harv_yield_harv_f_wt", "yield_C_at_harvest", "harvest_moisture",  "harvest_method", "harvest_operat_component", "canopy_height_harvest", "harvest_cut_height", "plant_density_harvest", "harvest_residue_placement"],
+    "soil_layer_list": ["soil_layer_top_depth", "soil_layer_base_depth", "soil_classification_by_layer"],
+}
+
+listed_properties = {}
+
+for property_list_key, property_list in property_lists.items():
+    for property in property_list:
+        listed_properties[property] = property_list_key
 
 # Read CSV
 csv = pd.read_csv('https://raw.githubusercontent.com/PecanProject/fieldactivity/dev/inst/extdata/display_names.csv', comment='#', usecols=[0, 1, 2, 3])
@@ -26,9 +39,10 @@ with urllib.request.urlopen('https://raw.githubusercontent.com/PecanProject/fiel
 #print("ui_structure:")
 #print(json.dumps(ui_structure, indent=4))
 
-def set_choices(element, property, key, value):
-    # TODO: Handle "required".
+def set_choices(element, property, key, value, required_list):
     # Ignore for now: value["type"] == "fileInput", because we don't yet store the image links in the data
+    if "required" in value and value["required"]:
+        required_list.append(key)
     if property in banned_properties:
         return
     if "type" in value:
@@ -170,7 +184,7 @@ for index, row in categories.iterrows():
             # If a property has a code_name then it will be a property in the JSON schema
             property = sub_element_value["code_name"] # Get property identifier
             # Parse choices for the property
-            set_choices(sub_schema, property, sub_element_key, sub_element_value)
+            set_choices(sub_schema, property, sub_element_key, sub_element_value, sub_schema["required"])
             # If the event's property has a property "multiple": true, then it may have a
             # property "sub_elements", which introduces additional dependent properties
             if "multiple" in sub_element_value and sub_element_value["multiple"] and "sub_elements" in sub_element_value:
@@ -179,19 +193,50 @@ for index, row in categories.iterrows():
                 if "single" in sub_elements:
                     for element_of_single_key, element_of_single_value in sub_elements["single"].items():
                         if "code_name" in element_of_single_value:
-                            set_choices(sub_schema, element_of_single_key, element_of_single_key, element_of_single_value)
+                            set_choices(sub_schema, element_of_single_key, element_of_single_key, element_of_single_value, sub_schema["required"])
                 # "hidden" in "sub_elements" introduces new properties that MAY be present
                 # Let's add them all anyhow
                 if "hidden" in sub_elements:
                     for element_of_hidden_key, element_of_hidden_value in sub_elements["hidden"].items():
                         if "code_name" in element_of_hidden_value:
-                            set_choices(sub_schema, element_of_hidden_key, element_of_hidden_key, element_of_hidden_value)
+                            set_choices(sub_schema, element_of_hidden_key, element_of_hidden_key, element_of_hidden_value, sub_schema["required"])
         elif "hidden" in sub_element:
             for element_of_hidden_key, element_of_hidden_value in sub_element["hidden"].items():
                 if "code_name" in element_of_hidden_value:
-                    set_choices(sub_schema, element_of_hidden_key, element_of_hidden_key, element_of_hidden_value)
+                    set_choices(sub_schema, element_of_hidden_key, element_of_hidden_key, element_of_hidden_value, sub_schema["required"])
 
     schema['oneOf'].append(sub_schema)
+
+priority_properties = ['id', 'title', 'title_en', 'title_fi', 'type', 'description', 'description_en', 'description_fi']
+
+for sub_schema_index, sub_schema in enumerate(schema['oneOf']):
+    sub_schema_copy = {}
+    for sub_schema_property_key, sub_schema_property_value in sub_schema.items():
+        if sub_schema_property_key in priority_properties:
+            sub_schema_copy[sub_schema_property_key] = sub_schema_property_value
+    for sub_schema_property_key, sub_schema_property_value in sub_schema.items():
+        if not (sub_schema_property_key in priority_properties):
+            sub_schema_copy[sub_schema_property_key] = sub_schema_property_value
+    schema['oneOf'][sub_schema_index] = sub_schema_copy
+
+for sub_schema_index, sub_schema in enumerate(schema['oneOf']):
+    sub_schema_properties_copy = {}
+    for property_key, property in sub_schema["properties"].items():
+        if property_key in listed_properties:
+            list_id = listed_properties[property_key];
+            if not (list_id in sub_schema_properties_copy):
+                sub_schema_properties_copy[list_id] = {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                }
+            sub_schema_properties_copy[list_id]["items"]["properties"][property_key] = property
+        else:
+            sub_schema_properties_copy[property_key] = property
+    schema['oneOf'][sub_schema_index]["properties"] = sub_schema_properties_copy
+
 
 with open("management-event.schema.json", mode='w', encoding='utf-8') as f:
     json.dump(schema, f, indent=4, ensure_ascii = False)
