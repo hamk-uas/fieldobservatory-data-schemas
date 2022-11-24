@@ -1,31 +1,16 @@
 {
-    "mgmt_operations_event": "planting",
-    "date": "2020-04-21",
-    "mgmt_event_notes": "10kg/ha, supplemental sowing (Nautusvom carbon mixture)",
-    "crop_list": [
-      {
-        "planted_crop": "-99.0",
-        "planting_material_weight": "-99.0",
-        "planting_depth": "-99.0",
-        "planting_material_source": "-99.0",
-        "planting_notes": "-99.0"
-      },
-      {
-        "planted_crop": "-99.0",
-        "planting_material_weight": "-99.0",
-        "planting_depth": "-99.0",
-        "planting_material_source": "-99.0",
-        "planting_notes": "-99.0"
-      }
-    ]
-  }
-  {
-    "mgmt_operations_event": "planting",
-    "date": "2020-04-21",
-    "mgmt_event_notes": "10kg/ha, supplemental sowing (Nautusvom carbon mixture)",
-    "planted_crop": ["-99.0", "-99.0"],
-    "planting_material_weight": ["-99.0", "-99.0"],
-    "planting_depth": ["-99.0", "-99.0"],
-    "planting_material_source": ["-99.0", "-99.0"],
-    "planting_notes": ["-99.0", "-99.0"]
-  }
+  "$schema": "https://www.fieldobservatory.org/data-schemas/management-event.schema.json",
+  "mgmt_operations_event": "planting",
+  "date": "2020-04-21",
+  "mgmt_event_notes": "10kg/ha, supplemental sowing (Nautusvom carbon mixture)",
+  "planting_list": [
+    {
+      "planted_crop": "FRG",
+      "planting_material_weight": 10
+    },
+    {
+      "planted_crop": "WHT"
+    }
+  ],
+  "planting_notes": "Forgot to measure the weight"
+}
