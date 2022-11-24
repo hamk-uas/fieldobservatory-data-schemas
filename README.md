@@ -6,5 +6,5 @@ Work in progress.
 ![image](https://user-images.githubusercontent.com/60920087/202477076-e5a7822f-7c86-4e7e-a6cf-add2cbb38b3e.png)
 *Farm management event schema visualized using https://navneethg.github.io/jsonschemaviewer/*
 
-![image](https://user-images.githubusercontent.com/60920087/203805038-1c6a7fb6-65b9-4244-a464-3f8732480670.png)
+![image](https://user-images.githubusercontent.com/60920087/203805362-5859b478-27f1-441b-be8b-cff8983075a1.png)
 *Validation of a data file containing management events, using https://jsonschemalint.com/*
