@@ -2,6 +2,7 @@ import urllib.request
 import pandas as pd
 import json
 import pyjson5
+import pydash
 
 # For validation use https://jsonschemalint.com/#!/version/draft-07/markup/json
 # It gives useful validation error messages
@@ -10,7 +11,8 @@ banned_properties = {
     "fertilizer_element_table_title": True,
     "fertilizer_element_table": True,
     "soil_layer_count": True,
-    "mowing_method": True # TODO: Allow this? Removed because of an empty list of choices
+    "mowing_method": True, # TODO: Allow this? Removed because of an empty list of choices
+    "soil_image": True
 }
 
 priority_properties = ['$id', 'title', 'title_en', 'title_fi', 'title_sv', 'title2', 'title2_fi', 'type', 'description', 'description_en', 'description_fi']
@@ -501,41 +503,52 @@ with urllib.request.urlopen('https://raw.githubusercontent.com/PecanProject/fiel
 #print("ui_structure:")
 #print(json.dumps(ui_structure, indent=4))
 
-def set_choices(element, property, key, value, required_list):
-    # Ignore for now: value["type"] == "fileInput", because we don't yet store the image links in the data
-    if "required" in value and value["required"]:
-        required_list.append(key)
-    if property in banned_properties:
+def set_choices(target_schema, property):
+    property_id = property["code_name"]
+    if property_id == "observation_type_vegetation": #and property["code_name"] == "canopy_height":
+        print("target_schema:")
+        print(target_schema)
+        print("property_id:")
+        print(property_id)
+        print("property:")
+        print(property)
+        print("")
+    # Ignore for now: property["type"] == "fileInput", because we don't yet store the image links in the data
+    if "required" in property and property["required"]:
+        if "required" not in target_schema:
+            target_schema["required"] = []
+        target_schema["required"].append(property_id)
+    if property_id in banned_properties:
         return
-    if "type" in value:
+    if "type" in property:
         ret_val = {}
 
         for language_ext, title_dict in [("", code_name_to_disp_name_eng), ("_fi", code_name_to_disp_name_fin), ("_sv", None)]:
-            if (title_dict is not None) and (key in title_dict):
-                ret_val[f"title{language_ext}"] = title_dict[key]
-            if f"{key}{language_ext}" in mgmt_operations_variable_name_plaintext:
-                fo_title = mgmt_operations_variable_name_plaintext[f"{key}{language_ext}"]
+            if (title_dict is not None) and (property_id in title_dict):
+                ret_val[f"title{language_ext}"] = title_dict[property_id]
+            if f"{property_id}{language_ext}" in mgmt_operations_variable_name_plaintext:
+                fo_title = pydash.lower_first(mgmt_operations_variable_name_plaintext[f"{property_id}{language_ext}"])
                 if not (f"title{language_ext}" in ret_val):
                     ret_val[f"title{language_ext}"] = fo_title
                 elif ret_val[f"title{language_ext}"] != fo_title:
                     ret_val[f"title2{language_ext}"] = fo_title
                 
-        if value["type"] == "selectInput":
-            if type(value['choices']) == list:
-                choices = value['choices']
+        if property["type"] == "selectInput":
+            if type(property['choices']) == list:
+                choices = property['choices']
             else:
-                choices = csv[csv['category'] == value['choices']]['code_name']
-            if type(value['choices']) != list and value['choices'] in choices_appeared_in:
-                other = choices_appeared_in[value['choices']]
+                choices = csv[csv['category'] == property['choices']]['code_name']
+            if type(property['choices']) != list and property['choices'] in choices_appeared_in:
+                other = choices_appeared_in[property['choices']]
                 if "type" in other:
-                    schema["$defs"][choice_list_name[value['choices']]] = {
+                    schema["$defs"][choice_list_name[property['choices']]] = {
                         "type": other["type"],
                         "oneOf": other["oneOf"]
                     }
                     other.pop("type")
                     other.pop("oneOf")
-                    other["$ref"] = f"#/$defs/{choice_list_name[value['choices']]}"
-                ret_val["$ref"] = f"#/$defs/{choice_list_name[value['choices']]}"
+                    other["$ref"] = f"#/$defs/{choice_list_name[property['choices']]}"
+                ret_val["$ref"] = f"#/$defs/{choice_list_name[property['choices']]}"
             else:
                 ret_val["type"] = "string"
                 ret_val["oneOf"] = []
@@ -546,8 +559,8 @@ def set_choices(element, property, key, value, required_list):
                     for language_ext, title_dict in [("", code_name_to_disp_name_eng), ("_fi", code_name_to_disp_name_fin), ("_sv", None)]:
                         if (title_dict is not None) and (choice in title_dict):
                             new_choice[f"title{language_ext}"] = title_dict[choice]
-                        if key in mgmt_operations_value_plaintext and f"{key}{language_ext}" in mgmt_operations_value_plaintext[key]:
-                            fo_title = mgmt_operations_value_plaintext[key][f"{choice}{language_ext}"]
+                        if property_id in mgmt_operations_value_plaintext and f"{property_id}{language_ext}" in mgmt_operations_value_plaintext[property_id]:
+                            fo_title = pydash.lower_first(mgmt_operations_value_plaintext[property_id][f"{choice}{language_ext}"])
                             if not (f"title{language_ext}" in new_choice):
                                 new_choice[f"title{language_ext}"] = fo_title
                             elif new_choice[f"title{language_ext}"] != fo_title:
@@ -555,49 +568,53 @@ def set_choices(element, property, key, value, required_list):
 
                     ret_val["oneOf"].append(new_choice)
 
-                if type(value['choices']) != list:
-                    choices_appeared_in[value['choices']] = ret_val
-        elif value["type"] == "textInput" or value["type"] == "textAreaInput":
+                if type(property['choices']) != list:
+                    choices_appeared_in[property['choices']] = ret_val
+        elif property["type"] == "textInput" or property["type"] == "textAreaInput":
             ret_val["type"] = "string"
-            ret_val["ui_type"] = value["type"]
-            if "placeholder" in value:
-                ret_val["placeholder"] = code_name_to_disp_name_eng[value["placeholder"]] if value["placeholder"] in code_name_to_disp_name_eng else 'unknown'
-                ret_val["placeholder_en"] = code_name_to_disp_name_eng[value["placeholder"]] if value["placeholder"] in code_name_to_disp_name_eng else 'unknown'
-                ret_val["placeholder_fi"] = code_name_to_disp_name_fin[value["placeholder"]] if value["placeholder"] in code_name_to_disp_name_fin else 'unknown'
-        elif value["type"] == "numericInput":
+            ret_val["ui_type"] = property["type"]
+            if "placeholder" in property:
+                ret_val["placeholder"] = code_name_to_disp_name_eng[property["placeholder"]] if property["placeholder"] in code_name_to_disp_name_eng else 'unknown'
+                ret_val["placeholder_en"] = code_name_to_disp_name_eng[property["placeholder"]] if property["placeholder"] in code_name_to_disp_name_eng else 'unknown'
+                ret_val["placeholder_fi"] = code_name_to_disp_name_fin[property["placeholder"]] if property["placeholder"] in code_name_to_disp_name_fin else 'unknown'
+        elif property["type"] == "numericInput":
             # TODO: Handle "min" and "max" and "step" (not all may be present)
-            if "step" in value and value["step"] == 1:
+            if "step" in property and property["step"] == 1:
                 ret_val["type"] = "integer"
             else:
                 ret_val["type"] = "number"
-            if "min" in value:
-                ret_val["minimum"] = value["min"]
-            if "max" in value:
-                ret_val["maximum"] = value["max"]
-        elif value["type"] == "dateInput":
+            if "min" in property:
+                ret_val["minimum"] = property["min"]
+            if "max" in property:
+                ret_val["maximum"] = property["max"]
+        elif property["type"] == "dateInput":
             ret_val["type"] = "string"
             ret_val["format"] = "date"
-        elif value["type"] == "dateRangeInput":
+        elif property["type"] == "dateRangeInput":
             #TODO: "start_date": "2021-08-24",
             #"end_date": "2021-08-31",
             # Do this manually afterwards
-            element["properties"][property] = {"todo": "fixme1"}
-        elif value["type"] == "textOutput":
-            element["description"] = code_name_to_disp_name_eng[value["code_name"]] if value["code_name"] in code_name_to_disp_name_eng else 'unknown'
-            element["description_en"] = code_name_to_disp_name_eng[value["code_name"]] if value["code_name"] in code_name_to_disp_name_eng else 'unknown'
-            element["description_fi"] = code_name_to_disp_name_fin[value["code_name"]] if value["code_name"] in code_name_to_disp_name_fin else 'unknown'
+            target_schema["properties"][property_id] = {"todo": "fixme1"}
+        elif property["type"] == "textOutput":
+            target_schema["description"] = code_name_to_disp_name_eng[property["code_name"]] if property["code_name"] in code_name_to_disp_name_eng else 'unknown'
+            target_schema["description_en"] = code_name_to_disp_name_eng[property["code_name"]] if property["code_name"] in code_name_to_disp_name_eng else 'unknown'
+            target_schema["description_fi"] = code_name_to_disp_name_fin[property["code_name"]] if property["code_name"] in code_name_to_disp_name_fin else 'unknown'
         else:
-            element["properties"][property] = {"todo": "fixme2"}  
+            target_schema["properties"][property_id] = {"todo": "fixme2"}  
     else:
-        return {"todo": "fixme3"}
-    element["properties"][property] = ret_val
+        print("TODO FIXME 3")
+        return
+    target_schema["properties"][property_id] = ret_val
+    if property_id == "observation_type_vegetation" and property["code_name"] == "canopy_height":
+        print(ret_val)
+        print("")
 
 choices_appeared_in = {}
 
 schema = {
     "$schema": "http://json-schema.org/draft-07/schema", #"https://json-schema.org/draft/2020-12/schema",
     "$id": "https://www.fieldobservatory.org/data-schemas/management-event.schema.json", # Was: "#root"
-    "title": "Management event",
+    "title": "management event",
     'type': 'object',
     "oneOf" : [
     ],
@@ -609,8 +626,11 @@ variable_names = csv #csv[csv['category'] == 'variable_name']
 code_name_to_disp_name_eng = {}
 code_name_to_disp_name_fin = {}
 for index, row in variable_names.iterrows():
-    code_name_to_disp_name_eng[row['code_name']] = row['disp_name_eng'].replace("“", "\"").replace("”", "\"")
-    code_name_to_disp_name_fin[row['code_name']] = row['disp_name_fin'].replace("“", "\"").replace("”", "\"")
+    code_name_to_disp_name_eng[row['code_name']] = row['disp_name_eng'].replace("“", "\"").replace("”", "\"").strip()
+    code_name_to_disp_name_fin[row['code_name']] = row['disp_name_fin'].replace("“", "\"").replace("”", "\"").strip()
+    if (not code_name_to_disp_name_eng[row['code_name']].endswith('.')) or code_name_to_disp_name_eng[row['code_name']].endswith('etc.'):
+        code_name_to_disp_name_eng[row['code_name']] = pydash.lower_first(code_name_to_disp_name_eng[row['code_name']])
+        code_name_to_disp_name_fin[row['code_name']] = pydash.lower_first(code_name_to_disp_name_fin[row['code_name']])
 
 categories = csv[csv['category'] == 'mgmt_operations_event_choice']
 
@@ -632,7 +652,7 @@ for index, row in categories.iterrows():
         if (title_dict is not None) and (row['code_name'] in title_dict):
             sub_schema_title_translations[f"title{language_ext}"] = title_dict[row['code_name']]
         if f"{row['code_name']}{language_ext}" in mgmt_operations_event_choice_plaintext:
-            fo_title = mgmt_operations_event_choice_plaintext[f"{row['code_name']}{language_ext}"]
+            fo_title = pydash.lower_first(mgmt_operations_event_choice_plaintext[f"{row['code_name']}{language_ext}"])
             if not (f"title{language_ext}" in sub_schema_title_translations):
                 sub_schema_title_translations[f"title{language_ext}"] = fo_title
             elif sub_schema_title_translations[f"title{language_ext}"] != fo_title:
@@ -640,7 +660,7 @@ for index, row in categories.iterrows():
     
     sub_schema = {
         '$id': f"#{row['code_name']}",
-        'title': row['disp_name_eng'],
+        'title': pydash.lower_first(row['disp_name_eng'].strip()),
         **sub_schema_title_translations,
         'properties': { # Include some properties required for all event types
             "mgmt_operations_event": {
@@ -672,9 +692,9 @@ for index, row in categories.iterrows():
     for sub_element_key, sub_element_value in sub_element.items():
         if "code_name" in sub_element_value:
             # If a property has a code_name then it will be a property in the JSON schema
-            property = sub_element_value["code_name"] # Get property identifier
+            property_id = sub_element_value["code_name"] # Get property_id
             # Parse choices for the property
-            set_choices(sub_schema, property, sub_element_key, sub_element_value, sub_schema["required"])
+            set_choices(sub_schema, sub_element_value)
             # If the event's property has a property "multiple": true, then it may have a
             # property "sub_elements", which introduces additional dependent properties
             if "multiple" in sub_element_value and sub_element_value["multiple"] and "sub_elements" in sub_element_value:
@@ -683,37 +703,63 @@ for index, row in categories.iterrows():
                 if "single" in sub_elements:
                     for element_of_single_key, element_of_single_value in sub_elements["single"].items():
                         if "code_name" in element_of_single_value:
-                            set_choices(sub_schema, element_of_single_key, element_of_single_key, element_of_single_value, sub_schema["required"])
+                            set_choices(sub_schema, element_of_single_value)
                 # "hidden" in "sub_elements" introduces new properties that MAY be present
                 # Let's add them all anyhow
                 if "hidden" in sub_elements:
                     for element_of_hidden_key, element_of_hidden_value in sub_elements["hidden"].items():
                         if "code_name" in element_of_hidden_value:
-                            set_choices(sub_schema, element_of_hidden_key, element_of_hidden_key, element_of_hidden_value, sub_schema["required"])
+                            set_choices(sub_schema, element_of_hidden_value)
         elif "hidden" in sub_element:
             for element_of_hidden_key, element_of_hidden_value in sub_element["hidden"].items():
                 if "code_name" in element_of_hidden_value:
-                    set_choices(sub_schema, element_of_hidden_key, element_of_hidden_key, element_of_hidden_value, sub_schema["required"])
-
+                    set_choices(sub_schema, element_of_hidden_value)
+        elif row["code_name"] == "observation" and sub_element_key != "condition":
+            #print(f"{row['code_name']} {sub_element_key}")
+            dummy,conditioning_value,dummy = sub_element_value['condition'].split("'")
+            #print(conditioning_value)
+            #print(sub_element_value)
+            if "allOf" not in sub_schema:
+                sub_schema["allOf"] = []
+            condition = {
+                "if": {
+                    "properties": {
+                        "observation_type": {
+                            "const": conditioning_value
+                        }
+                    }#,
+                    #"required": ["observation_type"]
+                },
+                "then": {
+                    "properties": {}
+                }
+            }
+            sub_schema["allOf"].append(condition)
+            for property_id, property in sub_element_value.items():
+                if "code_name" in property:
+                    set_choices(condition["then"], property)
+        else:
+            None
+            # print(f"{row['code_name']} {sub_element_key}") # TODO handle this
     schema['oneOf'].append(sub_schema)
 
 # Reorder keys in sub schemas
 for sub_schema_index, sub_schema in enumerate(schema['oneOf']):
     sub_schema_copy = {}
-    for sub_schema_property_key, sub_schema_property_value in sub_schema.items():
-        if sub_schema_property_key in priority_properties:
-            sub_schema_copy[sub_schema_property_key] = sub_schema_property_value
-    for sub_schema_property_key, sub_schema_property_value in sub_schema.items():
-        if not (sub_schema_property_key in priority_properties):
-            sub_schema_copy[sub_schema_property_key] = sub_schema_property_value
+    for sub_schema_property_id, sub_schema_property in sub_schema.items():
+        if sub_schema_property_id in priority_properties:
+            sub_schema_copy[sub_schema_property_id] = sub_schema_property
+    for sub_schema_property_id, sub_schema_property in sub_schema.items():
+        if not (sub_schema_property_id in priority_properties):
+            sub_schema_copy[sub_schema_property_id] = sub_schema_property
     schema['oneOf'][sub_schema_index] = sub_schema_copy
 
 # Collect certain properties of sub schemas into lists of objects
 for sub_schema_index, sub_schema in enumerate(schema['oneOf']):
     sub_schema_properties_copy = {}
-    for property_key, property in sub_schema["properties"].items():
-        if property_key in listed_properties:
-            list_id = listed_properties[property_key]
+    for property_id, property in sub_schema["properties"].items():
+        if property_id in listed_properties:
+            list_id = listed_properties[property_id]
             if not (list_id in sub_schema_properties_copy):
                 sub_schema_properties_copy[list_id] = {
                     "type": "array",
@@ -722,16 +768,16 @@ for sub_schema_index, sub_schema in enumerate(schema['oneOf']):
                         "properties": {}
                     }
                 }
-            sub_schema_properties_copy[list_id]["items"]["properties"][property_key] = property
-            if "required" in sub_schema and property_key in sub_schema["required"]:
-                sub_schema["required"].remove(property_key)
+            sub_schema_properties_copy[list_id]["items"]["properties"][property_id] = property
+            if "required" in sub_schema and property_id in sub_schema["required"]:
+                sub_schema["required"].remove(property_id)
                 if "required" not in sub_schema_properties_copy[list_id]["items"]:
                     sub_schema_properties_copy[list_id]["items"]["required"] = []
-                sub_schema_properties_copy[list_id]["items"]["required"].append(property_key)
+                sub_schema_properties_copy[list_id]["items"]["required"].append(property_id)
                 sub_schema_properties_copy[list_id]["minItems"] = 1
                 sub_schema["required"].append(list_id)
         else:
-            sub_schema_properties_copy[property_key] = property
+            sub_schema_properties_copy[property_id] = property
     schema['oneOf'][sub_schema_index]["properties"] = sub_schema_properties_copy
 
 with open("management-event.schema.json", mode='w', encoding='utf-8') as f:

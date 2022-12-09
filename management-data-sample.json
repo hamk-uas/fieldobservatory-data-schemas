@@ -1,9 +1,8 @@
 {
-  "$schema": "https://www.fieldobservatory.org/data-schemas/management-data.schema.json",
+  "$schema": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-data.schema.json",
   "management": {
     "events": [
       {
-        "$schema": "https://www.fieldobservatory.org/data-schemas/management-event.schema.json",
         "mgmt_operations_event": "planting",
         "date": "2020-04-21",
         "mgmt_event_notes": "10kg/ha, supplemental sowing (Nautusvom carbon mixture)",

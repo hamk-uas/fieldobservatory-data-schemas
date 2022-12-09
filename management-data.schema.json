@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "https://www.fieldobservatory.org/data-schemas/management-data.schema.json",
-  "title": "Management data",
-  "description": "Management data, currently only agronomic management events.",
+  "$id": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-data.schema.json",
+  "title": "management data",
+  "description": "management data, currently only agronomic management events",
   "type": "object",
   "properties": {
     "$schema": {
@@ -14,10 +14,10 @@
       "type": "object" ,
       "properties": {
         "events": {
-          "description": "An array of agronomic management event objects. The events must be listed in ascending date order (start date for each period-like event). A management event is either point-like in time or corresponds to a time period with a start and an end time. An event is specific to a field area. Possible event types include fertilizer or organic material application, irrigation, tillage, grazing, harvest, bed preparation, inorganic mulch placement or removal, chemical application, mowing, weeding and observations.",
+          "description": "A list of agronomic management event objects. The events must be listed in ascending date order (start date for each period-like event). A management event is either point-like in time or corresponds to a time period with a start and an end time. An event is specific to a field area. Possible event types include fertilizer or organic material application, irrigation, tillage, grazing, harvest, bed preparation, inorganic mulch placement or removal, chemical application, mowing, weeding and observations.",
           "type": "array",
           "items": {
-            "$ref": "https://www.fieldobservatory.org/data-schemas/management-event.schema.json"
+            "$ref": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-event.schema.json"
           }
         }
       },
