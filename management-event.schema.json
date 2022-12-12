@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-event.schema.json",
+    "$id": "https://www.fieldobservatory.org/data-schemas/management-event.schema.json",
     "title": "management event",
     "type": "object",
     "oneOf": [
@@ -66,10 +66,12 @@
                                 "title2_fi": "kylvetyn materiaalin alkuperä",
                                 "title_sv": "ursprung på sådda materialet",
                                 "type": "string",
-                                "ui_type": "textInput",
-                                "placeholder": "commercial / own seeds, seed cultivar, etc.",
-                                "placeholder_en": "commercial / own seeds, seed cultivar, etc.",
-                                "placeholder_fi": "ostetut / omat siemenet, lajike, jne."
+                                "x-ui": {
+                                    "form-type": "textInput",
+                                    "form-placeholder": "commercial / own seeds, seed cultivar, etc.",
+                                    "form-placeholder_en": "commercial / own seeds, seed cultivar, etc.",
+                                    "form-placeholder_fi": "ostetut / omat siemenet, lajike, jne."
+                                }
                             }
                         },
                         "required": [
@@ -85,10 +87,12 @@
                     "title2_fi": "kylvömuistiinpanot",
                     "title_sv": "såddanteckningar",
                     "type": "string",
-                    "ui_type": "textAreaInput",
-                    "placeholder": "any notes or observations about the event, e.g. \"soil was drier than usual at the time of sowing\"",
-                    "placeholder_en": "any notes or observations about the event, e.g. \"soil was drier than usual at the time of sowing\"",
-                    "placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"maa oli tavallista kuivempi\""
+                    "x-ui": {
+                        "form-type": "textAreaInput",
+                        "form-placeholder": "any notes or observations about the event, e.g. \"soil was drier than usual at the time of sowing\"",
+                        "form-placeholder_en": "any notes or observations about the event, e.g. \"soil was drier than usual at the time of sowing\"",
+                        "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"maa oli tavallista kuivempi\""
+                    }
                 }
             },
             "required": [
@@ -214,8 +218,7 @@
                 "other_element_in_applied_fertilizer": {
                     "title": "other elements in fertilizer (kg/ha)",
                     "title_fi": "muut ravinteet lannoitteessa (kg/ha)",
-                    "type": "string",
-                    "ui_type": "textInput"
+                    "type": "string"
                 },
                 "fertilizer_type": {
                     "title": "fertilizer type",
@@ -261,10 +264,12 @@
                     "title": "notes on fertilizer application",
                     "title_fi": "muistiinpanoja lannoitteen levityksestä",
                     "type": "string",
-                    "ui_type": "textAreaInput",
-                    "placeholder": "any notes or observations about the event, e.g. \"biostimulant was added because the field suffered from drought\"",
-                    "placeholder_en": "any notes or observations about the event, e.g. \"biostimulant was added because the field suffered from drought\"",
-                    "placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"lisäsin biostimulanttia pellon kuivuuden vuoksi\""
+                    "x-ui": {
+                        "form-type": "textAreaInput",
+                        "form-placeholder": "any notes or observations about the event, e.g. \"biostimulant was added because the field suffered from drought\"",
+                        "form-placeholder_en": "any notes or observations about the event, e.g. \"biostimulant was added because the field suffered from drought\"",
+                        "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"lisäsin biostimulanttia pellon kuivuuden vuoksi\""
+                    }
                 }
             },
             "required": [
@@ -419,10 +424,12 @@
                     "title_fi": "muistiinpanot muokkauksesta",
                     "title_sv": "anteckningar på bearbetning",
                     "type": "string",
-                    "ui_type": "textAreaInput",
-                    "placeholder": "any notes or observations about the event, e.g. \"had to stop tillage and continue the next day\"",
-                    "placeholder_en": "any notes or observations about the event, e.g. \"had to stop tillage and continue the next day\"",
-                    "placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"jatkoin muokkausta seuraavana päivänä\""
+                    "x-ui": {
+                        "form-type": "textAreaInput",
+                        "form-placeholder": "any notes or observations about the event, e.g. \"had to stop tillage and continue the next day\"",
+                        "form-placeholder_en": "any notes or observations about the event, e.g. \"had to stop tillage and continue the next day\"",
+                        "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"jatkoin muokkausta seuraavana päivänä\""
+                    }
                 }
             },
             "required": [
@@ -689,10 +696,12 @@
                     "title_fi": "sadonkorjuukommentit",
                     "title_sv": "kommentarer",
                     "type": "string",
-                    "ui_type": "textAreaInput",
-                    "placeholder": "any notes or observations about the event, e.g. \"cutting height was not uniform\"",
-                    "placeholder_en": "any notes or observations about the event, e.g. \"cutting height was not uniform\"",
-                    "placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"leikkuukorkeus ei ollut sama kaikkialla\""
+                    "x-ui": {
+                        "form-type": "textAreaInput",
+                        "form-placeholder": "any notes or observations about the event, e.g. \"cutting height was not uniform\"",
+                        "form-placeholder_en": "any notes or observations about the event, e.g. \"cutting height was not uniform\"",
+                        "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"leikkuukorkeus ei ollut sama kaikkialla\""
+                    }
                 }
             },
             "required": [
@@ -756,14 +765,18 @@
                             "const": "chemical_type_lime_application",
                             "title": "lime application",
                             "title_fi": "kalkin levitys"
+                        },
+                        {
+                            "const": "chemical_type_gypsum_application",
+                            "title": "gypsum application",
+                            "title_fi": "kipsin levitys"
                         }
                     ]
                 },
                 "chemical_product_name": {
                     "title": "chemical product name",
                     "title_fi": "kemikaalivalmisteen nimi",
-                    "type": "string",
-                    "ui_type": "textInput"
+                    "type": "string"
                 },
                 "chemical_applic_target": {
                     "title": "chemical application target",
@@ -923,10 +936,12 @@
                     "title": "chemical application notes",
                     "title_fi": "kemikaalinlevitysmuistiinpanot",
                     "type": "string",
-                    "ui_type": "textAreaInput",
-                    "placeholder": "any notes or observations about the event, e.g. \"rot affecting X % of plants\"",
-                    "placeholder_en": "any notes or observations about the event, e.g. \"rot affecting X % of plants\"",
-                    "placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"mätää X % kasveista\""
+                    "x-ui": {
+                        "form-type": "textAreaInput",
+                        "form-placeholder": "any notes or observations about the event, e.g. \"rot affecting X % of plants\"",
+                        "form-placeholder_en": "any notes or observations about the event, e.g. \"rot affecting X % of plants\"",
+                        "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"mätää X % kasveista\""
+                    }
                 }
             },
             "required": [
@@ -1040,7 +1055,23 @@
                 },
                 "grazing_period": {
                     "title": "grazing period",
-                    "title_fi": "laidunnusjakso"
+                    "title_fi": "laidunnusjakso",
+                    "properties": {
+                        "start_date": {
+                            "title": "start date",
+                            "title_fi": "alkamispäivä",
+                            "title_sv": "startdatum",
+                            "type": "string",
+                            "format": "date"
+                        },
+                        "end_date": {
+                            "title": "end date",
+                            "title_fi": "päättymispäivä",
+                            "title_sv": "slutdatum",
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
                 },
                 "grazing_type": {
                     "title": "grazing type",
@@ -1119,10 +1150,12 @@
                     "title": "grazing notes",
                     "title_fi": "laidunnusmuistiinpanot",
                     "type": "string",
-                    "ui_type": "textAreaInput",
-                    "placeholder": "any notes or observations about the event, e.g. \"animals were too late to the field\"",
-                    "placeholder_en": "any notes or observations about the event, e.g. \"animals were too late to the field\"",
-                    "placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"eläimet vietiin pellolle liian myöhään\""
+                    "x-ui": {
+                        "form-type": "textAreaInput",
+                        "form-placeholder": "any notes or observations about the event, e.g. \"animals were too late to the field\"",
+                        "form-placeholder_en": "any notes or observations about the event, e.g. \"animals were too late to the field\"",
+                        "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"eläimet vietiin pellolle liian myöhään\""
+                    }
                 }
             },
             "required": [
@@ -1162,10 +1195,12 @@
                     "title": "notes on the extraction of weeds",
                     "title_fi": "muistiinpanot rikkakasvien kitkemisestä",
                     "type": "string",
-                    "ui_type": "textAreaInput",
-                    "placeholder": "any notes or observations about the event, e.g. \"the weeds had very deep roots\"",
-                    "placeholder_en": "any notes or observations about the event, e.g. \"the weeds had very deep roots\"",
-                    "placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"rikkakasvien juuret olivat syvällä\""
+                    "x-ui": {
+                        "form-type": "textAreaInput",
+                        "form-placeholder": "any notes or observations about the event, e.g. \"the weeds had very deep roots\"",
+                        "form-placeholder_en": "any notes or observations about the event, e.g. \"the weeds had very deep roots\"",
+                        "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"rikkakasvien juuret olivat syvällä\""
+                    }
                 }
             },
             "required": [
@@ -1258,10 +1293,12 @@
                     "title": "irrigation notes",
                     "title_fi": "kastelumuistiinpanot",
                     "type": "string",
-                    "ui_type": "textAreaInput",
-                    "placeholder": "any notes or observations about the event, e.g. \"drip line flow rate seems a bit low\"",
-                    "placeholder_en": "any notes or observations about the event, e.g. \"drip line flow rate seems a bit low\"",
-                    "placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"tippukasteluletkun virtausnopeus vaikuttaa melko hitaalta\""
+                    "x-ui": {
+                        "form-type": "textAreaInput",
+                        "form-placeholder": "any notes or observations about the event, e.g. \"drip line flow rate seems a bit low\"",
+                        "form-placeholder_en": "any notes or observations about the event, e.g. \"drip line flow rate seems a bit low\"",
+                        "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"tippukasteluletkun virtausnopeus vaikuttaa melko hitaalta\""
+                    }
                 }
             },
             "required": [
@@ -1324,10 +1361,12 @@
                     "title": "mowing notes",
                     "title_fi": "muistiinpanot leikkuusta",
                     "type": "string",
-                    "ui_type": "textAreaInput",
-                    "placeholder": "any notes or observations about the event, e.g. \"mowing height was not uniform\"",
-                    "placeholder_en": "any notes or observations about the event, e.g. \"mowing height was not uniform\"",
-                    "placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"leikkuukorkeus ei ollut sama kaikkialla\""
+                    "x-ui": {
+                        "form-type": "textAreaInput",
+                        "form-placeholder": "any notes or observations about the event, e.g. \"mowing height was not uniform\"",
+                        "form-placeholder_en": "any notes or observations about the event, e.g. \"mowing height was not uniform\"",
+                        "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havaintoja, esim. \"leikkuukorkeus ei ollut sama kaikkialla\""
+                    }
                 }
             },
             "required": [
@@ -1412,8 +1451,7 @@
                 "observation_notes": {
                     "title": "observations",
                     "title_fi": "havaintoja",
-                    "type": "string",
-                    "ui_type": "textAreaInput"
+                    "type": "string"
                 }
             },
             "required": [
@@ -1639,10 +1677,12 @@
                     "title": "notes on the preparation of raised beds",
                     "title_fi": "muistiinpanot kasvatuslaatikoiden valmistelusta",
                     "type": "string",
-                    "ui_type": "textAreaInput",
-                    "placeholder": "any notes or observations about the event, e.g. \"used the beds from last year\"",
-                    "placeholder_en": "any notes or observations about the event, e.g. \"used the beds from last year\"",
-                    "placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"käytettiin samoja kasvatuslaatikoita kuin edellisenä vuonna\""
+                    "x-ui": {
+                        "form-type": "textAreaInput",
+                        "form-placeholder": "any notes or observations about the event, e.g. \"used the beds from last year\"",
+                        "form-placeholder_en": "any notes or observations about the event, e.g. \"used the beds from last year\"",
+                        "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"käytettiin samoja kasvatuslaatikoita kuin edellisenä vuonna\""
+                    }
                 }
             },
             "required": [
@@ -1736,10 +1776,12 @@
                     "title": "mulch placement notes",
                     "title_fi": "katteenlevitysmuistiinpanot",
                     "type": "string",
-                    "ui_type": "textAreaInput",
-                    "placeholder": "any notes or observations about the event, e.g. \"mulch was placed only on the northern half of the field\"",
-                    "placeholder_en": "any notes or observations about the event, e.g. \"mulch was placed only on the northern half of the field\"",
-                    "placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"kate levitettiin ainoastaan pellon pohjoiselle puoliskolle\""
+                    "x-ui": {
+                        "form-type": "textAreaInput",
+                        "form-placeholder": "any notes or observations about the event, e.g. \"mulch was placed only on the northern half of the field\"",
+                        "form-placeholder_en": "any notes or observations about the event, e.g. \"mulch was placed only on the northern half of the field\"",
+                        "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"kate levitettiin ainoastaan pellon pohjoiselle puoliskolle\""
+                    }
                 }
             },
             "required": [
@@ -1784,10 +1826,12 @@
                     "title": "mulch removal notes",
                     "title_fi": "katteenpoistomuistiinpanot",
                     "type": "string",
-                    "ui_type": "textAreaInput",
-                    "placeholder": "any notes or observations about the event, e.g. \"the mulch was recycled\"",
-                    "placeholder_en": "any notes or observations about the event, e.g. \"the mulch was recycled\"",
-                    "placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"kate kierrätettiin\""
+                    "x-ui": {
+                        "form-type": "textAreaInput",
+                        "form-placeholder": "any notes or observations about the event, e.g. \"the mulch was recycled\"",
+                        "form-placeholder_en": "any notes or observations about the event, e.g. \"the mulch was recycled\"",
+                        "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"kate kierrätettiin\""
+                    }
                 }
             },
             "required": [
@@ -1827,8 +1871,7 @@
                 "other_notes": {
                     "title": "notes",
                     "title_fi": "muistiinpanot",
-                    "type": "string",
-                    "ui_type": "textAreaInput"
+                    "type": "string"
                 }
             },
             "required": [

@@ -521,17 +521,17 @@ def set_choices(target_schema, property):
     if property_id in banned_properties:
         return
     if "type" in property:
-        ret_val = {}
+        new_property = {}
 
         for language_ext, title_dict in [("", code_name_to_disp_name_eng), ("_fi", code_name_to_disp_name_fin), ("_sv", None)]:
             if (title_dict is not None) and (property_id in title_dict):
-                ret_val[f"title{language_ext}"] = title_dict[property_id]
+                new_property[f"title{language_ext}"] = title_dict[property_id]
             if f"{property_id}{language_ext}" in mgmt_operations_variable_name_plaintext:
                 fo_title = pydash.lower_first(mgmt_operations_variable_name_plaintext[f"{property_id}{language_ext}"])
-                if not (f"title{language_ext}" in ret_val):
-                    ret_val[f"title{language_ext}"] = fo_title
-                elif ret_val[f"title{language_ext}"] != fo_title:
-                    ret_val[f"title2{language_ext}"] = fo_title
+                if not (f"title{language_ext}" in new_property):
+                    new_property[f"title{language_ext}"] = fo_title
+                elif new_property[f"title{language_ext}"] != fo_title:
+                    new_property[f"title2{language_ext}"] = fo_title
                 
         if property["type"] == "selectInput":
             if type(property['choices']) == list:
@@ -548,10 +548,10 @@ def set_choices(target_schema, property):
                     other.pop("type")
                     other.pop("oneOf")
                     other["$ref"] = f"#/$defs/{choice_list_name[property['choices']]}"
-                ret_val["$ref"] = f"#/$defs/{choice_list_name[property['choices']]}"
+                new_property["$ref"] = f"#/$defs/{choice_list_name[property['choices']]}"
             else:
-                ret_val["type"] = "string"
-                ret_val["oneOf"] = []
+                new_property["type"] = "string"
+                new_property["oneOf"] = []
                 for choice in choices:
                     new_choice = {
                         "const": choice
@@ -566,48 +566,59 @@ def set_choices(target_schema, property):
                             elif new_choice[f"title{language_ext}"] != fo_title:
                                 new_choice[f"title2{language_ext}"] = fo_title
 
-                    ret_val["oneOf"].append(new_choice)
+                    new_property["oneOf"].append(new_choice)
 
                 if type(property['choices']) != list:
-                    choices_appeared_in[property['choices']] = ret_val
+                    choices_appeared_in[property['choices']] = new_property
         elif property["type"] == "textInput" or property["type"] == "textAreaInput":
-            ret_val["type"] = "string"
-            ret_val["ui_type"] = property["type"]
+            new_property["type"] = "string"
             if "placeholder" in property:
-                ret_val["placeholder"] = code_name_to_disp_name_eng[property["placeholder"]] if property["placeholder"] in code_name_to_disp_name_eng else 'unknown'
-                ret_val["placeholder_en"] = code_name_to_disp_name_eng[property["placeholder"]] if property["placeholder"] in code_name_to_disp_name_eng else 'unknown'
-                ret_val["placeholder_fi"] = code_name_to_disp_name_fin[property["placeholder"]] if property["placeholder"] in code_name_to_disp_name_fin else 'unknown'
+                if "x-ui" not in new_property:
+                    new_property["x-ui"] = {}
+                new_property["x-ui"]["form-type"] = property["type"]
+                new_property["x-ui"]["form-placeholder"] = code_name_to_disp_name_eng[property["placeholder"]] if property["placeholder"] in code_name_to_disp_name_eng else 'unknown'
+                new_property["x-ui"]["form-placeholder_en"] = code_name_to_disp_name_eng[property["placeholder"]] if property["placeholder"] in code_name_to_disp_name_eng else 'unknown'
+                new_property["x-ui"]["form-placeholder_fi"] = code_name_to_disp_name_fin[property["placeholder"]] if property["placeholder"] in code_name_to_disp_name_fin else 'unknown'
         elif property["type"] == "numericInput":
             # TODO: Handle "min" and "max" and "step" (not all may be present)
             if "step" in property and property["step"] == 1:
-                ret_val["type"] = "integer"
+                new_property["type"] = "integer"
             else:
-                ret_val["type"] = "number"
+                new_property["type"] = "number"
             if "min" in property:
-                ret_val["minimum"] = property["min"]
+                new_property["minimum"] = property["min"]
             if "max" in property:
-                ret_val["maximum"] = property["max"]
-        elif property["type"] == "dateInput":
-            ret_val["type"] = "string"
-            ret_val["format"] = "date"
-        elif property["type"] == "dateRangeInput":
-            #TODO: "start_date": "2021-08-24",
-            #"end_date": "2021-08-31",
-            # Do this manually afterwards
-            target_schema["properties"][property_id] = {"todo": "fixme1"}
+                new_property["maximum"] = property["max"]
+        elif property["type"] == "dateInput": # TODO: Should these be datetimes?
+            new_property["type"] = "string"
+            new_property["format"] = "date"
+        elif property["type"] == "dateRangeInput": # TODO: Should these be datetimes?
+            new_property["properties"] = {
+                "start_date": {
+                    "title": "start date",
+                    "title_fi": "alkamispäivä",
+                    "title_sv": "startdatum",
+                    "type": "string",
+                    "format": "date"
+                },
+                "end_date": {
+                    "title": "end date",
+                    "title_fi": "päättymispäivä",
+                    "title_sv": "slutdatum",
+                    "type": "string",
+                    "format": "date"
+                }
+            }
         elif property["type"] == "textOutput":
             target_schema["description"] = code_name_to_disp_name_eng[property["code_name"]] if property["code_name"] in code_name_to_disp_name_eng else 'unknown'
             target_schema["description_en"] = code_name_to_disp_name_eng[property["code_name"]] if property["code_name"] in code_name_to_disp_name_eng else 'unknown'
             target_schema["description_fi"] = code_name_to_disp_name_fin[property["code_name"]] if property["code_name"] in code_name_to_disp_name_fin else 'unknown'
         else:
             target_schema["properties"][property_id] = {"todo": "fixme2"}  
+        if new_property:
+            target_schema["properties"][property_id] = new_property
     else:
         print("TODO FIXME 3")
-        return
-    target_schema["properties"][property_id] = ret_val
-    if property_id == "observation_type_vegetation" and property["code_name"] == "canopy_height":
-        print(ret_val)
-        print("")
 
 choices_appeared_in = {}
 
