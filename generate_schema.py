@@ -639,6 +639,13 @@ schema = {
     },
     "title": "management event",
     'type': 'object',
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "format": "url",
+            "const": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-data.schema.json"
+          }        
+    },
     "oneOf" : [
     ],
     "$defs" : {        

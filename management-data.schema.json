@@ -7,7 +7,8 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "format": "url"
+      "format": "url",
+      "const": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-data.schema.json"
     },
     "management": {
       "description": "Container object for management data",
