@@ -627,15 +627,15 @@ schema = {
     "$id": "https://www.fieldobservatory.org/data-schemas/management-event.schema.json", # Was: "#root"
     "@context": { # See https://www.w3.org/TR/json-ld/#string-internationalization
         "@language": "en",
-        "title": { "@id": "ex:title", "@language": "en" },
-        "title_fi": { "@id": "ex:title", "@language": "fi" },
-        "title_sv": { "@id": "ex:title", "@language": "sv" },
-        "description": { "@id": "ex:description", "@language": "en" },
-        "description_fi": { "@id": "ex:description", "@language": "fi" },
-        "description_sv": { "@id": "ex:description", "@language": "sv" },
-        "form-placeholder": { "@id": "ex:form-placeholder", "@language": "en" },
-        "form-placeholder_fi": { "@id": "ex:form-placeholder", "@language": "fi" },
-        "form-placeholder_sv": { "@id": "ex:form-placeholder", "@language": "sv" }
+        "title": { "@id": "title", "@language": "en" },
+        "title_fi": { "@id": "title", "@language": "fi" },
+        "title_sv": { "@id": "title", "@language": "sv" },
+        "description": { "@id": "description", "@language": "en" },
+        "description_fi": { "@id": "description", "@language": "fi" },
+        "description_sv": { "@id": "description", "@language": "sv" },
+        "form-placeholder": { "@id": "form-placeholder", "@language": "en" },
+        "form-placeholder_fi": { "@id": "form-placeholder", "@language": "fi" },
+        "form-placeholder_sv": { "@id": "form-placeholder", "@language": "sv" }
     },
     "title": "management event",
     'type': 'object',

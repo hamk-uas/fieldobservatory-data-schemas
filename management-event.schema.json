@@ -4,39 +4,39 @@
     "@context": {
         "@language": "en",
         "title": {
-            "@id": "ex:title",
+            "@id": "title",
             "@language": "en"
         },
         "title_fi": {
-            "@id": "ex:title",
+            "@id": "title",
             "@language": "fi"
         },
         "title_sv": {
-            "@id": "ex:title",
+            "@id": "title",
             "@language": "sv"
         },
         "description": {
-            "@id": "ex:description",
+            "@id": "description",
             "@language": "en"
         },
         "description_fi": {
-            "@id": "ex:description",
+            "@id": "description",
             "@language": "fi"
         },
         "description_sv": {
-            "@id": "ex:description",
+            "@id": "description",
             "@language": "sv"
         },
         "form-placeholder": {
-            "@id": "ex:form-placeholder",
+            "@id": "form-placeholder",
             "@language": "en"
         },
         "form-placeholder_fi": {
-            "@id": "ex:form-placeholder",
+            "@id": "form-placeholder",
             "@language": "fi"
         },
         "form-placeholder_sv": {
-            "@id": "ex:form-placeholder",
+            "@id": "form-placeholder",
             "@language": "sv"
         }
     },
