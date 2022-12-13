@@ -11,8 +11,7 @@ Work in progress.
 
 *Validation of a data file containing management events, using https://jsonschemalint.com/*
 
-Visual Studio Code supports validation of JSON files being edited, using JSON schema files retrieved over http(s). It also supports validation of JSON files using a local JSON schema file which unfortunately will only work if there is no "$schema" property in the JSON file. Commenting it out as "//$schema" works but will break other uses of the schema. Also only a single schema can be associated with a JSON file. Currently the JSON files in the repository refer to GitHub raw file addresses of JSON Schemas.
+Visual Studio Code supports validation of JSON files being edited, using JSON schema files retrieved over http(s). Currently the JSON files in the repository refer to URLs of GitHub raw files for JSON Schemas.
 
-![image](https://user-images.githubusercontent.com/60920087/203817321-801cd42a-edd7-484d-a1ac-229ead2c24cc.png)
+![image](https://user-images.githubusercontent.com/60920087/207064023-c14853be-2ac4-49bb-b4d6-354a5625c347.png)
 
-*Sample settings.json to do JSON and schema association in VS Code.*
