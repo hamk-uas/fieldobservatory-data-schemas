@@ -1,6 +1,45 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://www.fieldobservatory.org/data-schemas/management-event.schema.json",
+    "@context": {
+        "@language": "en",
+        "title": {
+            "@id": "ex:title",
+            "@language": "en"
+        },
+        "title_fi": {
+            "@id": "ex:title",
+            "@language": "fi"
+        },
+        "title_sv": {
+            "@id": "ex:title",
+            "@language": "sv"
+        },
+        "description": {
+            "@id": "ex:description",
+            "@language": "en"
+        },
+        "description_fi": {
+            "@id": "ex:description",
+            "@language": "fi"
+        },
+        "description_sv": {
+            "@id": "ex:description",
+            "@language": "sv"
+        },
+        "form-placeholder": {
+            "@id": "ex:form-placeholder",
+            "@language": "en"
+        },
+        "form-placeholder_fi": {
+            "@id": "ex:form-placeholder",
+            "@language": "fi"
+        },
+        "form-placeholder_sv": {
+            "@id": "ex:form-placeholder",
+            "@language": "sv"
+        }
+    },
     "title": "management event",
     "type": "object",
     "oneOf": [

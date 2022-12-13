@@ -625,6 +625,18 @@ choices_appeared_in = {}
 schema = {
     "$schema": "http://json-schema.org/draft-07/schema", #"https://json-schema.org/draft/2020-12/schema",
     "$id": "https://www.fieldobservatory.org/data-schemas/management-event.schema.json", # Was: "#root"
+    "@context": { # See https://www.w3.org/TR/json-ld/#string-internationalization
+        "@language": "en",
+        "title": { "@id": "ex:title", "@language": "en" },
+        "title_fi": { "@id": "ex:title", "@language": "fi" },
+        "title_sv": { "@id": "ex:title", "@language": "sv" },
+        "description": { "@id": "ex:description", "@language": "en" },
+        "description_fi": { "@id": "ex:description", "@language": "fi" },
+        "description_sv": { "@id": "ex:description", "@language": "sv" },
+        "form-placeholder": { "@id": "ex:form-placeholder", "@language": "en" },
+        "form-placeholder_fi": { "@id": "ex:form-placeholder", "@language": "fi" },
+        "form-placeholder_sv": { "@id": "ex:form-placeholder", "@language": "sv" }
+    },
     "title": "management event",
     'type': 'object',
     "oneOf" : [
