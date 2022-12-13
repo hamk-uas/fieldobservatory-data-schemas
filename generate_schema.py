@@ -627,15 +627,15 @@ schema = {
     "$id": "https://www.fieldobservatory.org/data-schemas/management-event.schema.json", # Was: "#root"
     "@context": { # See https://www.w3.org/TR/json-ld/#string-internationalization
         "@language": "en",
-        "title": { "@id": "title", "@language": "en" },
-        "title_fi": { "@id": "title", "@language": "fi" },
-        "title_sv": { "@id": "title", "@language": "sv" },
-        "description": { "@id": "description", "@language": "en" },
-        "description_fi": { "@id": "description", "@language": "fi" },
-        "description_sv": { "@id": "description", "@language": "sv" },
-        "form-placeholder": { "@id": "form-placeholder", "@language": "en" },
-        "form-placeholder_fi": { "@id": "form-placeholder", "@language": "fi" },
-        "form-placeholder_sv": { "@id": "form-placeholder", "@language": "sv" }
+        "title": { "@id": "dc:title", "@language": "en" }, # TODO: Not at all sure about dc
+        "title_fi": { "@id": "dc:title", "@language": "fi" },
+        "title_sv": { "@id": "dc:title", "@language": "sv" },
+        "description": { "@id": "dc:description", "@language": "en" }, # TODO: Not at all sure about dc
+        "description_fi": { "@id": "dc:description", "@language": "fi" },
+        "description_sv": { "@id": "dc:description", "@language": "sv" },
+        "form-placeholder": { "@id": "fo:form-placeholder", "@language": "en" }, # TODO: Not at all sure about fo
+        "form-placeholder_fi": { "@id": "fo:form-placeholder", "@language": "fi" },
+        "form-placeholder_sv": { "@id": "fo:form-placeholder", "@language": "sv" }
     },
     "title": "management event",
     'type': 'object',

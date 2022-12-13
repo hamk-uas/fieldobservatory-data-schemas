@@ -4,39 +4,39 @@
     "@context": {
         "@language": "en",
         "title": {
-            "@id": "title",
+            "@id": "dc:title",
             "@language": "en"
         },
         "title_fi": {
-            "@id": "title",
+            "@id": "dc:title",
             "@language": "fi"
         },
         "title_sv": {
-            "@id": "title",
+            "@id": "dc:title",
             "@language": "sv"
         },
         "description": {
-            "@id": "description",
+            "@id": "dc:description",
             "@language": "en"
         },
         "description_fi": {
-            "@id": "description",
+            "@id": "dc:description",
             "@language": "fi"
         },
         "description_sv": {
-            "@id": "description",
+            "@id": "dc:description",
             "@language": "sv"
         },
         "form-placeholder": {
-            "@id": "form-placeholder",
+            "@id": "fo:form-placeholder",
             "@language": "en"
         },
         "form-placeholder_fi": {
-            "@id": "form-placeholder",
+            "@id": "fo:form-placeholder",
             "@language": "fi"
         },
         "form-placeholder_sv": {
-            "@id": "form-placeholder",
+            "@id": "fo:form-placeholder",
             "@language": "sv"
         }
     },
