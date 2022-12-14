@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "https://www.fieldobservatory.org/data-schemas/management-event.schema.json",
+    "$id": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-event.schema.json",
     "@context": {
         "@language": "en",
         "title": {

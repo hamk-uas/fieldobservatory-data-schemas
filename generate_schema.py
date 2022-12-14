@@ -624,7 +624,7 @@ choices_appeared_in = {}
 
 schema = {
     "$schema": "http://json-schema.org/draft-07/schema", #"https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://www.fieldobservatory.org/data-schemas/management-event.schema.json", # Was: "#root"
+    "$id": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-event.schema.json", # Was: "#root"
     "@context": { # See https://www.w3.org/TR/json-ld/#string-internationalization
         "@language": "en",
         "title": { "@id": "dc:title", "@language": "en" }, # TODO: Not at all sure about dc
