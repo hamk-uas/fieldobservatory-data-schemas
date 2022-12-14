@@ -1,0 +1,272 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/observation-bugtest.schema.json",
+    "title": "observation",
+    "title_fi": "havainto",
+    "title_sv": "observation",
+    "properties": {
+        "mgmt_operations_event": {
+            "title": "event",
+            "title_en": "event",
+            "title_fi": "tapahtuma",
+            "type": "string",
+            "const": "observation"
+        },
+        "date": {
+            "title": "date",
+            "title_en": "date",
+            "title_fi": "päivä",
+            "type": "string",
+            "format": "date"
+        },
+        "mgmt_event_notes": {
+            "title": "description",
+            "title_en": "description",
+            "title_fi": "kuvaus",
+            "type": "string"
+        },
+        "observation_type": {
+            "title": "observation type",
+            "title_fi": "havainnon tyyppi",
+            "type": "string",
+            "oneOf": [
+                {
+                    "const": "observation_type_soil",
+                    "title": "soil",
+                    "title_fi": "maaperä"
+                },
+                {
+                    "const": "observation_type_vegetation",
+                    "title": "vegetation",
+                    "title_fi": "kasvillisuus"
+                },
+                {
+                    "const": "observation_type_water",
+                    "title": "water",
+                    "title_fi": "vesi"
+                },
+                {
+                    "const": "observation_type_animals",
+                    "title": "animals",
+                    "title_fi": "eläimet"
+                },
+                {
+                    "const": "observation_type_pests",
+                    "title": "pests",
+                    "title_fi": "tuholaiset"
+                },
+                {
+                    "const": "observation_type_disturbance",
+                    "title": "disturbance",
+                    "title_fi": "häiriö"
+                },
+                {
+                    "const": "observation_type_management",
+                    "title": "management",
+                    "title_fi": "tilanhoito"
+                },
+                {
+                    "const": "observation_type_other",
+                    "title": "other",
+                    "title_fi": "muu"
+                }
+            ]
+        },
+        "observation_notes": {
+            "title": "observations",
+            "title_fi": "havaintoja",
+            "type": "string"
+        }
+    },
+    "required": [
+        "mgmt_operations_event",
+        "date",
+        "observation_type"
+    ],
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "observation_type": {
+                        "const": "observation_type_soil"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "root_depth": {
+                        "title": "root depth (m)",
+                        "title_fi": "juurten syvyys (m)",
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "soil_compactification_depth": {
+                        "title": "soil compactification depth (cm)",
+                        "title_fi": "tiivistymän syvyys (cm)",
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "earthworm_count": {
+                        "title": "number of earthworms",
+                        "title_fi": "lierojen lukumäärä",
+                        "type": "integer",
+                        "minimum": 0
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "observation_type": {
+                        "const": "observation_type_vegetation"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "growth_stage": {
+                        "title": "plant growth stage",
+                        "title_fi": "kasvuaste",
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "const": "growth_stage_germination",
+                                "title": "germination",
+                                "title_fi": "itäminen"
+                            },
+                            {
+                                "const": "growth_stage_first_pod",
+                                "title": "first pod",
+                                "title_fi": "first pod -käännös"
+                            },
+                            {
+                                "const": "growth_stage_pegging",
+                                "title": "pegging",
+                                "title_fi": "pegging-käännös"
+                            },
+                            {
+                                "const": "growth_stage_budding",
+                                "title": "budding",
+                                "title_fi": "budding-käännös"
+                            },
+                            {
+                                "const": "growth_stage_blooming",
+                                "title": "blooming",
+                                "title_fi": "blooming-käännös"
+                            },
+                            {
+                                "const": "growth_stage_seeding",
+                                "title": "seeding",
+                                "title_fi": "seeding-käännös"
+                            },
+                            {
+                                "const": "growth_stage_maturity",
+                                "title": "maturity",
+                                "title_fi": "maturity-käännös"
+                            }
+                        ]
+                    },
+                    "plant_density": {
+                        "title": "plant density (plants/m2)",
+                        "title_fi": "kasvitiheys (kasveja/m2)",
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "specific_leaf_area": {
+                        "title": "specific leaf area (cm2/g)",
+                        "title_fi": "ominaislehtiala (cm2/g)",
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "leaf_area_index": {
+                        "title": "leaf area index (m2/m2)",
+                        "title_fi": "lehtialaindeksi (m2/m2)",
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "canopy_height": {
+                        "title": "canopy height (m)",
+                        "title_fi": "latvuston korkeus (m)",
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "canopeo_reading": {
+                        "title": "canopeo reading",
+                        "title_fi": "canopeo-lukema",
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "canopeo_image": {
+                        "title": "canopeo image",
+                        "title_fi": "canopeo-kuva"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "observation_type": {
+                        "const": "observation_type_water"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "floodwater_depth": {
+                        "title": "floodwater depth (mm)",
+                        "title_fi": "tulvaveden syvyys (mm)",
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "water_table_depth": {
+                        "title": "water table level (cm)",
+                        "title_fi": "pohjaveden pinnan syvyys (cm)",
+                        "type": "number",
+                        "minimum": 0
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "observation_type": {
+                        "const": "observation_type_pests"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "plant_pop_reduct_cum": {
+                        "title": "amount of plants eaten (%, cumulative)",
+                        "title_fi": "syötyjen kasvien määrä (%, kumulatiivinen)",
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 0
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "observation_type": {
+                        "const": "observation_type_management"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "fuel_amount": {
+                        "title": "fuel used (liters/ha)",
+                        "title_fi": "käytetty polttoaine (litraa/ha)",
+                        "type": "number",
+                        "minimum": 0
+                    }
+                }
+            }
+        }
+    ]
+}
