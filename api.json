@@ -1,0 +1,58 @@
+{
+    "openapi": "3.0.3",
+    "servers": [
+        {
+            "url": "https://api.fieldobservatory.org"
+        }
+    ],
+    "info": {
+        "title": "Field Observatory REST API (DEMO)",
+        "description": "Field Observatory REST API (DEMO).",
+        "version": "0.0.0"
+    },
+    "externalDocs": {
+        "description": "Field Observatory REST API",
+        "url": "https://api.fieldobservatory.org"
+    },
+    "tags": [
+        {
+            "description": "Endpoints to obtain data using the REST API.",
+            "name": "actions"
+        }
+    ],
+    "paths": {
+        "/management/{site}": {
+            "get": {
+                "description": "Obtain field management data of a site using REST API",
+                "summary": "Get field management data of a site",
+                "operationId": "management",
+                "parameters": [
+                    {
+                      "in": "path",
+                      "name": "site",
+                      "description": "site ID",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "$ref": "#/components/responses/not_found"
+                    },
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-data.schema.json"
+                                }
+                            }
+                        },
+                        "description": "response"
+                    }
+                }
+            }
+        }
+    }
+}
