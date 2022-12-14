@@ -643,13 +643,14 @@ schema = {
         "$schema": {
             "type": "string",
             "format": "url",
-            "const": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-data.schema.json"
-          }        
+            "const": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-event.schema.json"
+        }        
     },
     "oneOf" : [
     ],
     "$defs" : {        
-    }
+    },
+    "required" : ["$schema"]
 }
 
 variable_names = csv #csv[csv['category'] == 'variable_name']
