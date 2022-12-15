@@ -750,8 +750,8 @@ for index, row in categories.iterrows():
             dummy,conditioning_value,dummy = sub_element_value['condition'].split("'")
             #print(conditioning_value)
             #print(sub_element_value)
-            if "allOf" not in sub_schema:
-                sub_schema["allOf"] = []
+            if "oneOf" not in sub_schema:
+                sub_schema["oneOf"] = []
             condition = {
                 "if": {
                     "properties": {
@@ -763,9 +763,10 @@ for index, row in categories.iterrows():
                 },
                 "then": {
                     "properties": {}
-                }
+                },
+                "else": False
             }
-            sub_schema["allOf"].append(condition)
+            sub_schema["oneOf"].append(condition)
             for property_id, property in sub_element_value.items():
                 if "code_name" in property:
                     set_choices(condition["then"], property)

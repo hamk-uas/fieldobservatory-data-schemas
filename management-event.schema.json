@@ -1505,7 +1505,7 @@
                 "date",
                 "observation_type"
             ],
-            "allOf": [
+            "oneOf": [
                 {
                     "if": {
                         "properties": {
@@ -1535,7 +1535,8 @@
                                 "minimum": 0
                             }
                         }
-                    }
+                    },
+                    "else": false
                 },
                 {
                     "if": {
@@ -1624,7 +1625,8 @@
                                 "title_fi": "canopeo-kuva"
                             }
                         }
-                    }
+                    },
+                    "else": false
                 },
                 {
                     "if": {
@@ -1649,7 +1651,8 @@
                                 "minimum": 0
                             }
                         }
-                    }
+                    },
+                    "else": false
                 },
                 {
                     "if": {
@@ -1669,7 +1672,8 @@
                                 "maximum": 0
                             }
                         }
-                    }
+                    },
+                    "else": false
                 },
                 {
                     "if": {
@@ -1688,7 +1692,8 @@
                                 "minimum": 0
                             }
                         }
-                    }
+                    },
+                    "else": false
                 }
             ]
         },

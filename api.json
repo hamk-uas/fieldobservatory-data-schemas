@@ -39,7 +39,7 @@
                 ],
                 "responses": {
                     "404": {
-                        "$ref": "#/components/responses/not_found"
+                        "description": "not found"
                     },
                     "200": {
                         "content": {
