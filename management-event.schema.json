@@ -1475,6 +1475,7 @@
                         }
                     },
                     "then": {
+                        "title": "soil observation",
                         "properties": {
                             "root_depth": {
                                 "title": "root depth (m)",
@@ -1509,6 +1510,7 @@
                         }
                     },
                     "then": {
+                        "title": "vegetation observation",
                         "properties": {
                             "growth_stage": {
                                 "title": "plant growth stage",
