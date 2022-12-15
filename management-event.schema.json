@@ -1450,49 +1450,7 @@
                 "observation_type": {
                     "title": "observation type",
                     "title_fi": "havainnon tyyppi",
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "const": "observation_type_soil",
-                            "title": "soil",
-                            "title_fi": "maaperä"
-                        },
-                        {
-                            "const": "observation_type_vegetation",
-                            "title": "vegetation",
-                            "title_fi": "kasvillisuus"
-                        },
-                        {
-                            "const": "observation_type_water",
-                            "title": "water",
-                            "title_fi": "vesi"
-                        },
-                        {
-                            "const": "observation_type_animals",
-                            "title": "animals",
-                            "title_fi": "eläimet"
-                        },
-                        {
-                            "const": "observation_type_pests",
-                            "title": "pests",
-                            "title_fi": "tuholaiset"
-                        },
-                        {
-                            "const": "observation_type_disturbance",
-                            "title": "disturbance",
-                            "title_fi": "häiriö"
-                        },
-                        {
-                            "const": "observation_type_management",
-                            "title": "management",
-                            "title_fi": "tilanhoito"
-                        },
-                        {
-                            "const": "observation_type_other",
-                            "title": "other",
-                            "title_fi": "muu"
-                        }
-                    ]
+                    "type": "string"
                 },
                 "observation_notes": {
                     "title": "observations",
@@ -1510,6 +1468,8 @@
                     "if": {
                         "properties": {
                             "observation_type": {
+                                "title": "soil",
+                                "title_fi": "maaperä",
                                 "const": "observation_type_soil"
                             }
                         }
@@ -1542,6 +1502,8 @@
                     "if": {
                         "properties": {
                             "observation_type": {
+                                "title": "vegetation",
+                                "title_fi": "kasvillisuus",
                                 "const": "observation_type_vegetation"
                             }
                         }
@@ -1623,73 +1585,6 @@
                             "canopeo_image": {
                                 "title": "canopeo image",
                                 "title_fi": "canopeo-kuva"
-                            }
-                        }
-                    },
-                    "else": false
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "observation_type": {
-                                "const": "observation_type_water"
-                            }
-                        }
-                    },
-                    "then": {
-                        "properties": {
-                            "floodwater_depth": {
-                                "title": "floodwater depth (mm)",
-                                "title_fi": "tulvaveden syvyys (mm)",
-                                "type": "number",
-                                "minimum": 0
-                            },
-                            "water_table_depth": {
-                                "title": "water table level (cm)",
-                                "title_fi": "pohjaveden pinnan syvyys (cm)",
-                                "type": "number",
-                                "minimum": 0
-                            }
-                        }
-                    },
-                    "else": false
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "observation_type": {
-                                "const": "observation_type_pests"
-                            }
-                        }
-                    },
-                    "then": {
-                        "properties": {
-                            "plant_pop_reduct_cum": {
-                                "title": "amount of plants eaten (%, cumulative)",
-                                "title_fi": "syötyjen kasvien määrä (%, kumulatiivinen)",
-                                "type": "number",
-                                "minimum": 0,
-                                "maximum": 0
-                            }
-                        }
-                    },
-                    "else": false
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "observation_type": {
-                                "const": "observation_type_management"
-                            }
-                        }
-                    },
-                    "then": {
-                        "properties": {
-                            "fuel_amount": {
-                                "title": "fuel used (liters/ha)",
-                                "title_fi": "käytetty polttoaine (litraa/ha)",
-                                "type": "number",
-                                "minimum": 0
                             }
                         }
                     },
