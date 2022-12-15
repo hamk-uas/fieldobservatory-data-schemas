@@ -1447,11 +1447,6 @@
                     "title_fi": "kuvaus",
                     "type": "string"
                 },
-                "observation_type": {
-                    "title": "observation type",
-                    "title_fi": "havainnon tyyppi",
-                    "type": "string"
-                },
                 "observation_notes": {
                     "title": "observations",
                     "title_fi": "havaintoja",
@@ -1460,22 +1455,23 @@
             },
             "required": [
                 "mgmt_operations_event",
-                "date",
-                "observation_type"
+                "date"
             ],
             "oneOf": [
                 {
                     "if": {
                         "properties": {
                             "observation_type": {
-                                "title": "soil",
-                                "title_fi": "maaperä",
+                                "title": "observation type",
+                                "title_fi": "havainnon tyyppi",
+                                "type": "string",
                                 "const": "observation_type_soil"
                             }
                         }
                     },
                     "then": {
-                        "title": "soil observation",
+                        "title": "soil",
+                        "title_fi": "maaperä",
                         "properties": {
                             "root_depth": {
                                 "title": "root depth (m)",
@@ -1503,14 +1499,16 @@
                     "if": {
                         "properties": {
                             "observation_type": {
-                                "title": "vegetation",
-                                "title_fi": "kasvillisuus",
+                                "title": "observation type",
+                                "title_fi": "havainnon tyyppi",
+                                "type": "string",
                                 "const": "observation_type_vegetation"
                             }
                         }
                     },
                     "then": {
-                        "title": "vegetation observation",
+                        "title": "vegetation",
+                        "title_fi": "kasvillisuus",
                         "properties": {
                             "growth_stage": {
                                 "title": "plant growth stage",
