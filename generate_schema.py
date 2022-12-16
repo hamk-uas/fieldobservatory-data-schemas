@@ -503,7 +503,7 @@ with urllib.request.urlopen('https://raw.githubusercontent.com/PecanProject/fiel
 #print("ui_structure:")
 #print(json.dumps(ui_structure, indent=4))
 
-def set_choices(target_schema, property):
+def set_choices(target_schema, property, add_title_to_properties = False):
     property_id = property["code_name"]
     if property_id == "observation_type_vegetation": #and property["code_name"] == "canopy_height":
         print("target_schema:")
@@ -547,14 +547,30 @@ def set_choices(target_schema, property):
                     }
                     other.pop("type")
                     other.pop("oneOf")
-                    other["$ref"] = f"#/$defs/{choice_list_name[property['choices']]}"
-                new_property["$ref"] = f"#/$defs/{choice_list_name[property['choices']]}"
+                    allOf = [ # Using allOf works better with OpenAPI than combining $ref into other
+                        {
+                            **other
+                        },
+                        {
+                            "$ref": f"#/$defs/{choice_list_name[property['choices']]}"
+                        }
+                    ]
+                    other.clear()
+                    other["allOf"] = allOf
+                allOf = [ # Using allOf works better with OpenAPI than combining $ref into other
+                    {
+                        **new_property
+                    },
+                    {
+                        "$ref": f"#/$defs/{choice_list_name[property['choices']]}"
+                    }
+                ]
+                new_property.clear()
+                new_property["allOf"] = allOf
             else:
                 new_property["type"] = "string"
-                new_property["oneOf"] = []
                 for choice in choices:
                     new_choice = {
-                        "const": choice
                     }
                     for language_ext, title_dict in [("", code_name_to_disp_name_eng), ("_fi", code_name_to_disp_name_fin), ("_sv", None)]:
                         if (title_dict is not None) and (choice in title_dict):
@@ -566,7 +582,24 @@ def set_choices(target_schema, property):
                             elif new_choice[f"title{language_ext}"] != fo_title:
                                 new_choice[f"title2{language_ext}"] = fo_title
 
-                    new_property["oneOf"].append(new_choice)
+                    if "$id" in target_schema and target_schema["$id"] == "#observation":
+                        if "oneOf" not in sub_schema:
+                            sub_schema["oneOf"] = []
+                        sub_schema["oneOf"].append({
+                            **new_choice,
+                            "properties": {
+                                property_id: {
+                                    **new_choice,
+                                    "const": choice
+                                }
+                            }
+                        })
+                    else:
+                        if "oneOf" not in new_property:
+                            new_property["oneOf"] = []
+                        new_choice = {**new_choice}
+                        new_choice["const"] = choice
+                        new_property["oneOf"].append(new_choice)
 
                 if type(property['choices']) != list:
                     choices_appeared_in[property['choices']] = new_property
@@ -746,30 +779,19 @@ for index, row in categories.iterrows():
                 if "code_name" in element_of_hidden_value:
                     set_choices(sub_schema, element_of_hidden_value)
         elif row["code_name"] == "observation" and sub_element_key != "condition":
-            #print(f"{row['code_name']} {sub_element_key}")
             dummy,conditioning_value,dummy = sub_element_value['condition'].split("'")
-            #print(conditioning_value)
-            #print(sub_element_value)
-            if "oneOf" not in sub_schema:
-                sub_schema["oneOf"] = []
-            condition = {
-                "if": {
-                    "properties": {
-                        "observation_type": {
-                            "const": conditioning_value
-                        }
-                    }#,
-                    #"required": ["observation_type"]
-                },
-                "then": {
-                    "properties": {}
-                },
-                "else": False
-            }
-            sub_schema["oneOf"].append(condition)
+            #specific_observation_schema = {
+            #    "properties": {
+            #        "observation_type": {
+            #            "const": conditioning_value
+            #        }
+            #    }
+            #}
+            # set_choices() has already created the alternate_schema
+            alternate_schema = next(alternate_schema for alternate_schema in sub_schema["oneOf"] if alternate_schema["properties"]["observation_type"]["const"] == conditioning_value)
             for property_id, property in sub_element_value.items():
                 if "code_name" in property:
-                    set_choices(condition["then"], property)
+                    set_choices(alternate_schema, property)
         else:
             None
             # print(f"{row['code_name']} {sub_element_key}") # TODO handle this
