@@ -1603,10 +1603,6 @@
                             "title_fi": "canopeo-lukema",
                             "type": "number",
                             "minimum": 0
-                        },
-                        "canopeo_image": {
-                            "title": "canopeo image",
-                            "title_fi": "canopeo-kuva"
                         }
                     }
                 },

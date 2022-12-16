@@ -12,7 +12,8 @@ banned_properties = {
     "fertilizer_element_table": True,
     "soil_layer_count": True,
     "mowing_method": True, # TODO: Allow this? Removed because of an empty list of choices
-    "soil_image": True
+    "soil_image": True, #TODO add image support somehow
+    "canopeo_image": True # TODO (same)
 }
 
 priority_properties = ['$id', 'title', 'title_en', 'title_fi', 'title_sv', 'title2', 'title2_fi', 'type', 'description', 'description_en', 'description_fi']
@@ -547,7 +548,7 @@ def set_choices(target_schema, property, add_title_to_properties = False):
                     }
                     other.pop("type")
                     other.pop("oneOf")
-                    allOf = [ # Using allOf works better with OpenAPI than combining $ref into other
+                    allOf = [ # Using allOf works better with OpenAPI than just adding $ref as a property
                         {
                             **other
                         },
@@ -557,7 +558,7 @@ def set_choices(target_schema, property, add_title_to_properties = False):
                     ]
                     other.clear()
                     other["allOf"] = allOf
-                allOf = [ # Using allOf works better with OpenAPI than combining $ref into other
+                allOf = [
                     {
                         **new_property
                     },
