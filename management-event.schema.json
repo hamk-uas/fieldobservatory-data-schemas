@@ -937,10 +937,6 @@
                         "unitless_title_sv": "totala mängden kol (C) i skörden"
                     }
                 },
-                "harvest_residue_help_text": {
-                    "title": "If you left the harvest residue on the field, please add a new event (fertilizer application or tillage) accordingly.",
-                    "title_fi": "Jos jätit korjuutähteet pellolle, tee tästä uusi soveltuva tapahtuma (lannoitus- tai maanmuokkaus-)."
-                },
                 "harvest_comments": {
                     "title": "harvest comments",
                     "title2": "comments",

@@ -36,6 +36,7 @@ banned_properties = {
     "mowing_method": True, # TODO: Allow this? Removed because of an empty list of choices
     "soil_image": True, #TODO add image support somehow
     "canopeo_image": True # TODO (same)
+    #"harvest_residue_help_text": True
 }
 
 priority_properties = ['$id', 'title', 'title_en', 'title_fi', 'title_sv', 'title2', 'title2_fi', 'type', 'description', 'description_en', 'description_fi']
@@ -692,6 +693,7 @@ def set_choices(target_schema, property, add_title_to_properties = False):
             target_schema["description"] = code_name_to_disp_name_eng[property["code_name"]] if property["code_name"] in code_name_to_disp_name_eng else 'unknown'
             target_schema["description_en"] = code_name_to_disp_name_eng[property["code_name"]] if property["code_name"] in code_name_to_disp_name_eng else 'unknown'
             target_schema["description_fi"] = code_name_to_disp_name_fin[property["code_name"]] if property["code_name"] in code_name_to_disp_name_fin else 'unknown'
+            new_property = {}
         else:
             target_schema["properties"][property_id] = {"todo": "fixme2"}  
         if new_property:
