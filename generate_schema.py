@@ -4,6 +4,28 @@ import json
 import pyjson5
 import pydash
 
+raw_units = {
+    "(kg/ha)": "kg/ha",
+    "(mm)": "mm",
+    "(cm)": "cm",
+    "(ha)": "ha",
+    "(t/ha)": "t/ha",
+    "(%)": "%",
+    "(m)": "m",
+    "(plants/m2)": "1/m^2",
+    "(kasveja/m2)": "1/m2",
+    "(number/ha)": "1/ha",
+    "(eläintä/ha)": "1/ha",
+    "(depth, mm)": "mm",
+    "(veden syvyys, mm)": "mm",
+    "(cm2/g)": "cm^2/g",
+    "(m2/m2)": "m^2/m^2",
+    "(%, cumulative)": "%",
+    "(%, kumulatiivinen)": "%",
+    "(liters/ha)": "L/ha",
+    "(litraa/ha)": "L/ha"
+}
+
 # For validation use https://jsonschemalint.com/#!/version/draft-07/markup/json
 # It gives useful validation error messages
 
@@ -522,18 +544,20 @@ def set_choices(target_schema, property, add_title_to_properties = False):
     if property_id in banned_properties:
         return
     if "type" in property:
-        new_property = {}
+        titles = {}
 
         for language_ext, title_dict in [("", code_name_to_disp_name_eng), ("_fi", code_name_to_disp_name_fin), ("_sv", None)]:
             if (title_dict is not None) and (property_id in title_dict):
-                new_property[f"title{language_ext}"] = title_dict[property_id]
+                titles[f"title{language_ext}"] = title_dict[property_id]
             if f"{property_id}{language_ext}" in mgmt_operations_variable_name_plaintext:
                 fo_title = pydash.lower_first(mgmt_operations_variable_name_plaintext[f"{property_id}{language_ext}"])
-                if not (f"title{language_ext}" in new_property):
-                    new_property[f"title{language_ext}"] = fo_title
-                elif new_property[f"title{language_ext}"] != fo_title:
-                    new_property[f"title2{language_ext}"] = fo_title
-                
+                if not (f"title{language_ext}" in titles):
+                    titles[f"title{language_ext}"] = fo_title
+                elif titles[f"title{language_ext}"] != fo_title:
+                    titles[f"title2{language_ext}"] = fo_title
+
+        new_property = {**titles}
+
         if property["type"] == "selectInput":
             if type(property['choices']) == list:
                 choices = property['choices']
@@ -622,7 +646,28 @@ def set_choices(target_schema, property, add_title_to_properties = False):
             if "min" in property:
                 new_property["minimum"] = property["min"]
             if "max" in property:
-                new_property["maximum"] = property["max"]
+                new_property["maximum"] = property["max"]            
+            if "(" in code_name_to_disp_name_eng[property_id]:
+                for title_key, title in titles.items():
+                    unit_known = False
+                    for unit_key, unit in raw_units.items():                    
+                        if unit_key in title:
+                            language_ext = ""
+                            if "_" in title_key:
+                                dummy, language_ext = title_key.split("_")
+                                language_ext = f"_{language_ext}"
+                            if "x-ui" not in new_property:
+                                new_property["x-ui"] = {}
+                            new_property["x-ui"][f"unit"] = unit
+                            new_property["x-ui"][f"unitless_{title_key}"] = title[0:title.index(unit_key)].strip()
+                            unit_known = True
+                            break
+                    if not unit_known:
+                        print(f"WARNING: Unknown unit in: {title_key}: {title}")
+            else:
+                print(f"WARNING: No unit in: {property_id}: {code_name_to_disp_name_eng[property_id]}")
+
+
         elif property["type"] == "dateInput": # TODO: Should these be datetimes?
             new_property["type"] = "string"
             new_property["format"] = "date"
@@ -664,6 +709,9 @@ schema = {
         "title": { "@id": "dc:title", "@language": "en" }, # TODO: Not at all sure about dc
         "title_fi": { "@id": "dc:title", "@language": "fi" },
         "title_sv": { "@id": "dc:title", "@language": "sv" },
+        "unitless_title": { "@id": "fo:unitless_title", "@language": "en" }, # TODO: Not at all sure about fo
+        "unitless_title_fi": { "@id": "fo:unitless_title", "@language": "fi" },
+        "unitless_title_sv": { "@id": "fo:unitless_title", "@language": "sv" },
         "description": { "@id": "dc:description", "@language": "en" }, # TODO: Not at all sure about dc
         "description_fi": { "@id": "dc:description", "@language": "fi" },
         "description_sv": { "@id": "dc:description", "@language": "sv" },

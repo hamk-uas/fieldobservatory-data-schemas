@@ -15,6 +15,18 @@
             "@id": "dc:title",
             "@language": "sv"
         },
+        "unitless_title": {
+            "@id": "fo:unitless_title",
+            "@language": "en"
+        },
+        "unitless_title_fi": {
+            "@id": "fo:unitless_title",
+            "@language": "fi"
+        },
+        "unitless_title_sv": {
+            "@id": "fo:unitless_title",
+            "@language": "sv"
+        },
         "description": {
             "@id": "dc:description",
             "@language": "en"
@@ -101,7 +113,15 @@
                                 "title2_fi": "kylvetyn materiaalin paino (kg/ha)",
                                 "title_sv": "vikt av sådd material (kg/ha)",
                                 "type": "number",
-                                "minimum": 0
+                                "minimum": 0,
+                                "x-ui": {
+                                    "unit": "kg/ha",
+                                    "unitless_title": "weight of seeds",
+                                    "unitless_title2": "planting material weight",
+                                    "unitless_title_fi": "siementen määrä",
+                                    "unitless_title2_fi": "kylvetyn materiaalin paino",
+                                    "unitless_title_sv": "vikt av sådd material"
+                                }
                             },
                             "planting_depth": {
                                 "title": "sowing depth (mm)",
@@ -109,7 +129,14 @@
                                 "title_fi": "kylvösyvyys (mm)",
                                 "title2_fi": "sådjup (mm)",
                                 "type": "number",
-                                "minimum": 0
+                                "minimum": 0,
+                                "x-ui": {
+                                    "unit": "mm",
+                                    "unitless_title": "sowing depth",
+                                    "unitless_title2": "planting depth",
+                                    "unitless_title_fi": "kylvösyvyys",
+                                    "unitless_title2_fi": "sådjup"
+                                }
                             },
                             "planting_material_source": {
                                 "title": "source of seeds",
@@ -185,87 +212,161 @@
                     "title_fi": "typen (N) määrä lannoitteessa (kg/ha)",
                     "title_sv": "mängden lväve (N) i gödseln (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of total nitrogen (N) in fertilizer",
+                        "unitless_title2": "amount of nitrogen (N) in fertilizer",
+                        "unitless_title_fi": "typen (N) määrä lannoitteessa",
+                        "unitless_title_sv": "mängden lväve (N) i gödseln"
+                    }
                 },
                 "N_in_soluble_fertilizer": {
                     "title": "amount of soluble nitrogen (N) in fertilizer (kg/ha)",
                     "title_fi": "liukenevan typen (N) määrä lannoitteessa (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of soluble nitrogen (N) in fertilizer",
+                        "unitless_title_fi": "liukenevan typen (N) määrä lannoitteessa"
+                    }
                 },
                 "phosphorus_applied_fert": {
                     "title": "amount of phosphorus (P) in fertilizer (kg/ha)",
                     "title_fi": "fosforin (P) määrä lannoitteessa (kg/ha)",
                     "title_sv": "mängden fosfor (P) i gödseln (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of phosphorus (P) in fertilizer",
+                        "unitless_title_fi": "fosforin (P) määrä lannoitteessa",
+                        "unitless_title_sv": "mängden fosfor (P) i gödseln"
+                    }
                 },
                 "fertilizer_K_applied": {
                     "title": "amount of potassium (K) in fertilizer (kg/ha)",
                     "title_fi": "kaliumin (K) määrä lannoitteessa (kg/ha)",
                     "title_sv": "mängden kalium (K) i gödseln (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of potassium (K) in fertilizer",
+                        "unitless_title_fi": "kaliumin (K) määrä lannoitteessa",
+                        "unitless_title_sv": "mängden kalium (K) i gödseln"
+                    }
                 },
                 "S_in_applied_fertilizer": {
                     "title": "amount of sulphur (S) in fertilizer (kg/ha)",
                     "title_fi": "rikin (S) määrä lannoitteessa (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of sulphur (S) in fertilizer",
+                        "unitless_title_fi": "rikin (S) määrä lannoitteessa"
+                    }
                 },
                 "Ca_in_applied_fertilizer": {
                     "title": "amount of calcium (Ca) in fertilizer (kg/ha)",
                     "title_fi": "kalsiumin (Ca) määrä lannoitteessa (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of calcium (Ca) in fertilizer",
+                        "unitless_title_fi": "kalsiumin (Ca) määrä lannoitteessa"
+                    }
                 },
                 "Mg_in_applied_fertilizer": {
                     "title": "amount of magnesium (Mg) in fertilizer (kg/ha)",
                     "title_fi": "magnesiumin (Mg) määrä lannoitteessa (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of magnesium (Mg) in fertilizer",
+                        "unitless_title_fi": "magnesiumin (Mg) määrä lannoitteessa"
+                    }
                 },
                 "Na_in_applied_fertilizer": {
                     "title": "amount of sodium (Na) in fertilizer (kg/ha)",
                     "title_fi": "natriumin (Na) määrä lannoitteessa (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of sodium (Na) in fertilizer",
+                        "unitless_title_fi": "natriumin (Na) määrä lannoitteessa"
+                    }
                 },
                 "Cu_in_applied_fertilizer": {
                     "title": "amount of copper (Cu) in fertilizer (kg/ha)",
                     "title_fi": "kuparin (Cu) määrä lannoitteessa (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of copper (Cu) in fertilizer",
+                        "unitless_title_fi": "kuparin (Cu) määrä lannoitteessa"
+                    }
                 },
                 "Zn_in_applied_fertilizer": {
                     "title": "amount of zinc (Zn) in fertilizer (kg/ha)",
                     "title_fi": "sinkin (Zn) määrä lannoitteessa (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of zinc (Zn) in fertilizer",
+                        "unitless_title_fi": "sinkin (Zn) määrä lannoitteessa"
+                    }
                 },
                 "B_in_applied_fertilizer": {
                     "title": "amount of boron (B) in fertilizer (kg/ha)",
                     "title_fi": "boorin (B) määrä lannoitteessa (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of boron (B) in fertilizer",
+                        "unitless_title_fi": "boorin (B) määrä lannoitteessa"
+                    }
                 },
                 "Mn_in_applied_fertilizer": {
                     "title": "amount of manganese (Mn) in fertilizer (kg/ha)",
                     "title_fi": "mangaanin (Mn) määrä lannoitteessa (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of manganese (Mn) in fertilizer",
+                        "unitless_title_fi": "mangaanin (Mn) määrä lannoitteessa"
+                    }
                 },
                 "Se_in_applied_fertilizer": {
                     "title": "amount of selenium (Se) in fertilizer (kg/ha)",
                     "title_fi": "seleenin (Se) määrä lannoitteessa (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of selenium (Se) in fertilizer",
+                        "unitless_title_fi": "seleenin (Se) määrä lannoitteessa"
+                    }
                 },
                 "Fe_in_applied_fertilizer": {
                     "title": "amount of iron (Fe) in fertilizer (kg/ha)",
                     "title_fi": "raudan (Fe) määrä lannoitteessa (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "amount of iron (Fe) in fertilizer",
+                        "unitless_title_fi": "raudan (Fe) määrä lannoitteessa"
+                    }
                 },
                 "other_element_in_applied_fertilizer": {
                     "title": "other elements in fertilizer (kg/ha)",
@@ -309,14 +410,25 @@
                     "title": "application depth (cm)",
                     "title_fi": "levityssyvyys (cm)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "cm",
+                        "unitless_title": "application depth",
+                        "unitless_title_fi": "levityssyvyys"
+                    }
                 },
                 "fertilizer_total_amount": {
                     "title": "total amount of fertilizer (kg/ha)",
                     "title_fi": "lannoitteen kokonaismäärä (kg/ha)",
                     "title_sv": "totala mändgen gödsel (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "total amount of fertilizer",
+                        "unitless_title_fi": "lannoitteen kokonaismäärä",
+                        "unitless_title_sv": "totala mändgen gödsel"
+                    }
                 },
                 "fertilizer_notes": {
                     "title": "notes on fertilizer application",
@@ -475,7 +587,13 @@
                     "title_fi": "muokkaussyvyys (cm)",
                     "title_sv": "bearbetningsdjup (cm)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "cm",
+                        "unitless_title": "tillage depth",
+                        "unitless_title_fi": "muokkaussyvyys",
+                        "unitless_title_sv": "bearbetningsdjup"
+                    }
                 },
                 "tillage_treatment_notes": {
                     "title": "tillage notes",
@@ -531,7 +649,14 @@
                     "title2_fi": "korjattu pinta-ala (ha)",
                     "title_sv": "skördat område (ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "ha",
+                        "unitless_title": "harvest area",
+                        "unitless_title_fi": "pinta-ala",
+                        "unitless_title2_fi": "korjattu pinta-ala",
+                        "unitless_title_sv": "skördat område"
+                    }
                 },
                 "harvest_list": {
                     "type": "array",
@@ -555,7 +680,12 @@
                                 "title_fi": "sadon kosteus (%)",
                                 "type": "number",
                                 "minimum": 0,
-                                "maximum": 100
+                                "maximum": 100,
+                                "x-ui": {
+                                    "unit": "%",
+                                    "unitless_title": "yield moisture",
+                                    "unitless_title_fi": "sadon kosteus"
+                                }
                             },
                             "harvest_method": {
                                 "title": "harvest method",
@@ -654,20 +784,37 @@
                                 "title_fi": "kasvuston korkeus (m)",
                                 "title_sv": "växtlighetens höjd (m)",
                                 "type": "number",
-                                "minimum": 0
+                                "minimum": 0,
+                                "x-ui": {
+                                    "unit": "m",
+                                    "unitless_title": "canopy height",
+                                    "unitless_title_fi": "kasvuston korkeus",
+                                    "unitless_title_sv": "växtlighetens höjd"
+                                }
                             },
                             "harvest_cut_height": {
                                 "title": "height of cut (cm)",
                                 "title_fi": "leikkuukorkeus (cm)",
                                 "title_sv": "klipphöjd (cm)",
                                 "type": "number",
-                                "minimum": 0
+                                "minimum": 0,
+                                "x-ui": {
+                                    "unit": "cm",
+                                    "unitless_title": "height of cut",
+                                    "unitless_title_fi": "leikkuukorkeus",
+                                    "unitless_title_sv": "klipphöjd"
+                                }
                             },
                             "plant_density_harvest": {
                                 "title": "plant density at harvest (plants/m2)",
                                 "title_fi": "kasvitiheys korjuuhetkellä (kasveja/m2)",
                                 "type": "number",
-                                "minimum": 0
+                                "minimum": 0,
+                                "x-ui": {
+                                    "unit": "1/m2",
+                                    "unitless_title": "plant density at harvest",
+                                    "unitless_title_fi": "kasvitiheys korjuuhetkellä"
+                                }
                             },
                             "harvest_residue_placement": {
                                 "title": "harvest residue placement",
@@ -702,7 +849,13 @@
                                 "title_fi": "sato, kuivapaino (kg/ha)",
                                 "title_sv": "skörd, torrvikt (kg/ha)",
                                 "type": "number",
-                                "minimum": 0
+                                "minimum": 0,
+                                "x-ui": {
+                                    "unit": "kg/ha",
+                                    "unitless_title": "yield, dry weight",
+                                    "unitless_title_fi": "sato, kuivapaino",
+                                    "unitless_title_sv": "skörd, torrvikt"
+                                }
                             },
                             "harv_yield_harv_f_wt": {
                                 "title": "yield, fresh weight (t/ha)",
@@ -710,14 +863,27 @@
                                 "title2_fi": "sato, tuorepaino (t/ha)",
                                 "title_sv": "skörd, färskvikt (t/ha)",
                                 "type": "number",
-                                "minimum": 0
+                                "minimum": 0,
+                                "x-ui": {
+                                    "unit": "t/ha",
+                                    "unitless_title": "yield, fresh weight",
+                                    "unitless_title_fi": "sato, märkäpaino",
+                                    "unitless_title2_fi": "sato, tuorepaino",
+                                    "unitless_title_sv": "skörd, färskvikt"
+                                }
                             },
                             "yield_C_at_harvest": {
                                 "title": "carbon (C) in yield (kg/ha)",
                                 "title_fi": "hiilen (C) määrä sadossa (kg/ha)",
                                 "title_sv": "mängden kol (C) i skörden (kg/ha)",
                                 "type": "number",
-                                "minimum": 0
+                                "minimum": 0,
+                                "x-ui": {
+                                    "unit": "kg/ha",
+                                    "unitless_title": "carbon (C) in yield",
+                                    "unitless_title_fi": "hiilen (C) määrä sadossa",
+                                    "unitless_title_sv": "mängden kol (C) i skörden"
+                                }
                             }
                         },
                         "required": [
@@ -733,13 +899,26 @@
                     "title2_fi": "kokonaissato, kuivapaino (kg/ha)",
                     "title_sv": "totala skörden, torrvikt (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "yield, total dry weight",
+                        "unitless_title2": "total yield, dry weight",
+                        "unitless_title_fi": "sato, kuivapaino yhteensä",
+                        "unitless_title2_fi": "kokonaissato, kuivapaino",
+                        "unitless_title_sv": "totala skörden, torrvikt"
+                    }
                 },
                 "harv_yield_harv_f_wt_total": {
                     "title": "yield, total fresh weight (t/ha)",
                     "title_fi": "sato, märkäpaino yhteensä (t/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "t/ha",
+                        "unitless_title": "yield, total fresh weight",
+                        "unitless_title_fi": "sato, märkäpaino yhteensä"
+                    }
                 },
                 "yield_C_at_harvest_total": {
                     "title": "carbon (C) in yield, total (kg/ha)",
@@ -748,7 +927,15 @@
                     "title2_fi": "hiilen (C) kokonaismäärä sadossa (kg/ha)",
                     "title_sv": "totala mängden kol (C) i skörden (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "carbon (C) in yield, total",
+                        "unitless_title2": "total carbon (C) in yield",
+                        "unitless_title_fi": "hiilen (C) määrä sadossa yhteensä",
+                        "unitless_title2_fi": "hiilen (C) kokonaismäärä sadossa",
+                        "unitless_title_sv": "totala mängden kol (C) i skörden"
+                    }
                 },
                 "harvest_residue_help_text": {
                     "title": "If you left the harvest residue on the field, please add a new event (fertilizer application or tillage) accordingly.",
@@ -994,13 +1181,23 @@
                     "title": "chemical amount (kg/ha)",
                     "title_fi": "kemikaalin määrä (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "chemical amount",
+                        "unitless_title_fi": "kemikaalin määrä"
+                    }
                 },
                 "application_depth_chem": {
                     "title": "chemical application depth (cm)",
                     "title_fi": "kemikaalinlevityssyvyys (cm)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "cm",
+                        "unitless_title": "chemical application depth",
+                        "unitless_title_fi": "kemikaalinlevityssyvyys"
+                    }
                 },
                 "chemical_applic_notes": {
                     "title": "chemical application notes",
@@ -1115,13 +1312,23 @@
                     "title": "livestock density (number/ha)",
                     "title_fi": "eläinten tiheys (eläintä/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "1/ha",
+                        "unitless_title": "livestock density",
+                        "unitless_title_fi": "eläinten tiheys"
+                    }
                 },
                 "grazing_intensity": {
                     "title": "grazing intensity (kg/ha)",
                     "title_fi": "laidunnusintensiteetti (kg/ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "kg/ha",
+                        "unitless_title": "grazing intensity",
+                        "unitless_title_fi": "laidunnusintensiteetti"
+                    }
                 },
                 "grazing_period": {
                     "title": "grazing period",
@@ -1195,26 +1402,46 @@
                     "title": "grazing area (ha)",
                     "title_fi": "laidunnettava ala (ha)",
                     "type": "number",
-                    "minimum": 1
+                    "minimum": 1,
+                    "x-ui": {
+                        "unit": "ha",
+                        "unitless_title": "grazing area",
+                        "unitless_title_fi": "laidunnettava ala"
+                    }
                 },
                 "grazing_material_removed_prop": {
                     "title": "proportion of material removed (%)",
                     "title_fi": "syödyn aineksen määrä (%)",
                     "type": "number",
                     "minimum": 0,
-                    "maximum": 100
+                    "maximum": 100,
+                    "x-ui": {
+                        "unit": "%",
+                        "unitless_title": "proportion of material removed",
+                        "unitless_title_fi": "syödyn aineksen määrä"
+                    }
                 },
                 "grazing_starting_height": {
                     "title": "starting height (cm)",
                     "title_fi": "aloituspituus (cm)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "cm",
+                        "unitless_title": "starting height",
+                        "unitless_title_fi": "aloituspituus"
+                    }
                 },
                 "grazing_end_height": {
                     "title": "end height (cm)",
                     "title_fi": "lopetuspituus (cm)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "cm",
+                        "unitless_title": "end height",
+                        "unitless_title_fi": "lopetuspituus"
+                    }
                 },
                 "grazing_notes": {
                     "title": "grazing notes",
@@ -1351,13 +1578,23 @@
                     "title": "irrigation amount (depth, mm)",
                     "title_fi": "kastelun määrä (veden syvyys, mm)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "mm",
+                        "unitless_title": "irrigation amount",
+                        "unitless_title_fi": "kastelun määrä"
+                    }
                 },
                 "irrigation_applic_depth": {
                     "title": "irrigation depth (cm)",
                     "title_fi": "kastelusyvyys (cm)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "cm",
+                        "unitless_title": "irrigation depth",
+                        "unitless_title_fi": "kastelusyvyys"
+                    }
                 },
                 "irrigation_notes": {
                     "title": "irrigation notes",
@@ -1419,19 +1656,34 @@
                     "title": "mowed area (ha)",
                     "title_fi": "leikattu ala (ha)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "ha",
+                        "unitless_title": "mowed area",
+                        "unitless_title_fi": "leikattu ala"
+                    }
                 },
                 "mowing_canopy_height": {
                     "title": "canopy height before mowing (m)",
                     "title_fi": "kasvuston korkeus ennen leikkuuta (m)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "m",
+                        "unitless_title": "canopy height before mowing",
+                        "unitless_title_fi": "kasvuston korkeus ennen leikkuuta"
+                    }
                 },
                 "mowing_cut_height": {
                     "title": "cut height (cm)",
                     "title_fi": "leikkuukorkeus (cm)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "cm",
+                        "unitless_title": "cut height",
+                        "unitless_title_fi": "leikkuukorkeus"
+                    }
                 },
                 "mowing_notes": {
                     "title": "mowing notes",
@@ -1507,13 +1759,23 @@
                             "title": "root depth (m)",
                             "title_fi": "juurten syvyys (m)",
                             "type": "number",
-                            "minimum": 0
+                            "minimum": 0,
+                            "x-ui": {
+                                "unit": "m",
+                                "unitless_title": "root depth",
+                                "unitless_title_fi": "juurten syvyys"
+                            }
                         },
                         "soil_compactification_depth": {
                             "title": "soil compactification depth (cm)",
                             "title_fi": "tiivistymän syvyys (cm)",
                             "type": "number",
-                            "minimum": 0
+                            "minimum": 0,
+                            "x-ui": {
+                                "unit": "cm",
+                                "unitless_title": "soil compactification depth",
+                                "unitless_title_fi": "tiivistymän syvyys"
+                            }
                         },
                         "earthworm_count": {
                             "title": "number of earthworms",
@@ -1578,25 +1840,45 @@
                             "title": "plant density (plants/m2)",
                             "title_fi": "kasvitiheys (kasveja/m2)",
                             "type": "number",
-                            "minimum": 0
+                            "minimum": 0,
+                            "x-ui": {
+                                "unit": "1/m2",
+                                "unitless_title": "plant density",
+                                "unitless_title_fi": "kasvitiheys"
+                            }
                         },
                         "specific_leaf_area": {
                             "title": "specific leaf area (cm2/g)",
                             "title_fi": "ominaislehtiala (cm2/g)",
                             "type": "number",
-                            "minimum": 0
+                            "minimum": 0,
+                            "x-ui": {
+                                "unit": "cm^2/g",
+                                "unitless_title": "specific leaf area",
+                                "unitless_title_fi": "ominaislehtiala"
+                            }
                         },
                         "leaf_area_index": {
                             "title": "leaf area index (m2/m2)",
                             "title_fi": "lehtialaindeksi (m2/m2)",
                             "type": "number",
-                            "minimum": 0
+                            "minimum": 0,
+                            "x-ui": {
+                                "unit": "m^2/m^2",
+                                "unitless_title": "leaf area index",
+                                "unitless_title_fi": "lehtialaindeksi"
+                            }
                         },
                         "canopy_height": {
                             "title": "canopy height (m)",
                             "title_fi": "latvuston korkeus (m)",
                             "type": "number",
-                            "minimum": 0
+                            "minimum": 0,
+                            "x-ui": {
+                                "unit": "m",
+                                "unitless_title": "canopy height",
+                                "unitless_title_fi": "latvuston korkeus"
+                            }
                         },
                         "canopeo_reading": {
                             "title": "canopeo reading",
@@ -1619,13 +1901,23 @@
                             "title": "floodwater depth (mm)",
                             "title_fi": "tulvaveden syvyys (mm)",
                             "type": "number",
-                            "minimum": 0
+                            "minimum": 0,
+                            "x-ui": {
+                                "unit": "mm",
+                                "unitless_title": "floodwater depth",
+                                "unitless_title_fi": "tulvaveden syvyys"
+                            }
                         },
                         "water_table_depth": {
                             "title": "water table level (cm)",
                             "title_fi": "pohjaveden pinnan syvyys (cm)",
                             "type": "number",
-                            "minimum": 0
+                            "minimum": 0,
+                            "x-ui": {
+                                "unit": "cm",
+                                "unitless_title": "water table level",
+                                "unitless_title_fi": "pohjaveden pinnan syvyys"
+                            }
                         }
                     }
                 },
@@ -1654,7 +1946,12 @@
                             "title_fi": "syötyjen kasvien määrä (%, kumulatiivinen)",
                             "type": "number",
                             "minimum": 0,
-                            "maximum": 0
+                            "maximum": 0,
+                            "x-ui": {
+                                "unit": "%",
+                                "unitless_title": "amount of plants eaten",
+                                "unitless_title_fi": "syötyjen kasvien määrä"
+                            }
                         }
                     }
                 },
@@ -1682,7 +1979,12 @@
                             "title": "fuel used (liters/ha)",
                             "title_fi": "käytetty polttoaine (litraa/ha)",
                             "type": "number",
-                            "minimum": 0
+                            "minimum": 0,
+                            "x-ui": {
+                                "unit": "L/ha",
+                                "unitless_title": "fuel used",
+                                "unitless_title_fi": "käytetty polttoaine"
+                            }
                         }
                     }
                 },
@@ -1785,14 +2087,24 @@
                     "title": "mulch thickness (mm)",
                     "title_fi": "katteen paksuus (mm)",
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "x-ui": {
+                        "unit": "mm",
+                        "unitless_title": "mulch thickness",
+                        "unitless_title_fi": "katteen paksuus"
+                    }
                 },
                 "mulch_cover_fraction": {
                     "title": "fraction of surface covered (%)",
                     "title_fi": "peitto-osuus (%)",
                     "type": "number",
                     "minimum": 0,
-                    "maximum": 100
+                    "maximum": 100,
+                    "x-ui": {
+                        "unit": "%",
+                        "unitless_title": "fraction of surface covered",
+                        "unitless_title_fi": "peitto-osuus"
+                    }
                 },
                 "mulch_color": {
                     "title": "mulch colour",
