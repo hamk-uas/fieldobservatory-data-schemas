@@ -2546,7 +2546,5 @@
             ]
         }
     },
-    "required": [
-        "$schema"
-    ]
+    "required": []
 }

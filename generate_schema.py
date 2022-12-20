@@ -734,7 +734,7 @@ schema = {
     ],
     "$defs" : {        
     },
-    "required" : ["$schema"]
+    "required" : []
 }
 
 variable_names = csv #csv[csv['category'] == 'variable_name']
