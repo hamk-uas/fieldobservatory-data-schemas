@@ -91,24 +91,11 @@
             "title_sv": "sådd",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "planting",
                     "title": "sowing",
+                    "title2": "planting",
                     "title_fi": "kylvö",
                     "title_sv": "sådd",
-                    "title2": "planting"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "const": "planting"
                 },
                 "planting_list": {
                     "type": "array",
@@ -196,8 +183,6 @@
                 }
             },
             "required": [
-                "mgmt_operations_event",
-                "date",
                 "planting_list"
             ]
         },
@@ -208,23 +193,10 @@
             "title_sv": "spridning av gödslingsmedel",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "fertilizer",
                     "title": "fertilizer application",
                     "title_fi": "lannoitteen levitys",
-                    "title_sv": "spridning av gödslingsmedel"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "title_sv": "spridning av gödslingsmedel",
+                    "const": "fertilizer"
                 },
                 "N_in_applied_fertilizer": {
                     "title": "amount of total nitrogen (N) in fertilizer (kg/ha)",
@@ -463,8 +435,6 @@
                 }
             },
             "required": [
-                "mgmt_operations_event",
-                "date",
                 "fertilizer_type",
                 "fertilizer_total_amount"
             ]
@@ -478,25 +448,12 @@
             "title_sv": "markens bearbetning",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "tillage",
                     "title": "tillage",
-                    "title_fi": "maanmuokkaus",
-                    "title_sv": "markens bearbetning",
                     "title2": "tillage application",
-                    "title2_fi": "maan muokkaus"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "title_fi": "maanmuokkaus",
+                    "title2_fi": "maan muokkaus",
+                    "title_sv": "markens bearbetning",
+                    "const": "tillage"
                 },
                 "tillage_practice": {
                     "title": "tillage type",
@@ -630,8 +587,6 @@
                 }
             },
             "required": [
-                "mgmt_operations_event",
-                "date",
                 "tillage_practice"
             ]
         },
@@ -645,26 +600,10 @@
             "description_fi": "Jos jätit korjuutähteet pellolle, tee tästä uusi soveltuva tapahtuma (lannoitus- tai maanmuokkaus-).",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "harvest",
                     "title": "harvest",
                     "title_fi": "sadonkorjuu",
                     "title_sv": "skörd",
-                    "description": "If you left the harvest residue on the field, please add a new event (fertilizer application or tillage) accordingly.",
-                    "description_en": "If you left the harvest residue on the field, please add a new event (fertilizer application or tillage) accordingly.",
-                    "description_fi": "Jos jätit korjuutähteet pellolle, tee tästä uusi soveltuva tapahtuma (lannoitus- tai maanmuokkaus-)."
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "const": "harvest"
                 },
                 "harvest_area": {
                     "title": "harvest area (ha)",
@@ -975,8 +914,6 @@
                 }
             },
             "required": [
-                "mgmt_operations_event",
-                "date",
                 "harvest_list"
             ]
         },
@@ -987,23 +924,10 @@
             "title_sv": "applicering av kemikalier",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "chemicals",
                     "title": "chemicals application",
                     "title_fi": "kemikaalin levitys",
-                    "title_sv": "applicering av kemikalier"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "title_sv": "applicering av kemikalier",
+                    "const": "chemicals"
                 },
                 "chemical_type": {
                     "title": "chemical type",
@@ -1230,8 +1154,6 @@
                 }
             },
             "required": [
-                "mgmt_operations_event",
-                "date",
                 "chemical_type",
                 "chemical_product_name",
                 "chemical_applic_target"
@@ -1244,23 +1166,10 @@
             "title_sv": "betning",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "grazing",
                     "title": "grazing",
                     "title_fi": "laidunnus",
-                    "title_sv": "betning"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "title_sv": "betning",
+                    "const": "grazing"
                 },
                 "grazing_species": {
                     "title": "grazing species",
@@ -1473,8 +1382,6 @@
                 }
             },
             "required": [
-                "mgmt_operations_event",
-                "date",
                 "grazing_species",
                 "grazing_period"
             ]
@@ -1486,23 +1393,10 @@
             "title_sv": "rensning av ogräs",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "weeding",
                     "title": "mechanical extraction of weeds",
                     "title_fi": "rikkaruohojen kitkeminen",
-                    "title_sv": "rensning av ogräs"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "title_sv": "rensning av ogräs",
+                    "const": "weeding"
                 },
                 "weeding_notes": {
                     "title": "notes on the extraction of weeds",
@@ -1515,11 +1409,7 @@
                         "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"rikkakasvien juuret olivat syvällä\""
                     }
                 }
-            },
-            "required": [
-                "mgmt_operations_event",
-                "date"
-            ]
+            }
         },
         {
             "$id": "#irrigation",
@@ -1529,24 +1419,11 @@
             "title_sv": "bevattning",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "irrigation",
                     "title": "irrigation",
+                    "title2": "irrigation application",
                     "title_fi": "kastelu",
                     "title_sv": "bevattning",
-                    "title2": "irrigation application"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "const": "irrigation"
                 },
                 "irrigation_operation": {
                     "title": "irrigation method",
@@ -1625,8 +1502,6 @@
                 }
             },
             "required": [
-                "mgmt_operations_event",
-                "date",
                 "irrig_amount_depth"
             ]
         },
@@ -1638,24 +1513,11 @@
             "title_sv": "gräsklippning",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "mowing",
                     "title": "mowing",
                     "title_fi": "niitto",
+                    "title2_fi": "ruohonleikkuu",
                     "title_sv": "gräsklippning",
-                    "title2_fi": "ruohonleikkuu"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "const": "mowing"
                 },
                 "mowed_crop": {
                     "allOf": [
@@ -1714,8 +1576,6 @@
                 }
             },
             "required": [
-                "mgmt_operations_event",
-                "date",
                 "mowed_crop"
             ]
         },
@@ -1726,23 +1586,10 @@
             "title_sv": "observation",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "observation",
                     "title": "observation",
                     "title_fi": "havainto",
-                    "title_sv": "observation"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "title_sv": "observation",
+                    "const": "observation"
                 },
                 "observation_type": {
                     "title": "observation type",
@@ -1756,8 +1603,6 @@
                 }
             },
             "required": [
-                "mgmt_operations_event",
-                "date",
                 "observation_type"
             ],
             "oneOf": [
@@ -2024,24 +1869,11 @@
             "title_sv": "upphöjd odlingsbädd",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "bed_prep",
                     "title": "raised bed preparation",
                     "title_fi": "kasvatuslaatikoiden valmistelu",
+                    "title2_fi": "kohopenkki",
                     "title_sv": "upphöjd odlingsbädd",
-                    "title2_fi": "kohopenkki"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "const": "bed_prep"
                 },
                 "bed_prep_notes": {
                     "title": "notes on the preparation of raised beds",
@@ -2054,11 +1886,7 @@
                         "form-placeholder_fi": "mitä tahansa tapahtumaan liittyviä muistiinpanoja tai havintoja, esim. \"käytettiin samoja kasvatuslaatikoita kuin edellisenä vuonna\""
                     }
                 }
-            },
-            "required": [
-                "mgmt_operations_event",
-                "date"
-            ]
+            }
         },
         {
             "$id": "#inorg_mulch",
@@ -2068,24 +1896,11 @@
             "title_sv": "applicering av oorganisk kompost",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "inorg_mulch",
                     "title": "placement of mulch",
+                    "title2": "placement of inorganic mulch",
                     "title_fi": "katteen levitys",
                     "title_sv": "applicering av oorganisk kompost",
-                    "title2": "placement of inorganic mulch"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "const": "inorg_mulch"
                 },
                 "mulch_type": {
                     "allOf": [
@@ -2171,8 +1986,6 @@
                 }
             },
             "required": [
-                "mgmt_operations_event",
-                "date",
                 "mulch_type"
             ]
         },
@@ -2184,24 +1997,11 @@
             "title_sv": "borttagning av oorganisk kompost",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "Inorg_mul_rem",
                     "title": "removal of mulch",
+                    "title2": "removal of inorganic mulch",
                     "title_fi": "katteen poisto",
                     "title_sv": "borttagning av oorganisk kompost",
-                    "title2": "removal of inorganic mulch"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "const": "Inorg_mul_rem"
                 },
                 "mulch_type_remove": {
                     "allOf": [
@@ -2227,8 +2027,6 @@
                 }
             },
             "required": [
-                "mgmt_operations_event",
-                "date",
                 "mulch_type_remove"
             ]
         },
@@ -2241,25 +2039,12 @@
             "title_sv": "annan åtgärd",
             "properties": {
                 "mgmt_operations_event": {
-                    "const": "other",
                     "title": "other",
-                    "title_fi": "muu",
-                    "title_sv": "annan åtgärd",
                     "title2": "other management event",
-                    "title2_fi": "muu toimenpide"
-                },
-                "date": {
-                    "title": "date",
-                    "title_en": "date",
-                    "title_fi": "päivä",
-                    "type": "string",
-                    "format": "date"
-                },
-                "mgmt_event_notes": {
-                    "title": "description",
-                    "title_en": "description",
-                    "title_fi": "kuvaus",
-                    "type": "string"
+                    "title_fi": "muu",
+                    "title2_fi": "muu toimenpide",
+                    "title_sv": "annan åtgärd",
+                    "const": "other"
                 },
                 "other_notes": {
                     "title": "notes",
@@ -2268,8 +2053,6 @@
                 }
             },
             "required": [
-                "mgmt_operations_event",
-                "date",
                 "other_notes"
             ]
         }
@@ -2566,5 +2349,8 @@
             ]
         }
     },
-    "required": []
+    "required": [
+        "mgmt_operations_event",
+        "date"
+    ]
 }

@@ -35,8 +35,10 @@ banned_properties = {
     "soil_layer_count": True,
     "mowing_method": True, # TODO: Allow this? Removed because of an empty list of choices
     "soil_image": True, #TODO add image support somehow
-    "canopeo_image": True # TODO (same)
+    "canopeo_image": True, # TODO (same)
     #"harvest_residue_help_text": True
+    "date": True,
+    "mgmt_event_notes": True
 }
 
 descriptors = ['title', 'title_en', 'title_fi', 'title_sv', 'title2', 'title2_fi', 'type', 'description', 'description_en', 'description_fi']
@@ -696,6 +698,18 @@ def set_choices(target_schema, property, add_title_to_properties = False):
 
 choices_appeared_in = {}
 
+variable_names = csv #csv[csv['category'] == 'variable_name']
+code_name_to_disp_name_eng = {}
+code_name_to_disp_name_fin = {}
+for index, row in variable_names.iterrows():
+    code_name_to_disp_name_eng[row['code_name']] = row['disp_name_eng'].replace("“", "\"").replace("”", "\"").strip()
+    code_name_to_disp_name_fin[row['code_name']] = row['disp_name_fin'].replace("“", "\"").replace("”", "\"").strip()
+    if (not code_name_to_disp_name_eng[row['code_name']].endswith('.')) or code_name_to_disp_name_eng[row['code_name']].endswith('etc.'):
+        code_name_to_disp_name_eng[row['code_name']] = pydash.lower_first(code_name_to_disp_name_eng[row['code_name']])
+        code_name_to_disp_name_fin[row['code_name']] = pydash.lower_first(code_name_to_disp_name_fin[row['code_name']])
+
+categories = csv[csv['category'] == 'mgmt_operations_event_choice']
+
 schema = {
     "$schema": "http://json-schema.org/draft-07/schema", #"https://json-schema.org/draft/2020-12/schema",
     "$id": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-event.schema.json", # Was: "#root"
@@ -725,43 +739,31 @@ schema = {
             "const": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-event.schema.json"
         },
         "mgmt_operations_event": {
-            "title": "event",
-            "title_en": "event",
-            "title_fi": "tapahtuma",
+            "title": code_name_to_disp_name_eng["mgmt_operations_event"] if "mgmt_operations_event" in code_name_to_disp_name_eng else 'unknown',
+            "title_en": code_name_to_disp_name_eng["mgmt_operations_event"] if "mgmt_operations_event" in code_name_to_disp_name_eng else 'unknown',
+            "title_fi": code_name_to_disp_name_fin["mgmt_operations_event"] if "mgmt_operations_event" in code_name_to_disp_name_fin else 'unknown',
             "type": "string"
         },
         "date": {
-            "title": "date",
-            "title_en": "date",
-            "title_fi": "päivä",
+            "title": code_name_to_disp_name_eng["date"] if "date" in code_name_to_disp_name_eng else 'unknown',
+            "title_en": code_name_to_disp_name_eng["date"] if "date" in code_name_to_disp_name_eng else 'unknown',
+            "title_fi": code_name_to_disp_name_fin["date"] if "date" in code_name_to_disp_name_fin else 'unknown',
             "type": "string",
             "format": "date"
         },
         "mgmt_event_notes": {
-            "title": "description",
-            "title_en": "description",
-            "title_fi": "kuvaus",
+            "title": code_name_to_disp_name_eng["mgmt_event_notes"] if "mgmt_event_notes" in code_name_to_disp_name_eng else 'unknown',
+            "title_en": code_name_to_disp_name_eng["mgmt_event_notes"] if "mgmt_event_notes" in code_name_to_disp_name_eng else 'unknown',
+            "title_fi": code_name_to_disp_name_fin["mgmt_event_notes"] if "mgmt_event_notes" in code_name_to_disp_name_fin else 'unknown',
             "type": "string"
-        }        
+        }
     },
     "oneOf" : [
     ],
     "$defs" : {        
     },
-    "required" : []
+    "required" : ['mgmt_operations_event', 'date']
 }
-
-variable_names = csv #csv[csv['category'] == 'variable_name']
-code_name_to_disp_name_eng = {}
-code_name_to_disp_name_fin = {}
-for index, row in variable_names.iterrows():
-    code_name_to_disp_name_eng[row['code_name']] = row['disp_name_eng'].replace("“", "\"").replace("”", "\"").strip()
-    code_name_to_disp_name_fin[row['code_name']] = row['disp_name_fin'].replace("“", "\"").replace("”", "\"").strip()
-    if (not code_name_to_disp_name_eng[row['code_name']].endswith('.')) or code_name_to_disp_name_eng[row['code_name']].endswith('etc.'):
-        code_name_to_disp_name_eng[row['code_name']] = pydash.lower_first(code_name_to_disp_name_eng[row['code_name']])
-        code_name_to_disp_name_fin[row['code_name']] = pydash.lower_first(code_name_to_disp_name_fin[row['code_name']])
-
-categories = csv[csv['category'] == 'mgmt_operations_event_choice']
 
 #print("categories:")
 #print(categories)
@@ -793,27 +795,10 @@ for index, row in categories.iterrows():
         **sub_schema_title_translations,
         'properties': { # Include some properties required for all event types
             "mgmt_operations_event": {
-                "title": code_name_to_disp_name_eng["mgmt_operations_event"] if "mgmt_operations_event" in code_name_to_disp_name_eng else 'unknown',
-                "title_en": code_name_to_disp_name_eng["mgmt_operations_event"] if "mgmt_operations_event" in code_name_to_disp_name_eng else 'unknown',
-                "title_fi": code_name_to_disp_name_fin["mgmt_operations_event"] if "mgmt_operations_event" in code_name_to_disp_name_fin else 'unknown',
-                "type": "string",
+                **sub_schema_title_translations,
                 "const": row['code_name']
-            },
-            "date": {
-                "title": code_name_to_disp_name_eng["date"] if "date" in code_name_to_disp_name_eng else 'unknown',
-                "title_en": code_name_to_disp_name_eng["date"] if "date" in code_name_to_disp_name_eng else 'unknown',
-                "title_fi": code_name_to_disp_name_fin["date"] if "date" in code_name_to_disp_name_fin else 'unknown',
-                "type": "string",
-                "format": "date"
-            },
-            "mgmt_event_notes": {
-                "title": code_name_to_disp_name_eng["mgmt_event_notes"] if "mgmt_event_notes" in code_name_to_disp_name_eng else 'unknown',
-                "title_en": code_name_to_disp_name_eng["mgmt_event_notes"] if "mgmt_event_notes" in code_name_to_disp_name_eng else 'unknown',
-                "title_fi": code_name_to_disp_name_fin["mgmt_event_notes"] if "mgmt_event_notes" in code_name_to_disp_name_fin else 'unknown',
-                "type": "string"
             }
-        },
-        "required": ['mgmt_operations_event', 'date'] # This list may be expanded further down
+        }
     }
     # Get the object describing this event type from the sub_elements list of mgmt_operations_event
     sub_element = ui_structure['form']['mgmt_operations_event']['sub_elements'][row['code_name']]
@@ -898,16 +883,6 @@ for sub_schema_index, sub_schema in enumerate(schema['oneOf']):
         else:
             sub_schema_properties_copy[property_id] = property
     schema['oneOf'][sub_schema_index]["properties"] = sub_schema_properties_copy
-
-# schema.oneOf is conditional on property mgmt_operations_event. Titles in mgmt_operations_event that has const
-# are not specific to the condition. Fix those.
-for subSchema in schema['oneOf']:
-    property = subSchema['properties']['mgmt_operations_event']
-    for descriptor in descriptors:
-        if descriptor in property:
-            del property[descriptor]
-        if descriptor in subSchema:
-            property[descriptor] = subSchema[descriptor]
 
 with open("management-event.schema.json", mode='w', encoding='utf-8') as f:
     json.dump(schema, f, indent=4, ensure_ascii = False)
