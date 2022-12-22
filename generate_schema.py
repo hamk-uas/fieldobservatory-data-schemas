@@ -39,7 +39,8 @@ banned_properties = {
     #"harvest_residue_help_text": True
 }
 
-priority_properties = ['$id', 'title', 'title_en', 'title_fi', 'title_sv', 'title2', 'title2_fi', 'type', 'description', 'description_en', 'description_fi']
+descriptors = ['title', 'title_en', 'title_fi', 'title_sv', 'title2', 'title2_fi', 'type', 'description', 'description_en', 'description_fi']
+priority_properties = ['$id'] + descriptors
 
 choice_list_name = {
     "CRID": "crop_ident_ICASA",
@@ -529,14 +530,6 @@ with urllib.request.urlopen('https://raw.githubusercontent.com/PecanProject/fiel
 
 def set_choices(target_schema, property, add_title_to_properties = False):
     property_id = property["code_name"]
-    if property_id == "observation_type_vegetation": #and property["code_name"] == "canopy_height":
-        print("target_schema:")
-        print(target_schema)
-        print("property_id:")
-        print(property_id)
-        print("property:")
-        print(property)
-        print("")
     # Ignore for now: property["type"] == "fileInput", because we don't yet store the image links in the data
     if "required" in property and property["required"]:
         if "required" not in target_schema:
@@ -722,12 +715,33 @@ schema = {
         "form-placeholder_sv": { "@id": "fo:form-placeholder", "@language": "sv" }
     },
     "title": "management event",
+    "title_fi": "tilanhoitotapahtuma",
+    "title_sv": "händelse",
     'type': 'object',
     "properties": {
         "$schema": {
             "type": "string",
             "format": "url",
             "const": "https://raw.githubusercontent.com/hamk-uas/fieldobservatory-data-schemas/main/management-event.schema.json"
+        },
+        "mgmt_operations_event": {
+            "title": "event",
+            "title_en": "event",
+            "title_fi": "tapahtuma",
+            "type": "string"
+        },
+        "date": {
+            "title": "date",
+            "title_en": "date",
+            "title_fi": "päivä",
+            "type": "string",
+            "format": "date"
+        },
+        "mgmt_event_notes": {
+            "title": "description",
+            "title_en": "description",
+            "title_fi": "kuvaus",
+            "type": "string"
         }        
     },
     "oneOf" : [
@@ -884,6 +898,16 @@ for sub_schema_index, sub_schema in enumerate(schema['oneOf']):
         else:
             sub_schema_properties_copy[property_id] = property
     schema['oneOf'][sub_schema_index]["properties"] = sub_schema_properties_copy
+
+# schema.oneOf is conditional on property mgmt_operations_event. Titles in mgmt_operations_event that has const
+# are not specific to the condition. Fix those.
+for subSchema in schema['oneOf']:
+    property = subSchema['properties']['mgmt_operations_event']
+    for descriptor in descriptors:
+        if descriptor in property:
+            del property[descriptor]
+        if descriptor in subSchema:
+            property[descriptor] = subSchema[descriptor]
 
 with open("management-event.schema.json", mode='w', encoding='utf-8') as f:
     json.dump(schema, f, indent=4, ensure_ascii = False)
