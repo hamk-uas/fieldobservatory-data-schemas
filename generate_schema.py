@@ -730,7 +730,7 @@ schema = {
     },
     "title": "management event",
     "title_fi": "tilanhoitotapahtuma",
-    "title_sv": "händelse",
+    "title_sv": "inträffande av metoden",
     'type': 'object',
     "properties": {
         "$schema": {
